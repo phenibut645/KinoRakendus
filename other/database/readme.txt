@@ -1,0 +1,1 @@
+﻿CONNECTION - "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=kinorakendus;Integrated Security=True"

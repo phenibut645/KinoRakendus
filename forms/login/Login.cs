@@ -14,7 +14,8 @@ namespace KinoRakendus
     {
         public Login()
         {
-            InitializeComponent();
+            this.ClientSize = new Size(Width, Height);
+            this.InitAll();
         }
     }
 }

@@ -76,6 +76,18 @@
     <Compile Include="forms\main\Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\main\Menu.init.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\main\Menu.variables.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\main\usercontrols\kava\Kava.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="forms\main\usercontrols\kava\Kava.Designer.cs">
+      <DependentUpon>Kava.cs</DependentUpon>
+    </Compile>
     <Compile Include="kinorakendusDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -121,9 +133,12 @@
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
+    <Content Include="core\models\database\readme.txt" />
     <Content Include="other\database\readme.txt" />
     <Content Include="other\fonts\jaro\readme.txt" />
-    <Content Include="other\images\zxccat.jpg" />
+    <Content Include="other\images\avatars\zxccat.jpg" />
+    <Content Include="other\images\form-default\profile.png" />
+    <Content Include="other\images\posters\joker.jpg" />
     <Content Include="other\sql-queries\tables.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -11,6 +11,5 @@ namespace KinoRakendus.core.interfaces
         string tableName { get; set; }
         string this[string key] { get; set; }
         List<string> GetFields();
-
     }
 }

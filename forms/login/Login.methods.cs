@@ -19,6 +19,8 @@ namespace KinoRakendus
             if(user != null)
             {
                 MessageBox.Show(user.roll.ToString());
+                FormsHandler.ShowMainForm(user);
+                this.Hide();
             }
             else
             {

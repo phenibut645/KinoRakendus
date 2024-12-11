@@ -1,83 +1,87 @@
 ﻿CREATE DATABASE kinorakendus;
 USE kinorakendus;
--- SAAL
+
 CREATE TABLE saalituup(
 id int primary key identity(1,1),
 tuup varchar(70)
 );
 CREATE TABLE skeem(
-	id int primary key identity(1,1),
-	nimi varchar(80),
-	koht_arv int,
-	rida_arv int
+id int primary key identity(1,1),
+nimi varchar(80),
+riida_arv int,
+veerg_arv int
 );
 CREATE TABLE saal(
-	id int primary key identity(1,1),
-	saalituup int,
-	skeem int,
-	FOREIGN KEY (saalituup) REFERENCES saalituup(id),
-	FOREIGN KEY (skeem) REFERENCES skeem(id)
+id int primary key identity(1,1),
+saalituup int,
+skeem int,
+FOREIGN KEY(saalituup) REFERENCES saalituup(id),
+FOREIGN KEY (skeem) REFERENCES skeem(id)
 );
--- FILM
 CREATE TABLE zanr(
-	id int primary key identity(1,1),
-	zanr varchar(80)
+id int primary key identity(1,1),
+zanr varchar(80)
 );
 CREATE TABLE film(
-	id int primary key identity(1,1),
-	nimetus varchar(80),
-	kirjeldus text,
-	zanr int,
-	aasta int,
-	poster text,
-	FOREIGN KEY (zanr) REFERENCES zanr(id)
+id int primary key identity(1,1),
+nimetus varchar(80),
+kirjeldus text,
+zanr int,
+aasta int,
+poster text,
+FOREIGN KEY (zanr) REFERENCES zanr(id)
 );
--- SEANSS
 CREATE TABLE filmikeel(
-	id int primary key identity(1,1),
-	keel varchar(80)
+id int primary key identity(1,1),
+keel varchar(80)
 );
 CREATE TABLE seanss(
-	id int primary key identity(1,1),
-	film int,
-	filmikeel int,
-	saal int,
-	FOREIGN KEY (film) REFERENCES film(id),
-	FOREIGN KEY (filmikeel) REFERENCES filmikeel(id),
-	FOREIGN KEY (saal) REFERENCES saal(id)
+id int primary key identity(1,1),
+film int,
+filmikeel int,
+saal int,
+FOREIGN KEY (film) REFERENCES film(id),
+FOREIGN KEY (filmikeel) REFERENCES filmikeel(id),
+FOREIGN KEY (saal) REFERENCES saal(id)
 );
-
--- KOHAD
 CREATE TABLE kohatuup(
-	id int primary key identity(1,1),
-	tuup varchar(60)
+id int primary key identity(1,1),
+tuup varchar(60),
+hind decimal
 );
 CREATE TABLE koht(
-	id int primary key identity(1,1),
-	rida int,
-	koht int,
-	kohatuup int,
-	saal int,
-	FOREIGN KEY (kohatuup) REFERENCES kohatuup(id),
-	FOREIGN KEY (saal) REFERENCES saal(id)
+id int primary key identity(1,1),
+coord_x int,
+coord_y int,
+kohatuup int,
+skeem int,
+FOREIGN KEY (kohatuup) REFERENCES kohatuup(id),
+FOREIGN KEY (skeem) REFERENCES skeem(id)
 );
--- KASUTAJA
 CREATE TABLE roll(
-	id int primary key identity(1,1),
-	roll varchar(60)
+id int primary key identity(1,1),
+roll varchar(60)
 );
 CREATE TABLE kasutaja(
-	id int primary key identity(1,1),
-	nimi varchar(60),
-	vanus int,
-	roll int,
-	pilt text,
-	FOREIGN KEY (roll) REFERENCES roll(id) 
+id int primary key identity(1,1),
+nimi varchar(80),
+salasona varchar(80),
+vanus int,
+roll int,
+pilt text,
+FOREIGN KEY (roll) REFERENCES roll(id)
 );
 CREATE TABLE broneeritudKoht(
-	id int primary key identity(1,1),
-	koht int,
-	kasutaja int,
-	FOREIGN KEY (koht) REFERENCES koht(id),
-	FOREIGN KEY (kasutaja) REFERENCES kasutaja(id)
+id int primary key identity(1,1),
+koht int,
+kasutaja int,
+seanss int,
+FOREIGN KEY (koht) REFERENCES koht(id),
+FOREIGN KEY (kasutaja) REFERENCES kasutaja(id),
+FOREIGN KEY (seanss) REFERENCES seanss(id)
 );
+
+INSERT INTO roll(roll) VALUES ('kasutaja');
+INSERT INTO roll(roll) VALUES ('admin');
+
+INSERT INTO kasutaja(nimi, vanus, roll, pilt, salasona) VALUES('ZXCCAT', NULL, 1, 'zxccat.jpg', 'lolkek');

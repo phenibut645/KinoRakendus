@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KinoRakendus.core.utils;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,5 +21,8 @@ namespace KinoRakendus
         public Label UserNameLabel { get; private set; }
         public Label PasswordLabel { get; private set; }
         public Button SubmitButton { get; private set; }
+        //public Font MaintFont { get; private set; } =new Font("Arial", 19);
+        public Font MaintFont { get; private set; } = FontManager.GetFont(19);
+        
     }
 }

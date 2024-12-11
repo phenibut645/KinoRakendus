@@ -1,1 +1,2 @@
-﻿CONNECTION - "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=kinorakendus;Integrated Security=True"
+﻿CONNECTION - "Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=kinorakendus;Integrated Security=True" ( TTHK )
+CONNECTION - "Data Source=DESKTOP-O697USL;Initial Catalog=kinorakendus;Integrated Security=True;Encrypt=True;TrustServerCertificate=True;" ( HOME )

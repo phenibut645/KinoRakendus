@@ -46,7 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="core\enums\Rolls.cs" />
+    <Compile Include="core\interfaces\Table.cs" />
+    <Compile Include="core\models\database\Kasutaja.cs" />
+    <Compile Include="core\utils\ColorManagment.cs" />
     <Compile Include="core\utils\DBHandler.cs" />
+    <Compile Include="core\utils\FontManager.cs" />
+    <Compile Include="core\utils\FormsHandler.cs" />
+    <Compile Include="core\models\User.cs" />
+    <Compile Include="core\utils\RolesManagment.cs" />
     <Compile Include="forms\login\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,6 +69,12 @@
     </Compile>
     <Compile Include="forms\login\Login.variables.cs">
       <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\main\Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\main\Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="kinorakendusDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -89,7 +103,9 @@
     <None Include="kinorakendusDataSet.xss">
       <DependentUpon>kinorakendusDataSet.xsd</DependentUpon>
     </None>
-    <None Include="other\database\files\kinorakendus.bak" />
+    <None Include="other\database\files\HOME\kinorakendus.bak" />
+    <None Include="other\database\files\TTHK\kinorakendus.bak" />
+    <None Include="other\fonts\jaro\Jaro-Regular.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -106,6 +122,8 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="other\database\readme.txt" />
+    <Content Include="other\fonts\jaro\readme.txt" />
+    <Content Include="other\images\zxccat.jpg" />
     <Content Include="other\sql-queries\tables.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

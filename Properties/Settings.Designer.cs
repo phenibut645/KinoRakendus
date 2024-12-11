@@ -33,5 +33,16 @@ namespace KinoRakendus.Properties {
                 return ((string)(this["kinorakendusConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-O697USL;Initial Catalog=kinorakendus;Integrated Security=True" +
+            ";TrustServerCertificate=True")]
+        public string kinorakendusConnectionString1 {
+            get {
+                return ((string)(this["kinorakendusConnectionString1"]));
+            }
+        }
     }
 }

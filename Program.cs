@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Text;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -15,7 +16,6 @@ namespace KinoRakendus
         [STAThread]
         static void Main()
         {
-            DBHandler dbhandler = new DBHandler("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=kinorakendus;Integrated Security=True");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());

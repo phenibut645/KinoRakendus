@@ -4,6 +4,10 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.CompilerServices;
+using KinoRakendus.forms.main.UserControls;
+using KinoRakendus.core.enums;
+using KinoRakendus.core.controls;
 
 namespace KinoRakendus.forms.main
 {
@@ -11,7 +15,15 @@ namespace KinoRakendus.forms.main
     {
         public Panel Header { get; set; }
         public Label HeaderLine { get; set; }
-        public Button KavaButton { get; set; }
-        public Button PiletidButton { get; set; }
+        public HeaderButton ActiveButton { get; set; }
+
+
+        // buttons in header
+        public HeaderButton PiletidButton { get; set; } = new HeaderButton(Buttons.Piletid);
+        public HeaderButton KavaButton { get; set; } = new HeaderButton(Buttons.Kava);
+        public HeaderButton Profile { get; set; } = new HeaderButton(Buttons.Profile);
+        public HeaderButton Piletid { get; set; } = new HeaderButton(Buttons.Piletid);
+        public HeaderButton Balance { get; set; } = new HeaderButton(Buttons.Balance);
+        public HeaderButton History { get; set; } = new HeaderButton(Buttons.History);
     }
 }

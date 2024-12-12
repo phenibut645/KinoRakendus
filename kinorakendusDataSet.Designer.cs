@@ -48,29 +48,29 @@ namespace KinoRakendus {
         
         private zanrDataTable tablezanr;
         
-        private global::System.Data.DataRelation relationFK__broneerit__kasut__5DCAEF64;
+        private global::System.Data.DataRelation relationFK__broneerit__kasut__5535A963;
         
-        private global::System.Data.DataRelation relationFK__broneerit__seans__5EBF139D;
+        private global::System.Data.DataRelation relationFK__broneerit__seans__5629CD9C;
         
-        private global::System.Data.DataRelation relationFK__broneeritu__koht__5CD6CB2B;
+        private global::System.Data.DataRelation relationFK__broneeritu__koht__5441852A;
         
-        private global::System.Data.DataRelation relationFK__film__zanr__412EB0B6;
+        private global::System.Data.DataRelation relationFK__film__zanr__403A8C7D;
         
-        private global::System.Data.DataRelation relationFK__kasutaja__roll__59FA5E80;
+        private global::System.Data.DataRelation relationFK__kasutaja__roll__5165187F;
         
-        private global::System.Data.DataRelation relationFK__koht__kohatuup__4CA06362;
+        private global::System.Data.DataRelation relationFK__koht__kohatuup__4BAC3F29;
         
-        private global::System.Data.DataRelation relationFK__koht__skeem__4D94879B;
+        private global::System.Data.DataRelation relationFK__koht__skeem__4CA06362;
         
-        private global::System.Data.DataRelation relationFK__saal__saalituup__3B75D760;
+        private global::System.Data.DataRelation relationFK__saal__saalituup__3A81B327;
         
-        private global::System.Data.DataRelation relationFK__saal__skeem__3C69FB99;
+        private global::System.Data.DataRelation relationFK__saal__skeem__3B75D760;
         
-        private global::System.Data.DataRelation relationFK__seanss__film__45F365D3;
+        private global::System.Data.DataRelation relationFK__seanss__film__44FF419A;
         
-        private global::System.Data.DataRelation relationFK__seanss__filmikee__46E78A0C;
+        private global::System.Data.DataRelation relationFK__seanss__filmikee__45F365D3;
         
-        private global::System.Data.DataRelation relationFK__seanss__saal__47DBAE45;
+        private global::System.Data.DataRelation relationFK__seanss__saal__46E78A0C;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -482,18 +482,18 @@ namespace KinoRakendus {
                     this.tablezanr.InitVars();
                 }
             }
-            this.relationFK__broneerit__kasut__5DCAEF64 = this.Relations["FK__broneerit__kasut__5DCAEF64"];
-            this.relationFK__broneerit__seans__5EBF139D = this.Relations["FK__broneerit__seans__5EBF139D"];
-            this.relationFK__broneeritu__koht__5CD6CB2B = this.Relations["FK__broneeritu__koht__5CD6CB2B"];
-            this.relationFK__film__zanr__412EB0B6 = this.Relations["FK__film__zanr__412EB0B6"];
-            this.relationFK__kasutaja__roll__59FA5E80 = this.Relations["FK__kasutaja__roll__59FA5E80"];
-            this.relationFK__koht__kohatuup__4CA06362 = this.Relations["FK__koht__kohatuup__4CA06362"];
-            this.relationFK__koht__skeem__4D94879B = this.Relations["FK__koht__skeem__4D94879B"];
-            this.relationFK__saal__saalituup__3B75D760 = this.Relations["FK__saal__saalituup__3B75D760"];
-            this.relationFK__saal__skeem__3C69FB99 = this.Relations["FK__saal__skeem__3C69FB99"];
-            this.relationFK__seanss__film__45F365D3 = this.Relations["FK__seanss__film__45F365D3"];
-            this.relationFK__seanss__filmikee__46E78A0C = this.Relations["FK__seanss__filmikee__46E78A0C"];
-            this.relationFK__seanss__saal__47DBAE45 = this.Relations["FK__seanss__saal__47DBAE45"];
+            this.relationFK__broneerit__kasut__5535A963 = this.Relations["FK__broneerit__kasut__5535A963"];
+            this.relationFK__broneerit__seans__5629CD9C = this.Relations["FK__broneerit__seans__5629CD9C"];
+            this.relationFK__broneeritu__koht__5441852A = this.Relations["FK__broneeritu__koht__5441852A"];
+            this.relationFK__film__zanr__403A8C7D = this.Relations["FK__film__zanr__403A8C7D"];
+            this.relationFK__kasutaja__roll__5165187F = this.Relations["FK__kasutaja__roll__5165187F"];
+            this.relationFK__koht__kohatuup__4BAC3F29 = this.Relations["FK__koht__kohatuup__4BAC3F29"];
+            this.relationFK__koht__skeem__4CA06362 = this.Relations["FK__koht__skeem__4CA06362"];
+            this.relationFK__saal__saalituup__3A81B327 = this.Relations["FK__saal__saalituup__3A81B327"];
+            this.relationFK__saal__skeem__3B75D760 = this.Relations["FK__saal__skeem__3B75D760"];
+            this.relationFK__seanss__film__44FF419A = this.Relations["FK__seanss__film__44FF419A"];
+            this.relationFK__seanss__filmikee__45F365D3 = this.Relations["FK__seanss__filmikee__45F365D3"];
+            this.relationFK__seanss__saal__46E78A0C = this.Relations["FK__seanss__saal__46E78A0C"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -528,54 +528,54 @@ namespace KinoRakendus {
             base.Tables.Add(this.tableskeem);
             this.tablezanr = new zanrDataTable();
             base.Tables.Add(this.tablezanr);
-            this.relationFK__broneerit__kasut__5DCAEF64 = new global::System.Data.DataRelation("FK__broneerit__kasut__5DCAEF64", new global::System.Data.DataColumn[] {
+            this.relationFK__broneerit__kasut__5535A963 = new global::System.Data.DataRelation("FK__broneerit__kasut__5535A963", new global::System.Data.DataColumn[] {
                         this.tablekasutaja.idColumn}, new global::System.Data.DataColumn[] {
                         this.tablebroneeritudKoht.kasutajaColumn}, false);
-            this.Relations.Add(this.relationFK__broneerit__kasut__5DCAEF64);
-            this.relationFK__broneerit__seans__5EBF139D = new global::System.Data.DataRelation("FK__broneerit__seans__5EBF139D", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__broneerit__kasut__5535A963);
+            this.relationFK__broneerit__seans__5629CD9C = new global::System.Data.DataRelation("FK__broneerit__seans__5629CD9C", new global::System.Data.DataColumn[] {
                         this.tableseanss.idColumn}, new global::System.Data.DataColumn[] {
                         this.tablebroneeritudKoht.seanssColumn}, false);
-            this.Relations.Add(this.relationFK__broneerit__seans__5EBF139D);
-            this.relationFK__broneeritu__koht__5CD6CB2B = new global::System.Data.DataRelation("FK__broneeritu__koht__5CD6CB2B", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__broneerit__seans__5629CD9C);
+            this.relationFK__broneeritu__koht__5441852A = new global::System.Data.DataRelation("FK__broneeritu__koht__5441852A", new global::System.Data.DataColumn[] {
                         this.tablekoht.idColumn}, new global::System.Data.DataColumn[] {
                         this.tablebroneeritudKoht.kohtColumn}, false);
-            this.Relations.Add(this.relationFK__broneeritu__koht__5CD6CB2B);
-            this.relationFK__film__zanr__412EB0B6 = new global::System.Data.DataRelation("FK__film__zanr__412EB0B6", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__broneeritu__koht__5441852A);
+            this.relationFK__film__zanr__403A8C7D = new global::System.Data.DataRelation("FK__film__zanr__403A8C7D", new global::System.Data.DataColumn[] {
                         this.tablezanr.idColumn}, new global::System.Data.DataColumn[] {
                         this.tablefilm.zanrColumn}, false);
-            this.Relations.Add(this.relationFK__film__zanr__412EB0B6);
-            this.relationFK__kasutaja__roll__59FA5E80 = new global::System.Data.DataRelation("FK__kasutaja__roll__59FA5E80", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__film__zanr__403A8C7D);
+            this.relationFK__kasutaja__roll__5165187F = new global::System.Data.DataRelation("FK__kasutaja__roll__5165187F", new global::System.Data.DataColumn[] {
                         this.tableroll.idColumn}, new global::System.Data.DataColumn[] {
                         this.tablekasutaja.rollColumn}, false);
-            this.Relations.Add(this.relationFK__kasutaja__roll__59FA5E80);
-            this.relationFK__koht__kohatuup__4CA06362 = new global::System.Data.DataRelation("FK__koht__kohatuup__4CA06362", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__kasutaja__roll__5165187F);
+            this.relationFK__koht__kohatuup__4BAC3F29 = new global::System.Data.DataRelation("FK__koht__kohatuup__4BAC3F29", new global::System.Data.DataColumn[] {
                         this.tablekohatuup.idColumn}, new global::System.Data.DataColumn[] {
                         this.tablekoht.kohatuupColumn}, false);
-            this.Relations.Add(this.relationFK__koht__kohatuup__4CA06362);
-            this.relationFK__koht__skeem__4D94879B = new global::System.Data.DataRelation("FK__koht__skeem__4D94879B", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__koht__kohatuup__4BAC3F29);
+            this.relationFK__koht__skeem__4CA06362 = new global::System.Data.DataRelation("FK__koht__skeem__4CA06362", new global::System.Data.DataColumn[] {
                         this.tableskeem.idColumn}, new global::System.Data.DataColumn[] {
                         this.tablekoht.skeemColumn}, false);
-            this.Relations.Add(this.relationFK__koht__skeem__4D94879B);
-            this.relationFK__saal__saalituup__3B75D760 = new global::System.Data.DataRelation("FK__saal__saalituup__3B75D760", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__koht__skeem__4CA06362);
+            this.relationFK__saal__saalituup__3A81B327 = new global::System.Data.DataRelation("FK__saal__saalituup__3A81B327", new global::System.Data.DataColumn[] {
                         this.tablesaalituup.idColumn}, new global::System.Data.DataColumn[] {
                         this.tablesaal.saalituupColumn}, false);
-            this.Relations.Add(this.relationFK__saal__saalituup__3B75D760);
-            this.relationFK__saal__skeem__3C69FB99 = new global::System.Data.DataRelation("FK__saal__skeem__3C69FB99", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__saal__saalituup__3A81B327);
+            this.relationFK__saal__skeem__3B75D760 = new global::System.Data.DataRelation("FK__saal__skeem__3B75D760", new global::System.Data.DataColumn[] {
                         this.tableskeem.idColumn}, new global::System.Data.DataColumn[] {
                         this.tablesaal.skeemColumn}, false);
-            this.Relations.Add(this.relationFK__saal__skeem__3C69FB99);
-            this.relationFK__seanss__film__45F365D3 = new global::System.Data.DataRelation("FK__seanss__film__45F365D3", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__saal__skeem__3B75D760);
+            this.relationFK__seanss__film__44FF419A = new global::System.Data.DataRelation("FK__seanss__film__44FF419A", new global::System.Data.DataColumn[] {
                         this.tablefilm.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableseanss.filmColumn}, false);
-            this.Relations.Add(this.relationFK__seanss__film__45F365D3);
-            this.relationFK__seanss__filmikee__46E78A0C = new global::System.Data.DataRelation("FK__seanss__filmikee__46E78A0C", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__seanss__film__44FF419A);
+            this.relationFK__seanss__filmikee__45F365D3 = new global::System.Data.DataRelation("FK__seanss__filmikee__45F365D3", new global::System.Data.DataColumn[] {
                         this.tablefilmikeel.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableseanss.filmikeelColumn}, false);
-            this.Relations.Add(this.relationFK__seanss__filmikee__46E78A0C);
-            this.relationFK__seanss__saal__47DBAE45 = new global::System.Data.DataRelation("FK__seanss__saal__47DBAE45", new global::System.Data.DataColumn[] {
+            this.Relations.Add(this.relationFK__seanss__filmikee__45F365D3);
+            this.relationFK__seanss__saal__46E78A0C = new global::System.Data.DataRelation("FK__seanss__saal__46E78A0C", new global::System.Data.DataColumn[] {
                         this.tablesaal.idColumn}, new global::System.Data.DataColumn[] {
                         this.tableseanss.saalColumn}, false);
-            this.Relations.Add(this.relationFK__seanss__saal__47DBAE45);
+            this.Relations.Add(this.relationFK__seanss__saal__46E78A0C);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -858,21 +858,21 @@ namespace KinoRakendus {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public broneeritudKohtRow AddbroneeritudKohtRow(kohtRow parentkohtRowByFK__broneeritu__koht__5CD6CB2B, kasutajaRow parentkasutajaRowByFK__broneerit__kasut__5DCAEF64, seanssRow parentseanssRowByFK__broneerit__seans__5EBF139D) {
+            public broneeritudKohtRow AddbroneeritudKohtRow(kohtRow parentkohtRowByFK__broneeritu__koht__5441852A, kasutajaRow parentkasutajaRowByFK__broneerit__kasut__5535A963, seanssRow parentseanssRowByFK__broneerit__seans__5629CD9C) {
                 broneeritudKohtRow rowbroneeritudKohtRow = ((broneeritudKohtRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         null,
                         null};
-                if ((parentkohtRowByFK__broneeritu__koht__5CD6CB2B != null)) {
-                    columnValuesArray[1] = parentkohtRowByFK__broneeritu__koht__5CD6CB2B[0];
+                if ((parentkohtRowByFK__broneeritu__koht__5441852A != null)) {
+                    columnValuesArray[1] = parentkohtRowByFK__broneeritu__koht__5441852A[0];
                 }
-                if ((parentkasutajaRowByFK__broneerit__kasut__5DCAEF64 != null)) {
-                    columnValuesArray[2] = parentkasutajaRowByFK__broneerit__kasut__5DCAEF64[0];
+                if ((parentkasutajaRowByFK__broneerit__kasut__5535A963 != null)) {
+                    columnValuesArray[2] = parentkasutajaRowByFK__broneerit__kasut__5535A963[0];
                 }
-                if ((parentseanssRowByFK__broneerit__seans__5EBF139D != null)) {
-                    columnValuesArray[3] = parentseanssRowByFK__broneerit__seans__5EBF139D[0];
+                if ((parentseanssRowByFK__broneerit__seans__5629CD9C != null)) {
+                    columnValuesArray[3] = parentseanssRowByFK__broneerit__seans__5629CD9C[0];
                 }
                 rowbroneeritudKohtRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowbroneeritudKohtRow);
@@ -1191,7 +1191,7 @@ namespace KinoRakendus {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public filmRow AddfilmRow(string nimetus, string kirjeldus, zanrRow parentzanrRowByFK__film__zanr__412EB0B6, int aasta, string poster) {
+            public filmRow AddfilmRow(string nimetus, string kirjeldus, zanrRow parentzanrRowByFK__film__zanr__403A8C7D, int aasta, string poster) {
                 filmRow rowfilmRow = ((filmRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1200,8 +1200,8 @@ namespace KinoRakendus {
                         null,
                         aasta,
                         poster};
-                if ((parentzanrRowByFK__film__zanr__412EB0B6 != null)) {
-                    columnValuesArray[3] = parentzanrRowByFK__film__zanr__412EB0B6[0];
+                if ((parentzanrRowByFK__film__zanr__403A8C7D != null)) {
+                    columnValuesArray[3] = parentzanrRowByFK__film__zanr__403A8C7D[0];
                 }
                 rowfilmRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowfilmRow);
@@ -1806,7 +1806,7 @@ namespace KinoRakendus {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public kasutajaRow AddkasutajaRow(string nimi, string salasona, int vanus, rollRow parentrollRowByFK__kasutaja__roll__59FA5E80, string pilt) {
+            public kasutajaRow AddkasutajaRow(string nimi, string salasona, int vanus, rollRow parentrollRowByFK__kasutaja__roll__5165187F, string pilt) {
                 kasutajaRow rowkasutajaRow = ((kasutajaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -1815,8 +1815,8 @@ namespace KinoRakendus {
                         vanus,
                         null,
                         pilt};
-                if ((parentrollRowByFK__kasutaja__roll__59FA5E80 != null)) {
-                    columnValuesArray[4] = parentrollRowByFK__kasutaja__roll__59FA5E80[0];
+                if ((parentrollRowByFK__kasutaja__roll__5165187F != null)) {
+                    columnValuesArray[4] = parentrollRowByFK__kasutaja__roll__5165187F[0];
                 }
                 rowkasutajaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowkasutajaRow);
@@ -2425,7 +2425,7 @@ namespace KinoRakendus {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public kohtRow AddkohtRow(int coord_x, int coord_y, kohatuupRow parentkohatuupRowByFK__koht__kohatuup__4CA06362, skeemRow parentskeemRowByFK__koht__skeem__4D94879B) {
+            public kohtRow AddkohtRow(int coord_x, int coord_y, kohatuupRow parentkohatuupRowByFK__koht__kohatuup__4BAC3F29, skeemRow parentskeemRowByFK__koht__skeem__4CA06362) {
                 kohtRow rowkohtRow = ((kohtRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -2433,11 +2433,11 @@ namespace KinoRakendus {
                         coord_y,
                         null,
                         null};
-                if ((parentkohatuupRowByFK__koht__kohatuup__4CA06362 != null)) {
-                    columnValuesArray[3] = parentkohatuupRowByFK__koht__kohatuup__4CA06362[0];
+                if ((parentkohatuupRowByFK__koht__kohatuup__4BAC3F29 != null)) {
+                    columnValuesArray[3] = parentkohatuupRowByFK__koht__kohatuup__4BAC3F29[0];
                 }
-                if ((parentskeemRowByFK__koht__skeem__4D94879B != null)) {
-                    columnValuesArray[4] = parentskeemRowByFK__koht__skeem__4D94879B[0];
+                if ((parentskeemRowByFK__koht__skeem__4CA06362 != null)) {
+                    columnValuesArray[4] = parentskeemRowByFK__koht__skeem__4CA06362[0];
                 }
                 rowkohtRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowkohtRow);
@@ -3006,17 +3006,17 @@ namespace KinoRakendus {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public saalRow AddsaalRow(saalituupRow parentsaalituupRowByFK__saal__saalituup__3B75D760, skeemRow parentskeemRowByFK__saal__skeem__3C69FB99) {
+            public saalRow AddsaalRow(saalituupRow parentsaalituupRowByFK__saal__saalituup__3A81B327, skeemRow parentskeemRowByFK__saal__skeem__3B75D760) {
                 saalRow rowsaalRow = ((saalRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         null};
-                if ((parentsaalituupRowByFK__saal__saalituup__3B75D760 != null)) {
-                    columnValuesArray[1] = parentsaalituupRowByFK__saal__saalituup__3B75D760[0];
+                if ((parentsaalituupRowByFK__saal__saalituup__3A81B327 != null)) {
+                    columnValuesArray[1] = parentsaalituupRowByFK__saal__saalituup__3A81B327[0];
                 }
-                if ((parentskeemRowByFK__saal__skeem__3C69FB99 != null)) {
-                    columnValuesArray[2] = parentskeemRowByFK__saal__skeem__3C69FB99[0];
+                if ((parentskeemRowByFK__saal__skeem__3B75D760 != null)) {
+                    columnValuesArray[2] = parentskeemRowByFK__saal__skeem__3B75D760[0];
                 }
                 rowsaalRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowsaalRow);
@@ -3589,21 +3589,21 @@ namespace KinoRakendus {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public seanssRow AddseanssRow(filmRow parentfilmRowByFK__seanss__film__45F365D3, filmikeelRow parentfilmikeelRowByFK__seanss__filmikee__46E78A0C, saalRow parentsaalRowByFK__seanss__saal__47DBAE45) {
+            public seanssRow AddseanssRow(filmRow parentfilmRowByFK__seanss__film__44FF419A, filmikeelRow parentfilmikeelRowByFK__seanss__filmikee__45F365D3, saalRow parentsaalRowByFK__seanss__saal__46E78A0C) {
                 seanssRow rowseanssRow = ((seanssRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         null,
                         null,
                         null};
-                if ((parentfilmRowByFK__seanss__film__45F365D3 != null)) {
-                    columnValuesArray[1] = parentfilmRowByFK__seanss__film__45F365D3[0];
+                if ((parentfilmRowByFK__seanss__film__44FF419A != null)) {
+                    columnValuesArray[1] = parentfilmRowByFK__seanss__film__44FF419A[0];
                 }
-                if ((parentfilmikeelRowByFK__seanss__filmikee__46E78A0C != null)) {
-                    columnValuesArray[2] = parentfilmikeelRowByFK__seanss__filmikee__46E78A0C[0];
+                if ((parentfilmikeelRowByFK__seanss__filmikee__45F365D3 != null)) {
+                    columnValuesArray[2] = parentfilmikeelRowByFK__seanss__filmikee__45F365D3[0];
                 }
-                if ((parentsaalRowByFK__seanss__saal__47DBAE45 != null)) {
-                    columnValuesArray[3] = parentsaalRowByFK__seanss__saal__47DBAE45[0];
+                if ((parentsaalRowByFK__seanss__saal__46E78A0C != null)) {
+                    columnValuesArray[3] = parentsaalRowByFK__seanss__saal__46E78A0C[0];
                 }
                 rowseanssRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowseanssRow);
@@ -4444,10 +4444,10 @@ namespace KinoRakendus {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public kasutajaRow kasutajaRow {
                 get {
-                    return ((kasutajaRow)(this.GetParentRow(this.Table.ParentRelations["FK__broneerit__kasut__5DCAEF64"])));
+                    return ((kasutajaRow)(this.GetParentRow(this.Table.ParentRelations["FK__broneerit__kasut__5535A963"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__broneerit__kasut__5DCAEF64"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__broneerit__kasut__5535A963"]);
                 }
             }
             
@@ -4455,10 +4455,10 @@ namespace KinoRakendus {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public seanssRow seanssRow {
                 get {
-                    return ((seanssRow)(this.GetParentRow(this.Table.ParentRelations["FK__broneerit__seans__5EBF139D"])));
+                    return ((seanssRow)(this.GetParentRow(this.Table.ParentRelations["FK__broneerit__seans__5629CD9C"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__broneerit__seans__5EBF139D"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__broneerit__seans__5629CD9C"]);
                 }
             }
             
@@ -4466,10 +4466,10 @@ namespace KinoRakendus {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public kohtRow kohtRow {
                 get {
-                    return ((kohtRow)(this.GetParentRow(this.Table.ParentRelations["FK__broneeritu__koht__5CD6CB2B"])));
+                    return ((kohtRow)(this.GetParentRow(this.Table.ParentRelations["FK__broneeritu__koht__5441852A"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__broneeritu__koht__5CD6CB2B"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__broneeritu__koht__5441852A"]);
                 }
             }
             
@@ -4619,10 +4619,10 @@ namespace KinoRakendus {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public zanrRow zanrRow {
                 get {
-                    return ((zanrRow)(this.GetParentRow(this.Table.ParentRelations["FK__film__zanr__412EB0B6"])));
+                    return ((zanrRow)(this.GetParentRow(this.Table.ParentRelations["FK__film__zanr__403A8C7D"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__film__zanr__412EB0B6"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__film__zanr__403A8C7D"]);
                 }
             }
             
@@ -4689,11 +4689,11 @@ namespace KinoRakendus {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public seanssRow[] GetseanssRows() {
-                if ((this.Table.ChildRelations["FK__seanss__film__45F365D3"] == null)) {
+                if ((this.Table.ChildRelations["FK__seanss__film__44FF419A"] == null)) {
                     return new seanssRow[0];
                 }
                 else {
-                    return ((seanssRow[])(base.GetChildRows(this.Table.ChildRelations["FK__seanss__film__45F365D3"])));
+                    return ((seanssRow[])(base.GetChildRows(this.Table.ChildRelations["FK__seanss__film__44FF419A"])));
                 }
             }
         }
@@ -4754,11 +4754,11 @@ namespace KinoRakendus {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public seanssRow[] GetseanssRows() {
-                if ((this.Table.ChildRelations["FK__seanss__filmikee__46E78A0C"] == null)) {
+                if ((this.Table.ChildRelations["FK__seanss__filmikee__45F365D3"] == null)) {
                     return new seanssRow[0];
                 }
                 else {
-                    return ((seanssRow[])(base.GetChildRows(this.Table.ChildRelations["FK__seanss__filmikee__46E78A0C"])));
+                    return ((seanssRow[])(base.GetChildRows(this.Table.ChildRelations["FK__seanss__filmikee__45F365D3"])));
                 }
             }
         }
@@ -4872,10 +4872,10 @@ namespace KinoRakendus {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public rollRow rollRow {
                 get {
-                    return ((rollRow)(this.GetParentRow(this.Table.ParentRelations["FK__kasutaja__roll__59FA5E80"])));
+                    return ((rollRow)(this.GetParentRow(this.Table.ParentRelations["FK__kasutaja__roll__5165187F"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__kasutaja__roll__59FA5E80"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__kasutaja__roll__5165187F"]);
                 }
             }
             
@@ -4942,11 +4942,11 @@ namespace KinoRakendus {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public broneeritudKohtRow[] GetbroneeritudKohtRows() {
-                if ((this.Table.ChildRelations["FK__broneerit__kasut__5DCAEF64"] == null)) {
+                if ((this.Table.ChildRelations["FK__broneerit__kasut__5535A963"] == null)) {
                     return new broneeritudKohtRow[0];
                 }
                 else {
-                    return ((broneeritudKohtRow[])(base.GetChildRows(this.Table.ChildRelations["FK__broneerit__kasut__5DCAEF64"])));
+                    return ((broneeritudKohtRow[])(base.GetChildRows(this.Table.ChildRelations["FK__broneerit__kasut__5535A963"])));
                 }
             }
         }
@@ -5035,11 +5035,11 @@ namespace KinoRakendus {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public kohtRow[] GetkohtRows() {
-                if ((this.Table.ChildRelations["FK__koht__kohatuup__4CA06362"] == null)) {
+                if ((this.Table.ChildRelations["FK__koht__kohatuup__4BAC3F29"] == null)) {
                     return new kohtRow[0];
                 }
                 else {
-                    return ((kohtRow[])(base.GetChildRows(this.Table.ChildRelations["FK__koht__kohatuup__4CA06362"])));
+                    return ((kohtRow[])(base.GetChildRows(this.Table.ChildRelations["FK__koht__kohatuup__4BAC3F29"])));
                 }
             }
         }
@@ -5137,10 +5137,10 @@ namespace KinoRakendus {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public kohatuupRow kohatuupRow {
                 get {
-                    return ((kohatuupRow)(this.GetParentRow(this.Table.ParentRelations["FK__koht__kohatuup__4CA06362"])));
+                    return ((kohatuupRow)(this.GetParentRow(this.Table.ParentRelations["FK__koht__kohatuup__4BAC3F29"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__koht__kohatuup__4CA06362"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__koht__kohatuup__4BAC3F29"]);
                 }
             }
             
@@ -5148,10 +5148,10 @@ namespace KinoRakendus {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public skeemRow skeemRow {
                 get {
-                    return ((skeemRow)(this.GetParentRow(this.Table.ParentRelations["FK__koht__skeem__4D94879B"])));
+                    return ((skeemRow)(this.GetParentRow(this.Table.ParentRelations["FK__koht__skeem__4CA06362"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__koht__skeem__4D94879B"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__koht__skeem__4CA06362"]);
                 }
             }
             
@@ -5206,11 +5206,11 @@ namespace KinoRakendus {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public broneeritudKohtRow[] GetbroneeritudKohtRows() {
-                if ((this.Table.ChildRelations["FK__broneeritu__koht__5CD6CB2B"] == null)) {
+                if ((this.Table.ChildRelations["FK__broneeritu__koht__5441852A"] == null)) {
                     return new broneeritudKohtRow[0];
                 }
                 else {
-                    return ((broneeritudKohtRow[])(base.GetChildRows(this.Table.ChildRelations["FK__broneeritu__koht__5CD6CB2B"])));
+                    return ((broneeritudKohtRow[])(base.GetChildRows(this.Table.ChildRelations["FK__broneeritu__koht__5441852A"])));
                 }
             }
         }
@@ -5271,11 +5271,11 @@ namespace KinoRakendus {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public kasutajaRow[] GetkasutajaRows() {
-                if ((this.Table.ChildRelations["FK__kasutaja__roll__59FA5E80"] == null)) {
+                if ((this.Table.ChildRelations["FK__kasutaja__roll__5165187F"] == null)) {
                     return new kasutajaRow[0];
                 }
                 else {
-                    return ((kasutajaRow[])(base.GetChildRows(this.Table.ChildRelations["FK__kasutaja__roll__59FA5E80"])));
+                    return ((kasutajaRow[])(base.GetChildRows(this.Table.ChildRelations["FK__kasutaja__roll__5165187F"])));
                 }
             }
         }
@@ -5341,10 +5341,10 @@ namespace KinoRakendus {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public saalituupRow saalituupRow {
                 get {
-                    return ((saalituupRow)(this.GetParentRow(this.Table.ParentRelations["FK__saal__saalituup__3B75D760"])));
+                    return ((saalituupRow)(this.GetParentRow(this.Table.ParentRelations["FK__saal__saalituup__3A81B327"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__saal__saalituup__3B75D760"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__saal__saalituup__3A81B327"]);
                 }
             }
             
@@ -5352,10 +5352,10 @@ namespace KinoRakendus {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public skeemRow skeemRow {
                 get {
-                    return ((skeemRow)(this.GetParentRow(this.Table.ParentRelations["FK__saal__skeem__3C69FB99"])));
+                    return ((skeemRow)(this.GetParentRow(this.Table.ParentRelations["FK__saal__skeem__3B75D760"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__saal__skeem__3C69FB99"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__saal__skeem__3B75D760"]);
                 }
             }
             
@@ -5386,11 +5386,11 @@ namespace KinoRakendus {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public seanssRow[] GetseanssRows() {
-                if ((this.Table.ChildRelations["FK__seanss__saal__47DBAE45"] == null)) {
+                if ((this.Table.ChildRelations["FK__seanss__saal__46E78A0C"] == null)) {
                     return new seanssRow[0];
                 }
                 else {
-                    return ((seanssRow[])(base.GetChildRows(this.Table.ChildRelations["FK__seanss__saal__47DBAE45"])));
+                    return ((seanssRow[])(base.GetChildRows(this.Table.ChildRelations["FK__seanss__saal__46E78A0C"])));
                 }
             }
         }
@@ -5451,11 +5451,11 @@ namespace KinoRakendus {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public saalRow[] GetsaalRows() {
-                if ((this.Table.ChildRelations["FK__saal__saalituup__3B75D760"] == null)) {
+                if ((this.Table.ChildRelations["FK__saal__saalituup__3A81B327"] == null)) {
                     return new saalRow[0];
                 }
                 else {
-                    return ((saalRow[])(base.GetChildRows(this.Table.ChildRelations["FK__saal__saalituup__3B75D760"])));
+                    return ((saalRow[])(base.GetChildRows(this.Table.ChildRelations["FK__saal__saalituup__3A81B327"])));
                 }
             }
         }
@@ -5537,10 +5537,10 @@ namespace KinoRakendus {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public filmRow filmRow {
                 get {
-                    return ((filmRow)(this.GetParentRow(this.Table.ParentRelations["FK__seanss__film__45F365D3"])));
+                    return ((filmRow)(this.GetParentRow(this.Table.ParentRelations["FK__seanss__film__44FF419A"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__seanss__film__45F365D3"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__seanss__film__44FF419A"]);
                 }
             }
             
@@ -5548,10 +5548,10 @@ namespace KinoRakendus {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public filmikeelRow filmikeelRow {
                 get {
-                    return ((filmikeelRow)(this.GetParentRow(this.Table.ParentRelations["FK__seanss__filmikee__46E78A0C"])));
+                    return ((filmikeelRow)(this.GetParentRow(this.Table.ParentRelations["FK__seanss__filmikee__45F365D3"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__seanss__filmikee__46E78A0C"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__seanss__filmikee__45F365D3"]);
                 }
             }
             
@@ -5559,10 +5559,10 @@ namespace KinoRakendus {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public saalRow saalRow {
                 get {
-                    return ((saalRow)(this.GetParentRow(this.Table.ParentRelations["FK__seanss__saal__47DBAE45"])));
+                    return ((saalRow)(this.GetParentRow(this.Table.ParentRelations["FK__seanss__saal__46E78A0C"])));
                 }
                 set {
-                    this.SetParentRow(value, this.Table.ParentRelations["FK__seanss__saal__47DBAE45"]);
+                    this.SetParentRow(value, this.Table.ParentRelations["FK__seanss__saal__46E78A0C"]);
                 }
             }
             
@@ -5605,11 +5605,11 @@ namespace KinoRakendus {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public broneeritudKohtRow[] GetbroneeritudKohtRows() {
-                if ((this.Table.ChildRelations["FK__broneerit__seans__5EBF139D"] == null)) {
+                if ((this.Table.ChildRelations["FK__broneerit__seans__5629CD9C"] == null)) {
                     return new broneeritudKohtRow[0];
                 }
                 else {
-                    return ((broneeritudKohtRow[])(base.GetChildRows(this.Table.ChildRelations["FK__broneerit__seans__5EBF139D"])));
+                    return ((broneeritudKohtRow[])(base.GetChildRows(this.Table.ChildRelations["FK__broneerit__seans__5629CD9C"])));
                 }
             }
         }
@@ -5726,22 +5726,22 @@ namespace KinoRakendus {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public kohtRow[] GetkohtRows() {
-                if ((this.Table.ChildRelations["FK__koht__skeem__4D94879B"] == null)) {
+                if ((this.Table.ChildRelations["FK__koht__skeem__4CA06362"] == null)) {
                     return new kohtRow[0];
                 }
                 else {
-                    return ((kohtRow[])(base.GetChildRows(this.Table.ChildRelations["FK__koht__skeem__4D94879B"])));
+                    return ((kohtRow[])(base.GetChildRows(this.Table.ChildRelations["FK__koht__skeem__4CA06362"])));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public saalRow[] GetsaalRows() {
-                if ((this.Table.ChildRelations["FK__saal__skeem__3C69FB99"] == null)) {
+                if ((this.Table.ChildRelations["FK__saal__skeem__3B75D760"] == null)) {
                     return new saalRow[0];
                 }
                 else {
-                    return ((saalRow[])(base.GetChildRows(this.Table.ChildRelations["FK__saal__skeem__3C69FB99"])));
+                    return ((saalRow[])(base.GetChildRows(this.Table.ChildRelations["FK__saal__skeem__3B75D760"])));
                 }
             }
         }
@@ -5802,11 +5802,11 @@ namespace KinoRakendus {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public filmRow[] GetfilmRows() {
-                if ((this.Table.ChildRelations["FK__film__zanr__412EB0B6"] == null)) {
+                if ((this.Table.ChildRelations["FK__film__zanr__403A8C7D"] == null)) {
                     return new filmRow[0];
                 }
                 else {
-                    return ((filmRow[])(base.GetChildRows(this.Table.ChildRelations["FK__film__zanr__412EB0B6"])));
+                    return ((filmRow[])(base.GetChildRows(this.Table.ChildRelations["FK__film__zanr__403A8C7D"])));
                 }
             }
         }
@@ -6391,7 +6391,7 @@ SELECT id, koht, kasutaja, seanss FROM broneeritudKoht WHERE (id = @id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::KinoRakendus.Properties.Settings.Default.kinorakendusConnectionString1;
+            this._connection.ConnectionString = global::KinoRakendus.Properties.Settings.Default.kinorakendusConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6790,7 +6790,7 @@ SELECT id, nimetus, kirjeldus, zanr, aasta, poster FROM film WHERE (id = @id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::KinoRakendus.Properties.Settings.Default.kinorakendusConnectionString1;
+            this._connection.ConnectionString = global::KinoRakendus.Properties.Settings.Default.kinorakendusConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7194,7 +7194,7 @@ SELECT id, nimetus, kirjeldus, zanr, aasta, poster FROM film WHERE (id = @id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::KinoRakendus.Properties.Settings.Default.kinorakendusConnectionString1;
+            this._connection.ConnectionString = global::KinoRakendus.Properties.Settings.Default.kinorakendusConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7541,7 +7541,7 @@ SELECT id, nimi, salasona, vanus, roll, pilt FROM kasutaja WHERE (id = @id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::KinoRakendus.Properties.Settings.Default.kinorakendusConnectionString1;
+            this._connection.ConnectionString = global::KinoRakendus.Properties.Settings.Default.kinorakendusConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7968,7 +7968,7 @@ SELECT id, tuup, hind FROM kohatuup WHERE (id = @id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::KinoRakendus.Properties.Settings.Default.kinorakendusConnectionString1;
+            this._connection.ConnectionString = global::KinoRakendus.Properties.Settings.Default.kinorakendusConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8340,7 +8340,7 @@ SELECT id, coord_x, coord_y, kohatuup, skeem FROM koht WHERE (id = @id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::KinoRakendus.Properties.Settings.Default.kinorakendusConnectionString1;
+            this._connection.ConnectionString = global::KinoRakendus.Properties.Settings.Default.kinorakendusConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -8748,7 +8748,7 @@ SELECT id, coord_x, coord_y, kohatuup, skeem FROM koht WHERE (id = @id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::KinoRakendus.Properties.Settings.Default.kinorakendusConnectionString1;
+            this._connection.ConnectionString = global::KinoRakendus.Properties.Settings.Default.kinorakendusConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9079,7 +9079,7 @@ SELECT id, saalituup, skeem FROM saal WHERE (id = @id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::KinoRakendus.Properties.Settings.Default.kinorakendusConnectionString1;
+            this._connection.ConnectionString = global::KinoRakendus.Properties.Settings.Default.kinorakendusConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9431,7 +9431,7 @@ SELECT id, saalituup, skeem FROM saal WHERE (id = @id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::KinoRakendus.Properties.Settings.Default.kinorakendusConnectionString1;
+            this._connection.ConnectionString = global::KinoRakendus.Properties.Settings.Default.kinorakendusConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9768,7 +9768,7 @@ SELECT id, film, filmikeel, saal FROM seanss WHERE (id = @id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::KinoRakendus.Properties.Settings.Default.kinorakendusConnectionString1;
+            this._connection.ConnectionString = global::KinoRakendus.Properties.Settings.Default.kinorakendusConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10161,7 +10161,7 @@ SELECT id, nimi, riida_arv, veerg_arv FROM skeem WHERE (id = @id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::KinoRakendus.Properties.Settings.Default.kinorakendusConnectionString1;
+            this._connection.ConnectionString = global::KinoRakendus.Properties.Settings.Default.kinorakendusConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -10541,7 +10541,7 @@ SELECT id, nimi, riida_arv, veerg_arv FROM skeem WHERE (id = @id)";
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::KinoRakendus.Properties.Settings.Default.kinorakendusConnectionString1;
+            this._connection.ConnectionString = global::KinoRakendus.Properties.Settings.Default.kinorakendusConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

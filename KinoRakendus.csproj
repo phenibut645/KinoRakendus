@@ -46,6 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="core\controls\HeaderButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="core\controls\TypeButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="core\enums\Buttons.cs" />
     <Compile Include="core\enums\Rolls.cs" />
     <Compile Include="core\interfaces\Table.cs" />
     <Compile Include="core\models\database\Kasutaja.cs" />
@@ -55,6 +62,7 @@
     <Compile Include="core\utils\FormsHandler.cs" />
     <Compile Include="core\models\User.cs" />
     <Compile Include="core\utils\RolesManagment.cs" />
+    <Compile Include="core\utils\ButtonsHandler.cs" />
     <Compile Include="forms\login\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,7 +84,13 @@
     <Compile Include="forms\main\Menu.Designer.cs">
       <DependentUpon>Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\main\Menu.eventmethods.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="forms\main\Menu.init.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="forms\main\Menu.methods.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="forms\main\Menu.variables.cs">

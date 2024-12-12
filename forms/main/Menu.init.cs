@@ -19,25 +19,65 @@ namespace KinoRakendus.forms.main
         {
             this.Header = new Panel();
             Header.Size = new Size(1720, 80);
+            Header.Location = new Point(0, 0);
 
             this.HeaderLine = new Label();
             HeaderLine.Height = 4;
             HeaderLine.Width = 1723;
             HeaderLine.BackColor = ColorManagment.DefaultPurple;
             HeaderLine.Location = new Point(0, 73);
-            
 
-            this.KavaButton = new Button();
-            KavaButton.Size = new Size(287, 73);
-            KavaButton.BackColor = ColorManagment.ActiveButton;
-            KavaButton.ForeColor = Color.White;
-            KavaButton.Font = FontManager.GetFont(22);
-            KavaButton.Text = "Kava";
-            KavaButton.FlatStyle = FlatStyle.Flat;
-            KavaButton.FlatAppearance.BorderSize = 0;
-            this.Header.Controls.Add(KavaButton);
+            
+            if(this.User.roll == core.enums.Rolls.User)
+            {
+                KavaButton = GetButtonInHeader("Kava", active: true);
+                ActiveButton = KavaButton;
+                KavaButton.
+                KavaButton.Click += new EventHandler(kavaButton_click);
+
+                Piletid = GetButtonInHeader("Piletid");
+                Piletid.Click += piletidButton_click;
+
+                Balance = GetButtonInHeader("Balance");
+                Balance.Click += balanceButton_click;
+
+                History = GetButtonInHeader("History");
+                History.Click += historyButton_click;
+
+                List<Button> buttons = new List<Button>()
+                {
+                    KavaButton, Piletid, Balance, History
+                };
+
+                int index = -1;
+                foreach (Button button in buttons)
+                {
+                    index++;
+                    button.Location = new Point(button.Width * index, 0);
+                    Label line = GetLineBetweenButtons();
+                    line.Location = new Point(button.Width * (index + 1) + line.Width / 2, 0);
+                    this.Controls.Add(line);
+                    this.Controls.Add(button);
+                }
+                return;
+            }
+            else if (this.User.roll == core.enums.Rolls.Admin)
+            {
+                return;
+            }
+
             this.Header.Controls.Add(HeaderLine);
             this.Controls.Add(Header);
         }
+        public Label GetLineBetweenButtons(int x = 0, int y = 0)
+        {
+            Label line = new Label();
+            line.Size = new Size(6, 73);
+            line.BackColor = ColorManagment.LineBetweenButtons;
+            return line;
+        }
+
+
+        
     }
 }

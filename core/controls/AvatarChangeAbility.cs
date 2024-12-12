@@ -23,6 +23,12 @@ namespace KinoRakendus.core.controls
             this.Size = new Size(121, 121);
             this.User = user;
         }
+        private void InitAll()
+        {
+            InitButtonContainer();
+            InitButton();
+            InitAvatar();
+        }
         private void InitAvatar()
         {
             Avatar = new PictureBox();

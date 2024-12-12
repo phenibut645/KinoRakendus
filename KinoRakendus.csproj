@@ -70,6 +70,12 @@
     <Compile Include="core\controls\moviecard\MovieCard.variables.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Include="core\controls\Option.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="core\controls\Option.Designer.cs">
+      <DependentUpon>Option.cs</DependentUpon>
+    </Compile>
     <Compile Include="core\controls\PageUserControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -126,18 +132,6 @@
     </Compile>
     <Compile Include="forms\main\Menu.variables.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="forms\main\pages\common\profile\Profile.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="forms\main\pages\common\profile\Profile.Designer.cs">
-      <DependentUpon>Profile.cs</DependentUpon>
-    </Compile>
-    <Compile Include="forms\main\pages\common\profile\Profile.variables.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="forms\main\pages\common\profile\Profile.variables.Designer.cs">
-      <DependentUpon>Profile.variables.cs</DependentUpon>
     </Compile>
     <Compile Include="forms\main\pages\user\kava\Kava.cs">
       <SubType>UserControl</SubType>
@@ -199,6 +193,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="forms\main\pages\admin\" />
+    <Folder Include="forms\main\pages\common\profile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="core\models\database\readme.txt" />

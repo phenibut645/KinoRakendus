@@ -19,7 +19,7 @@ namespace KinoRakendus.core.utils
         }
         public static Image GetPoster(Film film)
         {
-            if(film["poster"] != "NULL") return Image.FromFile(Path.Combine(PathsManager.AvatarsPath, film["poster"]));
+            if(film["poster"] != "NULL") return Image.FromFile(Path.Combine(PathsManager.PostersPath, film["poster"]));
             else return Image.FromFile(Path.Combine(PathsManager.DefaultImagesPath, "poster.jpg"));
         }
         public static Image GetDefaultImage(string name)

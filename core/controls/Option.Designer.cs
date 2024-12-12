@@ -1,6 +1,6 @@
-﻿namespace KinoRakendus.forms.main.pages.common.profile
+﻿namespace KinoRakendus.core.controls
 {
-    partial class Profile
+    partial class Option
     {
         /// <summary> 
         /// Required designer variable.

@@ -1,5 +1,4 @@
-﻿using KinoRakendus.core.controls;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,12 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace KinoRakendus.forms.main.pages
+namespace KinoRakendus.core.controls
 {
-    public partial class Profile : PageUserControl
+    public partial class Option : UserControl
     {
-        public Profile()
+        public Option()
         {
+            InitializeComponent();
         }
     }
 }

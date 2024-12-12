@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{8A94D7BD-C29B-4F13-8DA0-9AFD913A3749}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>KinoRakendus</RootNamespace>
     <AssemblyName>KinoRakendus</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -46,8 +49,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="core\controls\AvatarChangeAbility.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="core\controls\AvatarChangeAbility.Designer.cs">
+      <DependentUpon>AvatarChangeAbility.cs</DependentUpon>
+    </Compile>
     <Compile Include="core\controls\HeaderButton.cs">
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="core\controls\moviecard\MovieCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="core\controls\moviecard\MovieCard.Designer.cs">
+      <DependentUpon>MovieCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="core\controls\moviecard\MovieCard.init.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="core\controls\moviecard\MovieCard.variables.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="core\controls\PageUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="core\controls\PageUserControl.Designer.cs">
+      <DependentUpon>PageUserControl.cs</DependentUpon>
     </Compile>
     <Compile Include="core\controls\TypeButton.cs">
       <SubType>Component</SubType>
@@ -55,14 +82,18 @@
     <Compile Include="core\enums\Buttons.cs" />
     <Compile Include="core\enums\Rolls.cs" />
     <Compile Include="core\interfaces\Table.cs" />
+    <Compile Include="core\models\database\Film.cs" />
+    <Compile Include="core\models\database\Filmizanres.cs" />
     <Compile Include="core\models\database\Kasutaja.cs" />
     <Compile Include="core\utils\ColorManagment.cs" />
     <Compile Include="core\utils\DBHandler.cs" />
     <Compile Include="core\utils\FontManager.cs" />
     <Compile Include="core\utils\FormsHandler.cs" />
     <Compile Include="core\models\User.cs" />
+    <Compile Include="core\utils\ImagesManager.cs" />
+    <Compile Include="core\utils\PathsManager.cs" />
     <Compile Include="core\utils\RolesManagment.cs" />
-    <Compile Include="core\utils\ButtonsHandler.cs" />
+    <Compile Include="core\utils\HeaderHandler.cs" />
     <Compile Include="forms\login\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -96,11 +127,32 @@
     <Compile Include="forms\main\Menu.variables.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="forms\main\usercontrols\kava\Kava.cs">
+    <Compile Include="forms\main\pages\common\profile\Profile.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="forms\main\usercontrols\kava\Kava.Designer.cs">
+    <Compile Include="forms\main\pages\common\profile\Profile.Designer.cs">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\main\pages\common\profile\Profile.variables.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="forms\main\pages\common\profile\Profile.variables.Designer.cs">
+      <DependentUpon>Profile.variables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\main\pages\user\kava\Kava.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="forms\main\pages\user\kava\Kava.Designer.cs">
       <DependentUpon>Kava.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\main\pages\user\kava\Kava.variables.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="forms\main\pages\user\piletid\Piletid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="forms\main\pages\user\piletid\Piletid.Designer.cs">
+      <DependentUpon>Piletid.cs</DependentUpon>
     </Compile>
     <Compile Include="kinorakendusDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -145,14 +197,20 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="forms\main\pages\admin\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="core\models\database\readme.txt" />
     <Content Include="other\database\readme.txt" />
     <Content Include="other\fonts\jaro\readme.txt" />
     <Content Include="other\images\avatars\zxccat.jpg" />
+    <Content Include="other\images\form-default\denied.png" />
+    <Content Include="other\images\form-default\pencil.png" />
     <Content Include="other\images\form-default\profile.png" />
+    <Content Include="other\images\posters\drive.jpg" />
     <Content Include="other\images\posters\joker.jpg" />
+    <Content Include="other\images\posters\the-batman.jpg" />
     <Content Include="other\sql-queries\tables.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

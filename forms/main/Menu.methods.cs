@@ -1,4 +1,5 @@
-﻿using System;
+﻿using KinoRakendus.core.controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,9 @@ namespace KinoRakendus.forms.main
 {
     public partial class Menu
     {
-        public void ChangeUserControl
+        public void OpenPage(PageUserControl page)
         {
-
+            return;
         }
     }
 }

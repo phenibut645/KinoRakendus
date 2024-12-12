@@ -1,6 +1,6 @@
-﻿namespace KinoRakendus.forms.main.UserControls
+﻿namespace KinoRakendus.forms.main.pages
 {
-    partial class Kava
+    partial class Piletid
     {
         /// <summary> 
         /// Required designer variable.

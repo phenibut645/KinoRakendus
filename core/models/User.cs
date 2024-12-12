@@ -3,6 +3,8 @@ using KinoRakendus.core.models.database;
 using KinoRakendus.core.utils;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,8 +17,8 @@ namespace KinoRakendus.core.models
         string name;
         string password;
         public Rolls roll;
-        string picture;
-        string vanus;
+        public string picture;
+        public string vanus;
         public User(string name, string password, Rolls role)
         {
             this.name = name;

@@ -1,33 +1,21 @@
-﻿using KinoRakendus.core.utils;
+﻿using KinoRakendus.core.controls;
+using KinoRakendus.core.utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace KinoRakendus.forms.main
 {
     public partial class Menu
     {
-        public void kavaButton_click(object sender, EventArgs e)
+        public void ChangePage(PageUserControl page)
         {
-            ActiveButton.BackColor = ColorManagment.UnActiveButton;
-            ActiveButton.ForeColor = ColorManagment.UnActiveButtonFontColor;
-
-            
-            return;
-        }
-        public void piletidButton_click(object sender, EventArgs args)
-        {
-            return;
-        }
-        public void balanceButton_click(object sender, EventArgs args)
-        {
-            return;
-        }
-        public void historyButton_click(object sender, EventArgs eventArgs)
-        {
-            return;
+            this.MainPage = page;
+            this.Controls.Add(MainPage);
+            MainPage.Show();
         }
     }
 }

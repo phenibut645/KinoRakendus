@@ -13,14 +13,17 @@ namespace KinoRakendus.core.controls
     public class HeaderButton: TypeButton
     {
         public bool IsActive { get; set; }
+        public PageUserControl Page { get; set; } = null;
 
         public HeaderButton(Buttons type) : base(type)
         {
             IsActive = true;
             this.Font = FontManager.GetFont(19);
-            this.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FlatStyle = FlatStyle.Flat;
             this.FlatAppearance.BorderSize = 0;
             ChangeActiveStatus();
+            this.Text = type.ToString();
+            this.Size = new System.Drawing.Size(287, 73);
         }
         public void ChangeTextSize(int size)
         {
@@ -30,7 +33,6 @@ namespace KinoRakendus.core.controls
         {
             if (IsActive)
             {
-
                 IsActive = false;
                 this.BackColor = ColorManagment.UnActiveButton;
                 this.ForeColor = ColorManagment.UnActiveButtonFontColor;

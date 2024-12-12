@@ -11,13 +11,16 @@ using KinoRakendus.core.enums;
 using KinoRakendus.core.models;
 using KinoRakendus.core.interfaces;
 using KinoRakendus.core.models.database;
+using System.Runtime.InteropServices;
 
 
 namespace KinoRakendus.core.utils
 {
+
     public static class DBHandler
     {
-        public static string ConnectionString { get; private set; } = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=kinorakendus;Integrated Security=True";
+
+        public static string ConnectionString { get; private set; } = @"Data Source=DESKTOP-O697USL;Initial Catalog=kinorakendus;Integrated Security=True;Encrypt=True;TrustServerCertificate=True;";
 
         public static User CheckUser(string username, string password)
         {
@@ -59,6 +62,7 @@ namespace KinoRakendus.core.utils
             List<T> datas = new List<T>();
             string tableName = new T().tableName;
             string sql = $"SELECT * FROM {tableName}";
+            
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
@@ -72,10 +76,20 @@ namespace KinoRakendus.core.utils
                     List<string> values = new List<string>();
                     foreach(string field in data.GetFields())
                     {
+                        DataColumnCollection columns = dt.Rows[i].Table.Columns;
+                        foreach (DataColumn column in columns)
+                        {
+                            Console.WriteLine($"Имя столбца: {column.ColumnName}");
+                        }
+
+                        Console.WriteLine(dt.Rows[i]);
                         data[field] = dt.Rows[i][field].ToString();
+
                     }
                     datas.Add(data);
+                    
                 }
+                Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n");
             }
             return datas;
         }

@@ -21,6 +21,7 @@ namespace KinoRakendus.forms.main
             this.ClientSize = new Size(1720, 980);
             this.User = user;
             InitAll();
+            HeaderHandler.Form = this;
         }
     }
 }

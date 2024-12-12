@@ -17,5 +17,13 @@ namespace KinoRakendus.core.utils
         public static Color CardBackground { get; private set; } = ColorTranslator.FromHtml("#313276");
         public static Color LineBetweenButtons { get; private set; } = ColorTranslator.FromHtml("#313276");
         public static Color UnActiveButtonFontColor { get; private set; } = ColorTranslator.FromHtml("#9A9A9A");
+        public static Color HeaderBackGround { get; private set; } = Color.FromArgb(100,56,57,144);
+        public static Color MovieCardHeader { get; private set; } = ColorTranslator.FromHtml("#B5BFDD");
+        public static Color MoveCardBackground { get; private set; } = Color.FromArgb(100, 49, 50, 118);
+        public static Color MovieCardBorder { get; private set;} = ColorTranslator.FromHtml("#383990");
+        public static Color InvisibleBackGround { get; private set;} = Color.FromArgb(0, 0, 0, 0);
+        public static Color MovieCardOption { get; private set; } = ColorTranslator.FromHtml("#5B6172");
+        public static Color MovieCardOptionValue { get; private set; } = ColorTranslator.FromHtml("#FFFFFF");
+        public static Color OptionField { get; set; } = Color.FromArgb(60, 66, 119, 27);
     }
 }

@@ -20,11 +20,7 @@ namespace KinoRakendus.forms.main
         
 
         // buttons in header
-        public HeaderButton PiletidButton { get; set; } = new HeaderButton(Buttons.Piletid);
-        public HeaderButton KavaButton { get; set; } = new HeaderButton(Buttons.Kava);
-        public HeaderButton Profile { get; set; } = new HeaderButton(Buttons.Profile);
-        public HeaderButton Piletid { get; set; } = new HeaderButton(Buttons.Piletid);
-        public HeaderButton Balance { get; set; } = new HeaderButton(Buttons.Balance);
-        public HeaderButton History { get; set; } = new HeaderButton(Buttons.History);
+
+        public HeaderButton Profile { get; set; }
     }
 }

@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace KinoRakendus.forms.main.pages
 {
-    public partial class Piletid : PageUserControl
+    public partial class Saalid : PageUserControl
     {
-        public Piletid(): base()
+        public Saalid()
         {
         }
     }

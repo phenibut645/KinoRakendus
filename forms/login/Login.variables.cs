@@ -24,7 +24,7 @@ namespace KinoRakendus
         public Button SubmitButton { get; private set; }
         
         //public Font MaintFont { get; private set; } =new Font("Arial", 19);
-        public Font MaintFont { get; private set; } = FontManager.GetFont(19);
+        public Font MaintFont { get; private set; } = core.utils.DefaultFonts.GetFont(19);
         
     }
 }

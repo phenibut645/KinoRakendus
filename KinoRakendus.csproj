@@ -55,11 +55,11 @@
     <Compile Include="core\controls\AvatarChangeAbility.Designer.cs">
       <DependentUpon>AvatarChangeAbility.cs</DependentUpon>
     </Compile>
-    <Compile Include="core\controls\ChangeButton.cs">
+    <Compile Include="core\controls\buttons\ChangeButton.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="core\controls\HeaderButton.cs">
-      <SubType>Component</SubType>
+    <Compile Include="core\controls\buttons\HeaderButton.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="core\controls\moviecard\MovieCard.cs">
       <SubType>UserControl</SubType>
@@ -85,23 +85,23 @@
     <Compile Include="core\controls\PageUserControl.Designer.cs">
       <DependentUpon>PageUserControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="core\controls\TypeButton.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="core\enums\Buttons.cs" />
+    <Compile Include="core\enums\HeaderButtonType.cs" />
     <Compile Include="core\enums\OptionType.cs" />
     <Compile Include="core\enums\Rolls.cs" />
     <Compile Include="core\interfaces\Table.cs" />
     <Compile Include="core\models\database\Film.cs" />
     <Compile Include="core\models\database\Filmizanres.cs" />
     <Compile Include="core\models\database\Kasutaja.cs" />
-    <Compile Include="core\utils\ColorManagment.cs" />
+    <Compile Include="core\models\PageDataTemplate.cs" />
+    <Compile Include="core\presets\DefaultColors.cs" />
+    <Compile Include="core\presets\DefaultPageTemplates.cs" />
+    <Compile Include="core\presets\DefaultScales.cs" />
     <Compile Include="core\utils\DBHandler.cs" />
-    <Compile Include="core\utils\FontManager.cs" />
+    <Compile Include="core\presets\DefaultFonts.cs" />
     <Compile Include="core\utils\FormsHandler.cs" />
     <Compile Include="core\models\User.cs" />
-    <Compile Include="core\utils\ImagesManager.cs" />
-    <Compile Include="core\utils\PathsManager.cs" />
+    <Compile Include="core\presets\DefaultImages.cs" />
+    <Compile Include="core\presets\DefaultPaths.cs" />
     <Compile Include="core\utils\RolesManagment.cs" />
     <Compile Include="core\utils\HeaderHandler.cs" />
     <Compile Include="forms\login\Login.cs">
@@ -137,6 +137,39 @@
     <Compile Include="forms\main\Menu.variables.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="forms\main\pages\admin\Filmid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="forms\main\pages\admin\Filmid.Designer.cs">
+      <DependentUpon>Filmid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\main\pages\admin\Kasutajad.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="forms\main\pages\admin\Kasutajad.Designer.cs">
+      <DependentUpon>Kasutajad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\main\pages\admin\Saalid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="forms\main\pages\admin\Saalid.Designer.cs">
+      <DependentUpon>Saalid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\main\pages\admin\Seansid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="forms\main\pages\admin\Seansid.Designer.cs">
+      <DependentUpon>Seansid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\main\pages\admin\Zanrid.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="forms\main\pages\admin\Zanrid.Designer.cs">
+      <DependentUpon>Zanrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\main\pages\common\More.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="forms\main\pages\common\Profile.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -158,10 +191,10 @@
     <Compile Include="forms\main\pages\user\piletid\Piletid.Designer.cs">
       <DependentUpon>Piletid.cs</DependentUpon>
     </Compile>
-    <Compile Include="kinorakendusDataSet1.Designer.cs">
+    <Compile Include="kinorakendusDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>kinorakendusDataSet1.xsd</DependentUpon>
+      <DependentUpon>kinorakendusDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -174,16 +207,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="kinorakendusDataSet1.xsc">
-      <DependentUpon>kinorakendusDataSet1.xsd</DependentUpon>
+    <None Include="kinorakendusDataSet.xsc">
+      <DependentUpon>kinorakendusDataSet.xsd</DependentUpon>
     </None>
-    <None Include="kinorakendusDataSet1.xsd">
+    <None Include="kinorakendusDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>kinorakendusDataSet1.Designer.cs</LastGenOutput>
+      <LastGenOutput>kinorakendusDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="kinorakendusDataSet1.xss">
-      <DependentUpon>kinorakendusDataSet1.xsd</DependentUpon>
+    <None Include="kinorakendusDataSet.xss">
+      <DependentUpon>kinorakendusDataSet.xsd</DependentUpon>
     </None>
     <None Include="other\database\files\HOME\kinorakendus.bak" />
     <None Include="other\database\files\TTHK\kinorakendus.bak" />
@@ -201,17 +234,24 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="forms\main\pages\admin\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="core\models\database\readme.txt" />
     <Content Include="other\database\readme.txt" />
     <Content Include="other\fonts\jaro\readme.txt" />
+    <Content Include="other\images\avatars\serega_pirat.jpg" />
     <Content Include="other\images\avatars\zxccat.jpg" />
+    <Content Include="other\images\form-default\clapper-open.png" />
     <Content Include="other\images\form-default\denied.png" />
+    <Content Include="other\images\form-default\eye.png" />
+    <Content Include="other\images\form-default\home.png" />
+    <Content Include="other\images\form-default\menu-burger.png" />
     <Content Include="other\images\form-default\pencil.png" />
     <Content Include="other\images\form-default\profile.png" />
+    <Content Include="other\images\form-default\receipt.png" />
+    <Content Include="other\images\form-default\stage-theatre.png" />
+    <Content Include="other\images\form-default\theater-masks.png" />
+    <Content Include="other\images\form-default\user-gear.png" />
     <Content Include="other\images\posters\drive.jpg" />
     <Content Include="other\images\posters\joker.jpg" />
     <Content Include="other\images\posters\the-batman.jpg" />

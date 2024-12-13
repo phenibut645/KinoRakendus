@@ -14,14 +14,15 @@ namespace KinoRakendus.forms.main.pages
 {
     public partial class Kava : PageUserControl
     {
-        public Kava()
+        public Kava(): base()
         {
-            this.Size = new Size(1720, 903);
-            this.Location = new Point(0, 77);
-            InitAll();
+
         }
-        public void InitAll()
+
+        public override void InitAll()
         {
+            base.InitAll();
+
             MainPanel = new Panel();
             this.Controls.Add(MainPanel);
             MainPanel.AutoScroll = true;

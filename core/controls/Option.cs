@@ -28,7 +28,7 @@ namespace KinoRakendus.core.controls
             OptionName.Text = optionName;
             OptionName.BackColor = ColorManagment.OptionField;
             OptionName.ForeColor = ColorManagment.MovieCardHeader;
-            OptionName.Font = FontManager.GetFont(22);
+            OptionName.Font = utils.DefaultFonts.GetFont(22);
             OptionName.Size = new Size(width, height);
             OptionName.Location = new Point(0, 0);
             OptionName.TextAlign = ContentAlignment.MiddleCenter;
@@ -39,7 +39,7 @@ namespace KinoRakendus.core.controls
             OptionValue.Text = optionValue;
             OptionValue.BackColor = ColorManagment.OptionValueField;
             OptionValue.ForeColor = Color.White;
-            OptionValue.Font = FontManager.GetFont(22);
+            OptionValue.Font = utils.DefaultFonts.GetFont(22);
             OptionValue.Size = new Size(width, height);
             OptionValue.ForeColor = Color.White;
             OptionValue.Location = new Point(OptionName.Width, 0);

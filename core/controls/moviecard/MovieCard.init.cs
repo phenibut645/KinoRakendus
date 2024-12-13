@@ -25,7 +25,7 @@ namespace KinoRakendus.core.controls
         private void InitHeaderText()
         {
             Header = new Label();
-            Header.Font = FontManager.GetFont(38);
+            Header.Font = utils.DefaultFonts.GetFont(38);
             Header.Size = new Size(385, 64);
             Header.BackColor = ColorManagment.InvisibleBackGround;
             Header.Location = new Point(309, 11);
@@ -36,7 +36,7 @@ namespace KinoRakendus.core.controls
         private void InitRunTime()
         {
             RunTimeLabel = new Label();
-            RunTimeLabel.Font = FontManager.GetFont(18);
+            RunTimeLabel.Font = utils.DefaultFonts.GetFont(18);
             RunTimeLabel.ForeColor = ColorManagment.MovieCardOption;
             RunTimeLabel.Text = "Kestvus";
             RunTimeLabel.Location = new Point(309, 171);
@@ -44,7 +44,7 @@ namespace KinoRakendus.core.controls
             RunTimeLabel.BackColor = ColorManagment.InvisibleBackGround;
 
             RunTime = new Label();
-            RunTime.Font = FontManager.GetFont(24);
+            RunTime.Font = utils.DefaultFonts.GetFont(24);
             RunTime.ForeColor = ColorManagment.MovieCardOptionValue;
             RunTime.Text = FilmTable["kestvus"];
             RunTime.Location = new Point(309, 194);
@@ -56,7 +56,7 @@ namespace KinoRakendus.core.controls
         private void InitButtonMore()
         {
             ButtonMore = new Button();
-            ButtonMore.Font = FontManager.GetFont(26);
+            ButtonMore.Font = utils.DefaultFonts.GetFont(26);
             ButtonMore.Text = "Rohkem";
             ButtonMore.BackColor = ColorManagment.InputColors;
             ButtonMore.Size = new Size(186, 67);
@@ -80,7 +80,7 @@ namespace KinoRakendus.core.controls
             }
 
             GenreLabel = new Label();
-            GenreLabel.Font = FontManager.GetFont(18);
+            GenreLabel.Font = utils.DefaultFonts.GetFont(18);
             GenreLabel.ForeColor = ColorManagment.MovieCardOption;
             GenreLabel.Text = "Zanrid";
             GenreLabel.Location = new Point(309, 101);
@@ -88,7 +88,7 @@ namespace KinoRakendus.core.controls
             GenreLabel.BackColor = ColorManagment.InvisibleBackGround;
 
             Genre = new Label();
-            Genre.Font = FontManager.GetFont(24);
+            Genre.Font = utils.DefaultFonts.GetFont(24);
             Genre.ForeColor = ColorManagment.MovieCardOptionValue;
             Genre.Text = String.Join(", ", zanrid.ToArray());
             Genre.Location = new Point(309, 126);
@@ -102,7 +102,7 @@ namespace KinoRakendus.core.controls
             Poster = new PictureBox();
             Poster.Size = new Size(271, 406);
             Poster.SizeMode = PictureBoxSizeMode.Zoom;
-            Poster.Image = ImagesManager.GetPoster(FilmTable);
+            Poster.Image = DefaultImages.GetPoster(FilmTable);
             this.Controls.Add(Poster);
         }
         private void InitLines()

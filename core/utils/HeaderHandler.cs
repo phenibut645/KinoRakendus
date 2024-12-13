@@ -8,86 +8,73 @@ using System.Windows.Forms;
 using KinoRakendus.core.enums;
 using KinoRakendus.forms.main.pages;
 using KinoRakendus.core.models;
+using System.Runtime.CompilerServices;
 
 namespace KinoRakendus.core.utils
 {
     public delegate void ChangePage(PageUserControl userControl);
     public static class HeaderHandler
     {
-        public static List<HeaderButton> ButtonsInHeader { get; private set;}
+        public static List<HeaderButton> ButtonsInHeader { get; private set;} = null;
         public static HeaderButton ActiveButton { get; private set; } = null;
+
         public static event ChangePage Notify;
-        public static forms.main.Menu Form { get; set; }
+        public static forms.main.Menu Form { get; set; } = null;
 
-
-        public static void LoadButtons(List<HeaderButton> buttons)
+        static HeaderHandler()
         {
-            ButtonsInHeader = buttons;
-            foreach(HeaderButton button in ButtonsInHeader)
+            if(Form != null)
             {
-                button.Click += button_click;
+
             }
-
         }
-        public static void PageSwitch(HeaderButton button)
+        public static bool IsButtonLoaded(HeaderButton button)
         {
-            if(ActiveButton != null)
+            if(ButtonsInHeader != null)
             {
-                if(ActiveButton.Page != null)
+                foreach(HeaderButton headerButton in ButtonsInHeader)
                 {
-                    ActiveButton.Page.Hide();
+                    if(headerButton == button) return true;
                 }
-                ActiveButton.ChangeActiveStatus();
-                ActiveButton = button;
-                if (ActiveButton.Page == null)ActiveButton.Page = GetUserControl(ActiveButton.Type);
-                Form.ChangePage(ActiveButton.Page);
-                ActiveButton.ChangeActiveStatus();
             }
-            else
-            {
-                ActiveButton = button;
-                ActiveButton.ChangeActiveStatus();
-                if (ActiveButton.Page == null) ActiveButton.Page = GetUserControl(ActiveButton.Type);
-                Form.ChangePage(ActiveButton.Page);
-            }
+            else throw new Exception("The buttons haven't been loaded.");
+            return false;
         }
-        private static void button_click(object sender, EventArgs e)
+        private static void headerButton_click(object sender, MouseEventArgs e)
         {
-            HeaderButton button = sender as HeaderButton;
+            
+            HeaderButton button = (HeaderButton)sender;
             if(button != null)
             {
-                PageSwitch(button);
-            }
-        }
-        public static PageUserControl GetUserControl(Buttons buttonType)
-        {
-            switch (buttonType)
-            {
-                case Buttons.Kava:
-                    return new Kava();
-                case Buttons.Piletid:
-                    return new Piletid();
-                case Buttons.Profile:
-                    return new Profile(Form.User);
-                default:
-                    return null;
-            }
-        }
-        public static void SetButton<T> (T button, User user) where T: TypeButton
-        {
-            Buttons typeButton = button.Type;
+                Console.WriteLine($"the click event have been called by {button.Name.Text} button");
 
-            switch (typeButton)
-            {
-                case Buttons.Kava:
-                    button.Window = new Kava();
-                    return;
-                case Buttons.Profile:
-                    button.Window = new Profile(user);
-                    return;
-                default:
-                    return;
+                if(Form != null)
+                {
+                    if (IsButtonLoaded(button))
+                    {
+                        Console.WriteLine($"{button.Page} bruh");
+                        Form.ChangePage(button.Page);
+                        if (ActiveButton != null) ActiveButton.ChangeActiveStatusAuto();
+                        button.ChangeActiveStatusAuto();
+                        ActiveButton = button;
+                    }
+                }
+                else throw new Exception("The form wasn't given.");
             }
+        }
+        public static void LoadButtons(List<HeaderButton> buttons)
+        {
+            if(Form != null)
+            {
+                ButtonsInHeader = buttons;
+                foreach(HeaderButton button in buttons)
+                {
+                    Console.WriteLine($"{button.Name.Text} button has been added with {button.Page}");
+                    button.AddMethodOnClick(headerButton_click);
+                }
+            }
+            else throw new Exception("A form wasn't given to 'Header Handler' class.");
+
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using KinoRakendus.core.controls;
+using KinoRakendus.core.models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,9 +12,9 @@ using System.Windows.Forms;
 
 namespace KinoRakendus.forms.main.pages
 {
-    public partial class Piletid : PageUserControl
+    public partial class Filmid : PageUserControl
     {
-        public Piletid(): base()
+        public Filmid(): base()
         {
         }
     }

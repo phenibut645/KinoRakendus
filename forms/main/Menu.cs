@@ -17,11 +17,12 @@ namespace KinoRakendus.forms.main
         public User User { get; private set; }
         public Menu(User user)
         {
+            HeaderHandler.Form = this;
+
             this.BackColor = ColorManagment.BackGroundColor;
             this.ClientSize = new Size(1720, 980);
             this.User = user;
             InitAll();
-            HeaderHandler.Form = this;
         }
     }
 }

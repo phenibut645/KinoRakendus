@@ -10,11 +10,11 @@ using System.IO;
 
 namespace KinoRakendus.core.utils
 {
-    public static class FontManager
+    public static class DefaultFonts
     {
         public static PrivateFontCollection jaroRegualr;
 
-        static FontManager()
+        static DefaultFonts()
         {
             PrivateFontCollection font = new PrivateFontCollection();
             font.AddFontFile(Path.GetFullPath(Path.Combine(Application.StartupPath, @"..\..\other\fonts\jaro\Jaro-Regular.ttf")));

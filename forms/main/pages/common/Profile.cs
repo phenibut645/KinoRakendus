@@ -18,6 +18,7 @@ namespace KinoRakendus.forms.main.pages
     public partial class Profile : PageUserControl
     {
         public User User { get; set; }
+
         public AvatarChangeAbility ACA;
         public Option VanusOption { get; set; }
         public Option RollOption { get; set; }
@@ -25,16 +26,22 @@ namespace KinoRakendus.forms.main.pages
         public Label UserName { get; set; }
         public Panel MainContainer { get; set; }
         public Button Logout { get; set; }
+        public Profile(): base() { } 
         public Profile(User user)
         {
             this.Size = new Size(1720, 903);
             User = user;
+            
+        }
+        public override void InitAll()
+        {
+            base.InitAll();
             MainContainer = new Panel();
             this.Controls.Add(MainContainer);
             MainContainer.Size = new Size(757, 782);
             MainContainer.Location = new Point(480, 31);
 
-            ACA = new AvatarChangeAbility(user);
+            ACA = new AvatarChangeAbility(User);
             MainContainer.Controls.Add(ACA);
             ACA.Location = new Point(315, 60);
 
@@ -44,7 +51,7 @@ namespace KinoRakendus.forms.main.pages
             MainContainer.Controls.Add(VanusOption);
             VanusOption.Location = new Point(196, 296);
 
-            RollOption = new Option(OptionType.Default, "Roll", user.roll.ToString());
+            RollOption = new Option(OptionType.Default, "Roll", User.roll.ToString());
             MainContainer.Controls.Add(RollOption);
             RollOption.Location = new Point(196, 379);
 
@@ -60,7 +67,7 @@ namespace KinoRakendus.forms.main.pages
             UserName.TextAlign = ContentAlignment.MiddleCenter;
             UserName.Location = new Point(MainContainer.Width / 2 - UserName.Width / 2, 195);
             MainContainer.Controls.Add(UserName);
-            UserName.Font = FontManager.GetFont(34);
+            UserName.Font = core.utils.DefaultFonts.GetFont(34);
 
             Logout = new Button();
         }

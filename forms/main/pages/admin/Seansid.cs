@@ -11,10 +11,11 @@ using System.Windows.Forms;
 
 namespace KinoRakendus.forms.main.pages
 {
-    public partial class Piletid : PageUserControl
+    public partial class Seansid : PageUserControl
     {
-        public Piletid(): base()
+        public Seansid() : base()
         {
+
         }
     }
 }

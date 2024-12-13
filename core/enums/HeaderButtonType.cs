@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace KinoRakendus.core.enums
 {
-    public enum Buttons
+    public enum HeaderButtonType
     {
-        Kava, Piletid, Balance, History, Profile
+        Default, Profile, More
     }
 }

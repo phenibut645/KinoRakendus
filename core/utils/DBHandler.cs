@@ -20,14 +20,18 @@ namespace KinoRakendus.core.utils
     public static class DBHandler
     {
 
-        public static string ConnectionString { get; private set; } = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=kinorakendus;Integrated Security=True";
+        public static string ConnectionString { get; private set; } = @"Data Source=DESKTOP-O697USL;Initial Catalog=kinorakendus;Integrated Security=True;Encrypt=True;TrustServerCertificate=True;";
 
         public static User CheckUser(string username, string password)
         {
             List<Kasutaja> users = GetTableData<Kasutaja>();
-            
             foreach(Kasutaja user in users)
             {
+                Console.WriteLine(user["nimi"]);
+            }
+            foreach(Kasutaja user in users)
+            {
+                
                 User advancedUser = User.ConvertUser(user);
                 if(advancedUser.Check(username, password))
                 {
@@ -76,20 +80,11 @@ namespace KinoRakendus.core.utils
                     List<string> values = new List<string>();
                     foreach(string field in data.GetFields())
                     {
-                        DataColumnCollection columns = dt.Rows[i].Table.Columns;
-                        foreach (DataColumn column in columns)
-                        {
-                            Console.WriteLine($"Имя столбца: {column.ColumnName}");
-                        }
-
-                        Console.WriteLine(dt.Rows[i]);
                         data[field] = dt.Rows[i][field].ToString();
-
                     }
                     datas.Add(data);
                     
                 }
-                Console.WriteLine("\n\n\n\n\n\n\n\n\n\n\n");
             }
             return datas;
         }

@@ -36,7 +36,7 @@ namespace KinoRakendus.core.controls
             Avatar.Size = new Size(121, 121);
             Avatar.Location = new Point(0, 0);
             Avatar.BackColor = Color.Yellow;
-            Avatar.Image = ImagesManager.GetAvatar(User);
+            Avatar.Image = DefaultImages.GetAvatar(User);
             Avatar.BackColor = ColorManagment.InvisibleBackGround;
             this.Controls.Add(Avatar);
             
@@ -46,7 +46,7 @@ namespace KinoRakendus.core.controls
             ChangeButton = new Button();
             ChangeButton.Size = new Size(26, 27);
             
-            ChangeButton.BackgroundImage = ImagesManager.GetDefaultImage("pencil.png");
+            ChangeButton.BackgroundImage = DefaultImages.GetDefaultImage("pencil.png");
             ChangeButton.BackColor = ColorManagment.InvisibleBackGround;
 
             ChangeButton.Location = new Point(88, 87);

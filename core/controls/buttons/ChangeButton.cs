@@ -22,8 +22,8 @@ namespace KinoRakendus.core.controls
             }
             set
             {
-                if (value) Button.BackgroundImage = ImagesManager.GetDefaultImage("pencil.png");
-                else Button.BackgroundImage = ImagesManager.GetDefaultImage("denied.png");
+                if (value) Button.BackgroundImage = DefaultImages.GetDefaultImage("pencil.png");
+                else Button.BackgroundImage = DefaultImages.GetDefaultImage("denied.png");
                 _abailable = value;
                 Button.Enabled = value;
             }
@@ -44,7 +44,5 @@ namespace KinoRakendus.core.controls
             }
             this.Controls.Add(Button);
         }
-
-
     }
 }

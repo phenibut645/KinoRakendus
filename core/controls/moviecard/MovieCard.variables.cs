@@ -18,7 +18,7 @@ namespace KinoRakendus.core.controls
         { 
             new List<int>(){787, 6 } , new List<int>(){6, 406}, new List<int>(){787, 6}, new List<int>(){6, 406}, new List<int>(){6, 406}
         };
-        public string PostersPath { get; set; } = PathsManager.PostersPath;
+        public string PostersPath { get; set; } = DefaultPaths.PostersPath;
         public int LineThickness { get; set; } = 6;
 
         // Components

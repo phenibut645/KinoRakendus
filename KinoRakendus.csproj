@@ -55,6 +55,9 @@
     <Compile Include="core\controls\AvatarChangeAbility.Designer.cs">
       <DependentUpon>AvatarChangeAbility.cs</DependentUpon>
     </Compile>
+    <Compile Include="core\controls\ChangeButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="core\controls\HeaderButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -86,6 +89,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="core\enums\Buttons.cs" />
+    <Compile Include="core\enums\OptionType.cs" />
     <Compile Include="core\enums\Rolls.cs" />
     <Compile Include="core\interfaces\Table.cs" />
     <Compile Include="core\models\database\Film.cs" />
@@ -133,6 +137,12 @@
     <Compile Include="forms\main\Menu.variables.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="forms\main\pages\common\Profile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="forms\main\pages\common\Profile.Designer.cs">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </Compile>
     <Compile Include="forms\main\pages\user\kava\Kava.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -148,10 +158,10 @@
     <Compile Include="forms\main\pages\user\piletid\Piletid.Designer.cs">
       <DependentUpon>Piletid.cs</DependentUpon>
     </Compile>
-    <Compile Include="kinorakendusDataSet.Designer.cs">
+    <Compile Include="kinorakendusDataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>kinorakendusDataSet.xsd</DependentUpon>
+      <DependentUpon>kinorakendusDataSet1.xsd</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -164,16 +174,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="kinorakendusDataSet.xsc">
-      <DependentUpon>kinorakendusDataSet.xsd</DependentUpon>
+    <None Include="kinorakendusDataSet1.xsc">
+      <DependentUpon>kinorakendusDataSet1.xsd</DependentUpon>
     </None>
-    <None Include="kinorakendusDataSet.xsd">
+    <None Include="kinorakendusDataSet1.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>kinorakendusDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>kinorakendusDataSet1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="kinorakendusDataSet.xss">
-      <DependentUpon>kinorakendusDataSet.xsd</DependentUpon>
+    <None Include="kinorakendusDataSet1.xss">
+      <DependentUpon>kinorakendusDataSet1.xsd</DependentUpon>
     </None>
     <None Include="other\database\files\HOME\kinorakendus.bak" />
     <None Include="other\database\files\TTHK\kinorakendus.bak" />
@@ -193,7 +203,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="forms\main\pages\admin\" />
-    <Folder Include="forms\main\pages\common\profile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="core\models\database\readme.txt" />

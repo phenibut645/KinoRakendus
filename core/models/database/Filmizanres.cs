@@ -17,17 +17,6 @@ namespace KinoRakendus.core.models.database
             {"film", null },
             {"zanr", null}
         };
-        //public string id
-        //{
-        //    get
-        //    {
-        //        return _data["id"];
-        //    }
-        //    set
-        //    {
-        //        _data["id"] = value;
-        //    }
-        //}
         public string this[string key]
         {
             get

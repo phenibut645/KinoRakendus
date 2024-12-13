@@ -75,6 +75,7 @@ namespace KinoRakendus.forms.main
                 this.Header.Controls.Add(line);
                 this.Header.Controls.Add(button);
             }
+            buttons.Add(Profile);
             HeaderHandler.LoadButtons(buttons);
 
         }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using KinoRakendus.core.enums;
 using KinoRakendus.forms.main.pages;
-using KinoRakendus.forms.main;
+using KinoRakendus.core.models;
 
 namespace KinoRakendus.core.utils
 {
@@ -67,11 +67,13 @@ namespace KinoRakendus.core.utils
                     return new Kava();
                 case Buttons.Piletid:
                     return new Piletid();
+                case Buttons.Profile:
+                    return new Profile(Form.User);
                 default:
                     return null;
             }
         }
-        public static void SetButton<T> (T button) where T: TypeButton
+        public static void SetButton<T> (T button, User user) where T: TypeButton
         {
             Buttons typeButton = button.Type;
 
@@ -79,6 +81,9 @@ namespace KinoRakendus.core.utils
             {
                 case Buttons.Kava:
                     button.Window = new Kava();
+                    return;
+                case Buttons.Profile:
+                    button.Window = new Profile(user);
                     return;
                 default:
                     return;

@@ -21,17 +21,6 @@ namespace KinoRakendus.core.models.database
             {"roll", null },
             {"pilt", null}
         };
-        //public string id
-        //{
-        //    get
-        //    {
-        //        return _data["id"];
-        //    }
-        //    set
-        //    {
-        //        _data["id"] = value;
-        //    }
-        //}
         public string this[string key]
         {
             get

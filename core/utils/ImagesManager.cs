@@ -24,6 +24,7 @@ namespace KinoRakendus.core.utils
         }
         public static Image GetDefaultImage(string name)
         {
+            Console.WriteLine(PathsManager.DefaultImagesPath);
             return Image.FromFile(Path.Combine(PathsManager.DefaultImagesPath, name));
         }
     }

@@ -24,6 +24,7 @@ namespace KinoRakendus.core.utils
         public static Color InvisibleBackGround { get; private set;} = Color.FromArgb(0, 0, 0, 0);
         public static Color MovieCardOption { get; private set; } = ColorTranslator.FromHtml("#5B6172");
         public static Color MovieCardOptionValue { get; private set; } = ColorTranslator.FromHtml("#FFFFFF");
-        public static Color OptionField { get; set; } = Color.FromArgb(60, 66, 119, 27);
+        public static Color OptionField { get; set; } = Color.FromArgb(60, 61, 66, 119);
+        public static Color OptionValueField { get; private set; } = Color.FromArgb(60, 51, 53, 80);
     }
 }

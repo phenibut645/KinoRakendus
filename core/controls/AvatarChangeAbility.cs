@@ -22,6 +22,7 @@ namespace KinoRakendus.core.controls
         {
             this.Size = new Size(121, 121);
             this.User = user;
+            InitAll();
         }
         private void InitAll()
         {
@@ -33,14 +34,20 @@ namespace KinoRakendus.core.controls
         {
             Avatar = new PictureBox();
             Avatar.Size = new Size(121, 121);
+            Avatar.Location = new Point(0, 0);
+            Avatar.BackColor = Color.Yellow;
             Avatar.Image = ImagesManager.GetAvatar(User);
+            Avatar.BackColor = ColorManagment.InvisibleBackGround;
+            this.Controls.Add(Avatar);
             
         }
         private void InitButton()
         {
             ChangeButton = new Button();
             ChangeButton.Size = new Size(26, 27);
+            
             ChangeButton.BackgroundImage = ImagesManager.GetDefaultImage("pencil.png");
+            ChangeButton.BackColor = ColorManagment.InvisibleBackGround;
 
             ChangeButton.Location = new Point(88, 87);
             ButtonContainer.Controls.Add(ChangeButton);
@@ -51,6 +58,7 @@ namespace KinoRakendus.core.controls
             ButtonContainer.Size = new Size(40, 40);
             ButtonContainer.Location = new Point(81, 81);
             ButtonContainer.BackColor = ColorManagment.OptionField;
+            this.Controls.Add(ButtonContainer);
         }
     }
 }

@@ -20,7 +20,7 @@ namespace KinoRakendus.core.utils
     public static class DBHandler
     {
 
-        public static string ConnectionString { get; private set; } = @"Data Source=DESKTOP-O697USL;Initial Catalog=kinorakendus;Integrated Security=True;Encrypt=True;TrustServerCertificate=True;";
+        public static string ConnectionString { get; private set; } = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=kinorakendus;Integrated Security=True";
 
         public static User CheckUser(string username, string password)
         {

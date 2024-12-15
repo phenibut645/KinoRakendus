@@ -26,5 +26,12 @@ namespace KinoRakendus.core.utils
         public static Color MovieCardOptionValue { get; private set; } = ColorTranslator.FromHtml("#FFFFFF");
         public static Color OptionField { get; set; } = Color.FromArgb(60, 61, 66, 119);
         public static Color OptionValueField { get; private set; } = Color.FromArgb(60, 51, 53, 80);
+        public static Color ModalBackground { get; private set; } = Color.FromArgb(22, 15, 16, 22);
+        public static Color MoreFilmBackground { get; private set; } = ColorTranslator.FromHtml("#272848");
+        public static Color IconBackgroundPurple { get; private set; } = ColorTranslator.FromHtml("#3D4277");
+        public static Color DefaultPanelColor { get; private set; } = ColorTranslator.FromHtml("#2A2B31");
+        public static Color DarkerDefaultPanelColor { get; private set; } = ColorTranslator.FromHtml("#26272B");
+        public static Color LightOptionsText { get; private set; } = ColorTranslator.FromHtml("#B5BFDD");
+        public static Color OptionValueBackground { get; private set; } = ColorTranslator.FromHtml("#333550");
     }
 }

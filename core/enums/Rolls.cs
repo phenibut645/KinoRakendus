@@ -8,6 +8,6 @@ namespace KinoRakendus.core.enums
 {
     public enum Rolls
     {
-        User, Admin, Worker
+        User, Admin, Worker, Guest
     }
 }

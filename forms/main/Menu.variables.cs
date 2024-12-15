@@ -8,6 +8,7 @@ using System.Runtime.CompilerServices;
 using KinoRakendus.core.enums;
 using KinoRakendus.core.controls;
 using System.IO;
+using KinoRakendus.core.models;
 
 namespace KinoRakendus.forms.main
 {
@@ -18,9 +19,5 @@ namespace KinoRakendus.forms.main
         public HeaderButton ActiveButton { get; set; }
         public PageUserControl MainPage { get; set; }
         
-
-        // buttons in header
-
-        public HeaderButton Profile { get; set; }
     }
 }

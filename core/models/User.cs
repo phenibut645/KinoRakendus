@@ -13,7 +13,7 @@ namespace KinoRakendus.core.models
 {
     public class User
     {
-        int id;
+        public int id;
         public string name;
         string password;
         public Rolls roll;

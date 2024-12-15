@@ -13,14 +13,14 @@ namespace KinoRakendus.core.models
     {
         public string ButtonName { get; set; }
         public PageUserControl Page { get; set; }
-        public Rolls Role { get; set; }
+        public List<Rolls> Role { get; set; }
         public HeaderButtonType Type { get; set; }
         public Image Icon { get; set; }
-        public PageDataTemplate(PageUserControl page, Rolls role, HeaderButtonType type, string buttonName = null, Image icon = null)
+        public PageDataTemplate(PageUserControl page, List<Rolls> roles, HeaderButtonType type, string buttonName = null, Image icon = null)
         {
             ButtonName = buttonName;
             Page = page;
-            Role = role;
+            Role = roles;
             Type = type;
             Icon = icon;
         }

@@ -8,6 +8,6 @@ namespace KinoRakendus.core.enums
 {
     public enum OptionType
     {
-        Default
+        Default, Select, Number
     }
 }

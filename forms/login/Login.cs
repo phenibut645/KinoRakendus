@@ -17,8 +17,9 @@ namespace KinoRakendus
     {
         public Login()
         {
+            this.Text = "Login";
             this.ClientSize = new Size(Width, Height);
-            this.InitAll();
+            this.InitLogin();
             this.FormBorderStyle = FormBorderStyle.Sizable;
             this.BackColor = ColorManagment.BackGroundColor;
         }

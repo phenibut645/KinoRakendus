@@ -16,5 +16,10 @@ namespace KinoRakendus.forms.main.pages
         public Zanrid()
         {
         }
+        public override void InitAll()
+        {
+            base.InitAll();
+            
+        }
     }
 }

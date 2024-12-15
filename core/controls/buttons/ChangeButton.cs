@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace KinoRakendus.core.controls
@@ -14,6 +15,20 @@ namespace KinoRakendus.core.controls
         public PictureBox Button { get; set; }
         public OptionType Type { get; set; }
         private bool _abailable = false;
+        private bool _inChange = false;
+        public bool InChange 
+        {
+            get
+            { 
+                return _inChange;
+            }
+            set
+            {
+                _inChange = value;
+                if (_inChange) this.Button.BackgroundImage = DefaultImages.GetDefaultImage("check.png");
+                else this.Button.BackgroundImage = DefaultImages.GetDefaultImage("pencil.png");
+            } 
+        }
         public bool Available
         {
             get
@@ -34,15 +49,19 @@ namespace KinoRakendus.core.controls
             Button = new PictureBox();
             Available = false;
             this.BackColor = ColorManagment.OptionField;
-            if (Type == OptionType.Default)
-            {
-                this.ClientSize = new System.Drawing.Size(49, 49);
-                Button.ClientSize = new System.Drawing.Size(32, 32);
-                Button.BackColor = ColorManagment.InvisibleBackGround;
-                Button.BackgroundImageLayout = ImageLayout.Zoom;
-                Button.Location = new System.Drawing.Point(this.ClientSize.Width / 2 - Button.ClientSize.Width / 2, this.ClientSize.Height / 2 - Button.ClientSize.Height / 2);
-            }
+
+            this.ClientSize = new System.Drawing.Size(49, 49);
+            Button.ClientSize = new System.Drawing.Size(32, 32);
+            Button.BackColor = ColorManagment.InvisibleBackGround;
+            Button.BackgroundImageLayout = ImageLayout.Zoom;
+            Button.Location = new System.Drawing.Point(this.ClientSize.Width / 2 - Button.ClientSize.Width / 2, this.ClientSize.Height / 2 - Button.ClientSize.Height / 2);
+
             this.Controls.Add(Button);
+        }
+        public void AddClick(EventHandler e)
+        {
+            Button.Click += e;
+            this.Click += e;
         }
     }
 }

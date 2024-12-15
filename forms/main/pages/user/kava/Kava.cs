@@ -19,6 +19,8 @@ namespace KinoRakendus.forms.main.pages
 
         }
 
+        
+
         public override void InitAll()
         {
             base.InitAll();

@@ -12,26 +12,23 @@ using KinoRakendus.core.models;
 using KinoRakendus.core.enums;
 using System.Runtime.InteropServices;
 using KinoRakendus.core.utils;
-
+using KinoRakendus.core.context;
+using KinoRakendus.core.controls.buttons;
+using KinoRakendus.core.models.database;
 namespace KinoRakendus.forms.main.pages
 {
     public partial class Profile : PageUserControl
     {
-        public User User { get; set; }
-
         public AvatarChangeAbility ACA;
-        public Option VanusOption { get; set; }
-        public Option RollOption { get; set; }
-        public Option SalaSonaOption { get; set; }
+        public Option<Kasutaja> VanusOption { get; set; }
+        public Option<Kasutaja> RollOption { get; set; }
+        public Option<Kasutaja> SalaSonaOption { get; set; }
         public Label UserName { get; set; }
         public Panel MainContainer { get; set; }
-        public Button Logout { get; set; }
-        public Profile(): base() { } 
-        public Profile(User user)
+        public LogoutButton Logout { get; set; }
+        public Profile(): base()
         {
             this.Size = new Size(1720, 903);
-            User = user;
-            
         }
         public override void InitAll()
         {
@@ -41,27 +38,27 @@ namespace KinoRakendus.forms.main.pages
             MainContainer.Size = new Size(757, 782);
             MainContainer.Location = new Point(480, 31);
 
-            ACA = new AvatarChangeAbility(User);
+            ACA = new AvatarChangeAbility(FormAppContext.CurrentUser);
             MainContainer.Controls.Add(ACA);
             ACA.Location = new Point(315, 60);
 
-
-            VanusOption = new Option(OptionType.Default, "Vanus", User.vanus.ToString());
+            Kasutaja kasutaja = DBHandler.GetRecord<Kasutaja>(new List<WhereField>() { new WhereField("id", FormAppContext.CurrentUser.id.ToString()) });
+            VanusOption = new Option<Kasutaja>(kasutaja, "vanus", OptionType.Number, "Vanus");
             VanusOption.Button.Available = true;
             MainContainer.Controls.Add(VanusOption);
             VanusOption.Location = new Point(196, 296);
 
-            RollOption = new Option(OptionType.Default, "Roll", User.roll.ToString());
+            RollOption = new Option<Kasutaja>(kasutaja, "roll", OptionType.Default, "Roll");
             MainContainer.Controls.Add(RollOption);
             RollOption.Location = new Point(196, 379);
 
-            SalaSonaOption = new Option(OptionType.Default, "Salasõna", "******");
+            SalaSonaOption = new Option<Kasutaja>(kasutaja, "salasona", OptionType.Default, "Salasõna");
             SalaSonaOption.Button.Available = true;
             MainContainer.Controls.Add(SalaSonaOption);
             SalaSonaOption.Location = new Point(196, 462);
 
             UserName = new Label();
-            UserName.Text = User.name;
+            UserName.Text = FormAppContext.CurrentUser.name;
             UserName.ForeColor = Color.White;
             UserName.Size = new Size(500, 60);
             UserName.TextAlign = ContentAlignment.MiddleCenter;
@@ -69,7 +66,9 @@ namespace KinoRakendus.forms.main.pages
             MainContainer.Controls.Add(UserName);
             UserName.Font = core.utils.DefaultFonts.GetFont(34);
 
-            Logout = new Button();
+            Logout = new LogoutButton(348, 77, 22);
+            Logout.Location = new Point(MainContainer.Width / 2 - Logout.Width / 2, 589);
+            MainContainer.Controls.Add(Logout);
         }
     }
 }

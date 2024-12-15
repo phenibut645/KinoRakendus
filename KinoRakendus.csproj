@@ -49,6 +49,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="core\context\FormAppContext.cs" />
+    <Compile Include="core\controls\admin-default-manager-page\AdminDefaultManagerPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="core\controls\admin-default-manager-page\AdminDefaultManagerPage.Designer.cs">
+      <DependentUpon>AdminDefaultManagerPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="core\controls\admin-default-manager-page\AdminDefaultManagerPage.init.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="core\controls\admin-default-manager-page\AdminDefaultManagerPage.methods.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="core\controls\admin-default-manager-page\AdminDefaultManagerPage.variables.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="core\controls\admin-default-manager-page\AdminDefaultManagerPage.variables.Designer.cs">
+      <DependentUpon>AdminDefaultManagerPage.variables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="core\controls\AdvancedOption.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="core\controls\AvatarChangeAbility.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -59,6 +81,24 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="core\controls\buttons\HeaderButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="core\controls\buttons\LogoutButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="core\controls\buttons\OptionButton.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="core\controls\buttons\SelectOptionButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="core\controls\moviecard\MovieCard.methods.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="core\controls\SelectControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="core\controls\SplittedSelectOptinos.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="core\controls\moviecard\MovieCard.cs">
@@ -85,20 +125,43 @@
     <Compile Include="core\controls\PageUserControl.Designer.cs">
       <DependentUpon>PageUserControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="core\enums\AdminPageType.cs" />
+    <Compile Include="core\enums\AdvancedOptionType.cs" />
     <Compile Include="core\enums\HeaderButtonType.cs" />
     <Compile Include="core\enums\OptionType.cs" />
     <Compile Include="core\enums\Rolls.cs" />
-    <Compile Include="core\interfaces\Table.cs" />
+    <Compile Include="core\interfaces\ITable.cs" />
+    <Compile Include="core\models\SelectOption.cs" />
+    <Compile Include="forms\main\pages\admin\Skeem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="forms\main\pages\admin\Skeem.Designer.cs">
+      <DependentUpon>Skeem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\main\pages\foreign\morefilm\MoreFilm.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="forms\main\pages\foreign\morefilm\MoreFilm.Designer.cs">
+      <DependentUpon>MoreFilm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\main\pages\foreign\morefilm\MoreFilm.init.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="forms\main\pages\foreign\morefilm\MoreFilm.variables.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="core\models\database\Film.cs" />
     <Compile Include="core\models\database\Filmizanres.cs" />
     <Compile Include="core\models\database\Kasutaja.cs" />
+    <Compile Include="core\models\database\Table.cs" />
     <Compile Include="core\models\PageDataTemplate.cs" />
+    <Compile Include="core\models\WhereField.cs" />
     <Compile Include="core\presets\DefaultColors.cs" />
     <Compile Include="core\presets\DefaultPageTemplates.cs" />
+    <Compile Include="core\presets\DefaultPositions.cs" />
     <Compile Include="core\presets\DefaultScales.cs" />
     <Compile Include="core\utils\DBHandler.cs" />
     <Compile Include="core\presets\DefaultFonts.cs" />
-    <Compile Include="core\utils\FormsHandler.cs" />
     <Compile Include="core\models\User.cs" />
     <Compile Include="core\presets\DefaultImages.cs" />
     <Compile Include="core\presets\DefaultPaths.cs" />
@@ -218,9 +281,8 @@
     <None Include="kinorakendusDataSet.xss">
       <DependentUpon>kinorakendusDataSet.xsd</DependentUpon>
     </None>
-    <None Include="other\database\files\HOME\kinorakendus.bak" />
-    <None Include="other\database\files\TTHK\kinorakendus.bak" />
     <None Include="other\fonts\jaro\Jaro-Regular.ttf" />
+    <None Include="other\fonts\jaro\Kanit-Regular.ttf" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -241,15 +303,35 @@
     <Content Include="other\fonts\jaro\readme.txt" />
     <Content Include="other\images\avatars\serega_pirat.jpg" />
     <Content Include="other\images\avatars\zxccat.jpg" />
+    <Content Include="other\images\form-default\check.png" />
+    <Content Include="other\images\form-default\circle-xmark.png" />
     <Content Include="other\images\form-default\clapper-open.png" />
     <Content Include="other\images\form-default\denied.png" />
+    <Content Include="other\images\form-default\edit.png" />
     <Content Include="other\images\form-default\eye.png" />
     <Content Include="other\images\form-default\home.png" />
     <Content Include="other\images\form-default\menu-burger.png" />
     <Content Include="other\images\form-default\pencil.png" />
+    <Content Include="other\images\form-default\plus-hexagon.png" />
     <Content Include="other\images\form-default\profile.png" />
+    <Content Include="other\images\form-default\random-background-images\at.png" />
+    <Content Include="other\images\form-default\random-background-images\badge-check.png" />
+    <Content Include="other\images\form-default\random-background-images\badge-percent.png" />
+    <Content Include="other\images\form-default\random-background-images\bulb.png" />
+    <Content Include="other\images\form-default\random-background-images\cake-birthday.png" />
+    <Content Include="other\images\form-default\random-background-images\car-crash.png" />
+    <Content Include="other\images\form-default\random-background-images\cloud-drizzle.png" />
+    <Content Include="other\images\form-default\random-background-images\comet.png" />
+    <Content Include="other\images\form-default\random-background-images\confetti.png" />
+    <Content Include="other\images\form-default\random-background-images\gem.png" />
+    <Content Include="other\images\form-default\random-background-images\globe.png" />
+    <Content Include="other\images\form-default\random-background-images\heart.png" />
+    <Content Include="other\images\form-default\random-background-images\running.png" />
+    <Content Include="other\images\form-default\random-background-images\star.png" />
+    <Content Include="other\images\form-default\random-background-images\tooth.png" />
     <Content Include="other\images\form-default\receipt.png" />
     <Content Include="other\images\form-default\stage-theatre.png" />
+    <Content Include="other\images\form-default\icon.ico" />
     <Content Include="other\images\form-default\theater-masks.png" />
     <Content Include="other\images\form-default\user-gear.png" />
     <Content Include="other\images\posters\drive.jpg" />

@@ -1,6 +1,10 @@
-﻿namespace KinoRakendus.core.controls
+﻿using KinoRakendus.core.interfaces;
+using KinoRakendus.core.models.database;
+using System.Windows.Forms;
+
+namespace KinoRakendus.core.controls
 {
-    partial class Option
+    partial class Option<T>: UserControl where T: Table, ITable, new()
     {
         /// <summary> 
         /// Required designer variable.

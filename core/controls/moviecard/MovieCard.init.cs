@@ -64,6 +64,7 @@ namespace KinoRakendus.core.controls
             ButtonMore.ForeColor = Color.White;
             ButtonMore.FlatStyle = FlatStyle.Flat;
             ButtonMore.FlatAppearance.BorderSize = 0;
+            ButtonMore.Click += buttonMore_clicked;
             this.Controls.Add(ButtonMore);
                                     
         }

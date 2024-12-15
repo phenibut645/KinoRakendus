@@ -5,10 +5,13 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KinoRakendus.core.context;
 using KinoRakendus.core.models;
+using KinoRakendus.core.models.database;
 using KinoRakendus.core.utils;
 namespace KinoRakendus.core.controls
 {
@@ -37,6 +40,7 @@ namespace KinoRakendus.core.controls
             Avatar.Location = new Point(0, 0);
             Avatar.BackColor = Color.Yellow;
             Avatar.Image = DefaultImages.GetAvatar(User);
+            Avatar.SizeMode = PictureBoxSizeMode.StretchImage;
             Avatar.BackColor = ColorManagment.InvisibleBackGround;
             this.Controls.Add(Avatar);
             
@@ -44,14 +48,48 @@ namespace KinoRakendus.core.controls
         private void InitButton()
         {
             ChangeButton = new Button();
-            ChangeButton.Size = new Size(26, 27);
+            ChangeButton.Size = new Size(26, 26);
             
             ChangeButton.BackgroundImage = DefaultImages.GetDefaultImage("pencil.png");
             ChangeButton.BackColor = ColorManagment.InvisibleBackGround;
-
-            ChangeButton.Location = new Point(88, 87);
+            ChangeButton.BackgroundImageLayout = ImageLayout.Stretch;
+            ChangeButton.Location = new Point(ButtonContainer.Width / 2 - ChangeButton.Width / 2, ButtonContainer.Height / 2 - ChangeButton.Height / 2);
+            ChangeButton.Click += button_Click;
             ButtonContainer.Controls.Add(ChangeButton);
 
+        }
+        private void button_Click(object sender, EventArgs e)
+        {
+            Image image;
+            using(OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Title = "Choose a photo";
+                openFileDialog.Filter = "Image Files|*.jpg;*.jpeg;*.png";
+                if(openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string sourceFilePath = openFileDialog.FileName;
+                    string fileName = Path.GetFileName(sourceFilePath);
+                    string destinationFilePath = Path.Combine(DefaultPaths.AvatarsPath, fileName);
+                    try
+                    {
+                        File.Copy(sourceFilePath, destinationFilePath, overwrite: true);
+
+                        image = DefaultImages.GetAvatar(fileName);
+                        Avatar.Image = image;
+                        Kasutaja kasutaja = DBHandler.GetRecord<Kasutaja>(new List<WhereField>() { new WhereField("id", FormAppContext.CurrentUser.id.ToString()) });
+                        DBHandler.UpdateUserData(
+                            kasutaja,
+                            "pilt",
+                            fileName
+                            );
+                        FormAppContext.CurrentUser.picture = fileName;
+                        HeaderHandler.AvatarChanged();
+                    }
+                    catch {
+                        MessageBox.Show("unluck");
+                    }
+                }
+            }
         }
         private void InitButtonContainer()
         {

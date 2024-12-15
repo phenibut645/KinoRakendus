@@ -19,12 +19,14 @@ namespace KinoRakendus
 
         public TextBox UserName { get; private set; }
         public TextBox Password { get; private set; }
+        public TextBox ConfirmPassword { get; private set; }
         public Label UserNameLabel { get; private set; }
         public Label PasswordLabel { get; private set; }
+        public Label ConfirmPasswordLabel { get; private set; }
         public Button SubmitButton { get; private set; }
-        
+        public Label SignInLabel { get; private set; }
         //public Font MaintFont { get; private set; } =new Font("Arial", 19);
-        public Font MaintFont { get; private set; } = core.utils.DefaultFonts.GetFont(19);
+        public Font MaintFont { get; private set; } = DefaultFonts.GetFont(19);
         
     }
 }

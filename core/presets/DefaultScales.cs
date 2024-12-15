@@ -15,5 +15,8 @@ namespace KinoRakendus.core.presets
 
         public static int MoreHeaderButtonWidth = 73;
         public static int MoreHeaderButtonHeight = 73;
+
+        public static int PageWidth = 1720;
+        public static int PageHeight = 903;
     }
 }

@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using KinoRakendus.core.presets;
 using KinoRakendus.core.models;
 using KinoRakendus.forms.main.pages;
+using KinoRakendus.core.context;
 namespace KinoRakendus.core.controls
 {
     public class HeaderButton: UserControl
@@ -34,12 +35,15 @@ namespace KinoRakendus.core.controls
         public Label IconLine { get; set; }
         public PageUserControl Page { get; set; } = null;
         public HeaderButtonType Type { get; set; }
-        public User User { get; set; }
-        public HeaderButton(PageUserControl page, HeaderButtonType type, string text = null, bool isActive = false, Image image = null, User user = null) 
+        public List<Rolls> RolesRequired { get; set; }
+        public PageDataTemplate PageDataTemplate { get; set; }
+        public bool Temp { get; set; }
+        public MouseEventHandler func { get; set; }
+        public HeaderButton(PageUserControl page, HeaderButtonType type,  List<Rolls> rollsRequired, PageDataTemplate pageDataTemplate = null, string text = null, bool isActive = false, Image image = null) 
         {
-            
+            RolesRequired = rollsRequired;
+            PageDataTemplate = pageDataTemplate;
             InitUserControl();
-            User = user;
             Type = type;
             Page = page;
             
@@ -56,9 +60,49 @@ namespace KinoRakendus.core.controls
             SetButton();
             IsActive = isActive;
         }
+        public HeaderButton(PageDataTemplate pageDataTemplate, bool isActive = false)
+        {
+            InitUserControl();
+            RolesRequired = pageDataTemplate.Role;
+            PageDataTemplate = pageDataTemplate;
+            Type = pageDataTemplate.Type;
+            Page = pageDataTemplate.Page;
+            if(Type == HeaderButtonType.Default && PageDataTemplate.ButtonName != null)
+            {
+                InitLabel();
+                Name.Text = PageDataTemplate.ButtonName;
+            }
+            if(PageDataTemplate.Icon != null)
+            {
+                InitIcon();
+                Icon.Image = PageDataTemplate.Icon;
+            }
+            SetButton();
+            IsActive = isActive;
+
+        }
         public void AddMethodOnClick(MouseEventHandler method)
         {
-            this.MouseDown += method;
+            this.MouseDown += button_Click;
+            foreach(Control control in this.Controls)
+            {
+                control.MouseDown += button_Click;
+            }
+            func = method;
+
+        }
+        public void button_Click(object sender, MouseEventArgs e)
+        {
+            func.Invoke(this, e);
+        }
+
+        public void Delete()
+        {
+            if(this.Page != null)
+            {
+                this.Page.Clear();
+            }
+            this.Dispose();
         }
 
         public void SetButton()
@@ -89,12 +133,9 @@ namespace KinoRakendus.core.controls
                 Icon.Size = new Size(50, 50);
                 Icon.Location = new Point(Width / 2 - Icon.Width / 2, Height / 2 - Icon.Height / 2);
                 
-                if (User != null)
-                {
-                    Console.WriteLine("ZXCLOX");
-                    Icon.Image = DefaultImages.GetAvatar(User);
-                    Page = new Profile(User);
-                }
+                if (FormAppContext.CurrentUser != null) Icon.Image = DefaultImages.GetAvatar(FormAppContext.CurrentUser);
+                else Icon.Image = DefaultImages.GetDefaultImage("profile.png");
+                Page = new Profile();
             }
         }
         public void InitUserControl()

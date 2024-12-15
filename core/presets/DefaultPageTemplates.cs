@@ -8,36 +8,60 @@ using KinoRakendus.forms.main.pages;
 using KinoRakendus.core.enums;
 using KinoRakendus.core.controls;
 using KinoRakendus.core.utils;
+using KinoRakendus.core.context;
 namespace KinoRakendus.core.presets
 {
     public static class DefaultPageTemplates
     {
         public static List<PageDataTemplate> Templates { get; set; } = new List<PageDataTemplate>()
         { 
-            new PageDataTemplate(new Kava(), Rolls.User, HeaderButtonType.Default, buttonName: "Kava", icon:DefaultImages.GetHomeIcon()),
-            new PageDataTemplate(new Piletid(), Rolls.User, HeaderButtonType.Default, buttonName:"Piletid", icon:DefaultImages.GetTicketsIcon()),
-            new PageDataTemplate(new Filmid(), Rolls.Admin, HeaderButtonType.Default, buttonName:"Filmid", icon:DefaultImages.GetMoviesIcon()),
-            new PageDataTemplate(new Kasutajad(), Rolls.Admin, HeaderButtonType.Default, buttonName:"Kasutajad", icon:DefaultImages.GetUsersIcon()),
-            new PageDataTemplate(new Seansid(), Rolls.Admin, HeaderButtonType.Default, buttonName:"Seansid", icon:DefaultImages.GetSessionIcon()),
-            new PageDataTemplate(new Zanrid(), Rolls.Admin, HeaderButtonType.Default, buttonName:"Zanrid", icon:DefaultImages.GetGenreIcon()),
-            new PageDataTemplate(new Saalid(), Rolls.Admin, HeaderButtonType.Default, buttonName:"Saalid", icon:DefaultImages.GetHallIcon())
+            new PageDataTemplate(new Kava(), new List<Rolls>(){Rolls.User, Rolls.Guest }, HeaderButtonType.Default, buttonName: "Kava", icon:DefaultImages.GetHomeIcon()),
+            new PageDataTemplate(new Piletid(), new List<Rolls>(){Rolls.User}, HeaderButtonType.Default, buttonName:"Piletid", icon:DefaultImages.GetTicketsIcon()),
+            new PageDataTemplate(new Filmid(), new List<Rolls>(){Rolls.Admin}, HeaderButtonType.Default, buttonName:"Filmid", icon:DefaultImages.GetMoviesIcon()),
+            new PageDataTemplate(new Kasutajad(), new List<Rolls>(){Rolls.Admin}, HeaderButtonType.Default, buttonName:"Kasutajad", icon:DefaultImages.GetUsersIcon()),
+            new PageDataTemplate(new Seansid(), new List<Rolls>(){Rolls.Admin}, HeaderButtonType.Default, buttonName:"Seansid", icon:DefaultImages.GetSessionIcon()),
+            new PageDataTemplate(new Zanrid(), new List<Rolls>(){Rolls.Admin}, HeaderButtonType.Default, buttonName:"Zanrid", icon:DefaultImages.GetGenreIcon()),
+            new PageDataTemplate(new Saalid(), new List<Rolls>(){Rolls.Admin}, HeaderButtonType.Default, buttonName:"Saalid", icon:DefaultImages.GetHallIcon()),
+            new PageDataTemplate(new More(), new List<Rolls>() { Rolls.Admin, Rolls.User, Rolls.Guest }, HeaderButtonType.More),
+            new PageDataTemplate(new Profile(), new List<Rolls>() { Rolls.Admin, Rolls.User }, HeaderButtonType.Profile)
         };
 
+        public static PageDataTemplate ProfileTemplate
+        {
+            get
+            {
+                foreach(PageDataTemplate pdt in Templates) if(pdt.Type == HeaderButtonType.Profile) return pdt;
+                return null;
+            }
+        }
+        public static PageDataTemplate MoreTemplate
+        {
+            get
+            {
+                foreach(PageDataTemplate pdt in Templates) if(pdt.Type == HeaderButtonType.More) return pdt;
+                return null;
+            }
+        }
         public static HeaderButton GetButton(PageDataTemplate pdt)
         {
             Console.WriteLine($"GetButton, {pdt.Page}");
-
-            return new HeaderButton(pdt.Page, pdt.Type, pdt.ButtonName, image: pdt.Icon);
+            return new HeaderButton(pdt);
         }
-        public static List<HeaderButton> GetButtons(Rolls role)
+        public static List<PageDataTemplate> GetTemplates(Rolls role)
+        {
+            List<PageDataTemplate> returnList = new List<PageDataTemplate>();
+            foreach(PageDataTemplate template in Templates) if(template.Role.Contains(role)) returnList.Add(template);
+            return returnList;
+        }
+        public static List<HeaderButton> GetButtons(Rolls role, bool temp = false)
         {
             List<HeaderButton> returnList = new List<HeaderButton>();
             foreach(PageDataTemplate template in Templates)
             {
-                if(template.Role == role)
+                if(template.Role.Contains(role) && template.Type == HeaderButtonType.Default)
                 {
                     HeaderButton button = GetButton(template);
-                    Console.WriteLine($"DAVAJ OSTANOVIMSA {button.Page}");
+                    if(temp) button.Temp = true;
                     returnList.Add(button);
                 }
             }

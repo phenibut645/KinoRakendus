@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using KinoRakendus.core.models;
 
 namespace KinoRakendus.forms.main
 {
@@ -23,6 +24,11 @@ namespace KinoRakendus.forms.main
             MainPage.InitAll();
 
             this.Controls.Add(MainPage);
+        }
+        public void LoggedIn()
+        {
+            Console.WriteLine("Logged in");
+            this.RefreshForm();
         }
     }
 }

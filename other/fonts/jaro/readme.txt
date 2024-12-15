@@ -1,1 +1,2 @@
-﻿Google Fonts = Jaro
+﻿Google Fonts = Jaro Regular
+Google Fonts = Kanit Regular

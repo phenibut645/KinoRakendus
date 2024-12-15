@@ -10,6 +10,9 @@ using KinoRakendus.core.controls;
 using KinoRakendus.core.enums;
 using System.IO;
 using KinoRakendus.core.presets;
+using KinoRakendus.core.context;
+using KinoRakendus.core.models;
+using KinoRakendus.forms.main.pages;
 namespace KinoRakendus.forms.main
 {
     public partial class Menu
@@ -20,7 +23,6 @@ namespace KinoRakendus.forms.main
         }
         public void InitHeader()
         {
-
             this.Header = new Panel();
             Header.Size = new Size(1720, 80);
             Header.Location = new Point(0, 0);
@@ -34,8 +36,15 @@ namespace KinoRakendus.forms.main
             HeaderLine.Location = new Point(0, 73);
             this.Header.Controls.Add(HeaderLine);
 
-            List<HeaderButton> buttons = DefaultPageTemplates.GetButtons(User.roll);
-            HeaderButton moreButton = null;
+            Rolls role = FormAppContext.Role;
+
+            List<PageDataTemplate> templates = DefaultPageTemplates.GetTemplates(role);
+            templates.Add(DefaultPageTemplates.ProfileTemplate);
+
+            List<HeaderButton> buttons = DefaultPageTemplates.GetButtons(role);
+            HeaderButton moreButton = DefaultPageTemplates.GetButton(DefaultPageTemplates.MoreTemplate);
+            HeaderButton profileButton = DefaultPageTemplates.GetButton(DefaultPageTemplates.ProfileTemplate);
+            
             int currentX = 0;
             int index = -1;
             foreach(HeaderButton button in buttons)
@@ -43,22 +52,22 @@ namespace KinoRakendus.forms.main
                 index++;
                 if(index > 3)
                 {
-                    moreButton = new HeaderButton(null, HeaderButtonType.More);
                     moreButton.Location = new Point(currentX, 0);
+                    buttons.Add(moreButton);
+                    templates.Add(DefaultPageTemplates.MoreTemplate);
                     this.Header.Controls.Add(moreButton);
                     break;
                 }
-                Console.WriteLine($"LIDA {button.Page}");
                 button.Location = new Point(currentX, 0);
                 currentX += button.Width + 25;
                 this.Header.Controls.Add(button);
             }
-            Profile = new HeaderButton(null, HeaderButtonType.Profile, user:User);
-            Profile.Location = new Point(ClientSize.Width - Profile.Width, 0);
-            if (moreButton != null) buttons.Add(moreButton);
-            buttons.Add(Profile);
-            HeaderHandler.LoadButtons(buttons);
-            this.Header.Controls.Add(Profile);
+            profileButton.Location = new Point(ClientSize.Width - profileButton.Width, 0);
+            buttons.Add(profileButton);
+
+            HeaderHandler.LoadTemplates(templates);
+            HeaderHandler.PushButtons(buttons);
+            this.Header.Controls.Add(profileButton);
         }
         public Label GetLineBetweenButtons(int x = 0, int y = 0)
         {

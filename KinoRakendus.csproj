@@ -131,7 +131,9 @@
     <Compile Include="core\enums\OptionType.cs" />
     <Compile Include="core\enums\Rolls.cs" />
     <Compile Include="core\interfaces\ITable.cs" />
+    <Compile Include="core\models\database\Roll.cs" />
     <Compile Include="core\models\SelectOption.cs" />
+    <Compile Include="core\utils\TablesManagment.cs" />
     <Compile Include="forms\main\pages\admin\Skeem.cs">
       <SubType>UserControl</SubType>
     </Compile>

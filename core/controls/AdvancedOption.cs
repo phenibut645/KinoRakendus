@@ -86,6 +86,7 @@ namespace KinoRakendus.core.controls
             if(type == AdvancedOptionType.Select)
             {
                 SelectControl = new SelectControl(ValueSize, options);
+                InitSelect();
             }
             else if(type == AdvancedOptionType.TextBox)
             {
@@ -96,7 +97,7 @@ namespace KinoRakendus.core.controls
         }
         private void clicked(object sender, EventArgs e)
         {
-            
+            Console.WriteLine("clicked");
             if (InChanging)
             {
                 if(Type == AdvancedOptionType.TextBox)
@@ -198,9 +199,24 @@ namespace KinoRakendus.core.controls
         }
         public void InitSelect()
         {
-            SelectControl.Location = new Point(FieldSize[0], 0);
+            SelectControl.Location = new Point(0, 0);
             SelectControl.Hide();
-            this.Controls.Add(SelectControl);
+            ValuePanel.Controls.Add(SelectControl);
+            SelectControl.AddShowOrHideMethod(ShowOrHide);
+        }
+        public void ShowOrHide(int value, bool show)
+        {
+            if (show)
+            {
+                this.Size = new Size(OptionSize[0], OptionSize[1] + value);
+                ValuePanel.Size = new Size(ValueSize[0], OptionSize[1] + value);
+                Console.WriteLine("RESIZE");
+            }
+            else
+            {
+                this.Size = new Size(OptionSize[0], OptionSize[1]);
+            }
+            
         }
         public void InitButton()
         {
@@ -218,6 +234,8 @@ namespace KinoRakendus.core.controls
             Button.BackColor = ColorManagment.InvisibleBackGround;
             Button.FlatAppearance.BorderSize = 0;
             Button.Click += clicked;
+            this.Click += clicked;
+            
             Button.FlatAppearance.MouseDownBackColor = ColorManagment.InvisibleBackGround;
             Button.FlatAppearance.MouseOverBackColor = ColorManagment.InvisibleBackGround;
             this.ButtonPanel.Controls.Add(Button);

@@ -14,7 +14,10 @@ namespace KinoRakendus.core.controls
     {
         public void Selected(OptionButton<T> button)
         {
+            if(SelectedButton != null) SelectedButton.IsActive = false;
             SelectedButton = button;
+            SelectedButton.IsActive = true;
+
             InitAdvancedOptions();
         }
     }

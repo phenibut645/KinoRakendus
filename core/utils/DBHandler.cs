@@ -82,6 +82,54 @@ namespace KinoRakendus.core.utils
 
             MakeQuery(sql);
         }
+        public static List<string> CheckForForeign<T>(string fieldName) where T: Table, ITable, new()
+        {
+            List<string> returnList = new List<string>();
+            T record = new T();
+            string tableName = record.tableName;
+            record = null;
+            string query = $@"
+            SELECT 
+                fk.name AS ForeignKeyName,
+                fk_cols.parent_object_id,
+                OBJECT_NAME(fk.parent_object_id) AS TableName,
+                col.name AS ColumnName,
+                OBJECT_NAME(fk.referenced_object_id) AS ReferencedTable,
+                ref_col.name AS ReferencedColumn
+            FROM sys.foreign_keys fk
+            INNER JOIN sys.foreign_key_columns fk_cols
+                ON fk.object_id = fk_cols.constraint_object_id
+            INNER JOIN sys.columns col
+                ON col.object_id = fk_cols.parent_object_id AND col.column_id = fk_cols.parent_column_id
+            INNER JOIN sys.columns ref_col
+                ON ref_col.object_id = fk_cols.referenced_object_id AND ref_col.column_id = fk_cols.referenced_column_id
+            WHERE OBJECT_NAME(fk.parent_object_id) = @TableName
+              AND col.name = @ColumnName;
+            ";
+
+            using(SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+                Console.WriteLine($"LOLKKEEEEEEEEEEEK");
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@TableName", tableName);
+                    command.Parameters.AddWithValue("@ColumnName", fieldName);
+                    using(SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            returnList.Add(reader["ReferencedTable"].ToString());
+                            returnList.Add(reader["ReferencedColumn"].ToString());
+                            Console.WriteLine($"{reader["ReferencedTable"]}: {reader["ReferencedColumn"]}");
+                        }
+                    }
+                }
+
+            }
+            return returnList;
+
+        }
         public static void UpdateUserData(Kasutaja kasutaja, string field, string value)
         {
             UpdateRecord(kasutaja, field, value, new List<WhereField>() { new WhereField("id", kasutaja["id"])});

@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
+using KinoRakendus.core.models;
+using KinoRakendus.core.enums;
 
 namespace KinoRakendus.core.controls
 {
@@ -80,14 +82,52 @@ namespace KinoRakendus.core.controls
             {
                 control.Dispose();
             }
+            this.SelectedPanel.Controls.Clear();
             List<string> fields = SelectedButton.Record.GetKeys();
             int currentY = this.StartOptionPositionY;
             foreach(string field in fields)
             {
                 if(field == "id") continue;
-                AdvancedOption<T> advancedOption = new AdvancedOption<T>(enums.AdvancedOptionType.TextBox, int.Parse(SelectedButton.Record["id"]), field);
+                List<string> response = DBHandler.CheckForForeign<T>(field);
+                dynamic advancedOption;
+                if(response.Count != 0)
+                {
+                    List<SelectOption> options = new List<SelectOption>();
+                   
+                    Type type = TablesManagment.GetRecordType(response[0]);
+                    var method = typeof(DBHandler).GetMethod("GetTableData");
+                    var genericMethod = method.MakeGenericMethod(type);
+                    object result = genericMethod.Invoke(null, null);
+                    Console.WriteLine($"PEEEEEEEEEEEEEEEEEEEDIK {result}");
+
+                    if(result is IEnumerable<Table> tableList)
+                    {
+                        foreach (Table tableInstance in tableList)
+                        {
+                            Console.WriteLine($"tableInstance {tableInstance["id"]}");
+                            options.Add(new SelectOption(tableInstance["id"], tableInstance.OutValue));
+                        }
+                    }
+
+
+                    var size = new List<int> { 681, 48 };
+                    var fieldSize = new List<int> { 191, 48 };
+                    var valueSize = new List<int> { 442, 48 };
+                    var buttonSize = new List<int> { 48, 48 };
+                    var advancedOptionType = typeof(AdvancedOption<>).MakeGenericType(type);
+
+                    advancedOption = Activator.CreateInstance(advancedOptionType, enums.AdvancedOptionType.Select, int.Parse(SelectedButton.Record["id"]), field, null, null, null, null, options);
+
+                }
+                else
+                {
+                    advancedOption = new AdvancedOption<T>(enums.AdvancedOptionType.TextBox, int.Parse(SelectedButton.Record["id"]), field);
+                }
+
                 advancedOption.Location = new Point(SelectedPanel.Width / 2 - advancedOption.Width / 2, currentY);
                 this.SelectedPanel.Controls.Add(advancedOption);
+                
+
                 currentY += advancedOption.Height + this.GapBetweenButtons;
             }
             

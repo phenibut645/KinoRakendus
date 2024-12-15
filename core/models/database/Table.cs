@@ -18,6 +18,7 @@ namespace KinoRakendus.core.models.database
             }
             return returnList;
         }
+        public virtual string OutValue { get; set;}
         public string this[string key]
         {
             get

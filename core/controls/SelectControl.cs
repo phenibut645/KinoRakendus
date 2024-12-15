@@ -17,7 +17,7 @@ namespace KinoRakendus.core.controls
     public partial class SelectControl: UserControl
     {
         public List<int> FieldSize { get; set;}
-        public List<SelectOptionButton> OptionsButtons { get; set; }
+        public List<SelectOptionButton> OptionsButtons { get; set; } = new List<SelectOptionButton>();
         public Panel Field { get; set;}
         public Label FieldValueLabel { get; set; }
         public PictureBox MoreIcon { get; set; }
@@ -25,7 +25,9 @@ namespace KinoRakendus.core.controls
         public int DownBarSizeY { get; set; }
         public int GapBetweenOptions { get; set; }
         public int GapBetweenIconAndFiled { get; set; } = 10;
+        public Action<SelectOptionButton> SelectedMethod { get; set; }
         private SelectOptionButton _selectedButton;
+       public Action<int, bool> ShowOrHide { get; set;}
         public SelectOptionButton SelectedOption
         {
             get
@@ -43,7 +45,7 @@ namespace KinoRakendus.core.controls
             }
         }
         public bool IsDownBarShowed { get; private set; }
-        public SelectControl(List<int> size, List<SelectOption> options, int downBarSizeY = 192, int gapBetweenOptions = 7)
+        public SelectControl(List<int> size, List<SelectOption> options, int downBarSizeY = 100, int gapBetweenOptions = 7)
         {
             GapBetweenOptions = gapBetweenOptions;
             FieldSize = size;
@@ -52,26 +54,43 @@ namespace KinoRakendus.core.controls
             InitAll();
             GenerateButtons(options);
         }
+        public void AddClickMethod(Action<SelectOptionButton> func)
+        {
+            SelectedMethod = func;
+        }
+        public void AddShowOrHideMethod(Action<int, bool> func)
+        {
+            ShowOrHide = func;
+        }
 
         public void ShowDownBar()
         {
             IsDownBarShowed = true;
+            
+            this.Size = new Size(FieldSize[0], FieldSize[1] + DownBarPanel.Height);
             DownBarPanel.Show();
+            
         }
         public void HideDownBar()
         {
             IsDownBarShowed = false;
+            this.Size = new Size(FieldSize[0], FieldSize[1]);
             DownBarPanel.Hide();
         }
         private void FieldClicked(object sender, EventArgs e)
         {
+            
             if (IsDownBarShowed)
             {
+                ShowOrHide(this.DownBarPanel.Height, false);
                 HideDownBar();
+                Console.WriteLine("HIDE");
             }
             else
             {
+                ShowOrHide(this.DownBarPanel.Height, true);
                 ShowDownBar();
+                Console.WriteLine("SHOW");
             }
         }
         public void InitAll()
@@ -98,7 +117,7 @@ namespace KinoRakendus.core.controls
 
             MoreIcon = new PictureBox();
             MoreIcon.Image = DefaultImages.GetDefaultImage("menu-burger.png");
-            MoreIcon.Size = new Size(14, 14);
+            MoreIcon.Size = new Size(24, 24);
             MoreIcon.SizeMode = PictureBoxSizeMode.Zoom;
             MoreIcon.BackColor = ColorManagment.InvisibleBackGround;
 
@@ -116,6 +135,7 @@ namespace KinoRakendus.core.controls
             Field.Click += FieldClicked;
             MoreIcon.Click += FieldClicked;
             FieldValueLabel.Click += FieldClicked;
+            RefreshField();
         }
         private void RefreshField()
         {
@@ -127,8 +147,13 @@ namespace KinoRakendus.core.controls
         {
             SelectedOption = button;
             FieldValueLabel.Text = button.Option.ExternalText;
-            RefreshField();
-            HideDownBar();
+            Console.WriteLine("SELECTED");
+            FieldClicked(null, null);
+
+            if(SelectedMethod != null)
+            {
+                SelectedMethod(this.SelectedOption);
+            }
         }
 
         private void GenerateButtons(List<SelectOption> options)
@@ -136,16 +161,19 @@ namespace KinoRakendus.core.controls
             int currentY = 0;
             foreach (SelectOption option in options)
             {
+                Console.WriteLine(option.ExternalText);
                 SelectOptionButton button = new SelectOptionButton(option);
-
                 button.Size = new Size(FieldSize[0], 37);
                 button.Font = DefaultFonts.GetKanitFont(17);
                 button.ForeColor = Color.White;
-                button.Location = new Point(0, currentY);
+                button.FlatStyle = FlatStyle.Flat;
+                button.FlatAppearance.BorderSize = 0;
+                
                 button.AddClickMethod(ItemSelected);
 
                 OptionsButtons.Add(button);
                 DownBarPanel.Controls.Add(button);
+                button.Location = new Point(0, currentY);
 
                 currentY += button.Height + GapBetweenOptions;
             }

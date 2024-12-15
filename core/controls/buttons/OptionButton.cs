@@ -67,7 +67,7 @@ namespace KinoRakendus.core.controls.buttons
         {
             if (IsActive)
             {
-                Icon.Image = DefaultImages.GetDefaultImage("circle-xmark.png");
+                Icon.Image = DefaultImages.GetDefaultImage("eye.png");
             }
             else
             {

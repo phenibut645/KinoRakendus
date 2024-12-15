@@ -22,7 +22,6 @@ namespace KinoRakendus
             User user = DBHandler.CheckUser(this.UserName.Text, Password.Text);
             if(user != null)
             {
-                MessageBox.Show(user.roll.ToString());
                 FormAppContext.CurrentUser = user;
                 this.Dispose();
             }

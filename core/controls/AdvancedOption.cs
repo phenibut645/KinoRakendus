@@ -10,6 +10,7 @@ using KinoRakendus.core.models;
 using KinoRakendus.core.models.database;
 using KinoRakendus.core.interfaces;
 using KinoRakendus.core.enums;
+using KinoRakendus.core.controls.buttons;
 
 namespace KinoRakendus.core.controls
 {
@@ -27,6 +28,7 @@ namespace KinoRakendus.core.controls
         public List<int> FieldSize { get; set; } = new List<int>() { 191, 48};
         public List<int> ValueSize { get; set; } = new List<int>() { 442, 48};
         public List<int> ButtonSize { get; set; } = new List<int>() { 48, 48 };
+        public Action<AdvancedOption<T>> SubmittedFunc { get; set; } = null;
 
         private bool _inChanging;
         public bool InChanging
@@ -95,6 +97,20 @@ namespace KinoRakendus.core.controls
  
             InChanging = false;
         }
+        private void AddMethodOnSubmitted(Action<AdvancedOption<T>> func)
+        {
+            this.SubmittedFunc = func;
+        }
+        private void Submitted()
+        {
+            if(SubmittedFunc != null) SubmittedFunc(this);
+            else
+            {
+                Console.WriteLine("submitted");
+                DBHandler.UpdateRecord(this.CurrentRecord, this.FieldName, this.CurrentValue, new List<WhereField>() { new WhereField("id", this.CurrentRecord["id"].ToString())});
+                Console.WriteLine("submitted");
+            }
+        }
         private void clicked(object sender, EventArgs e)
         {
             Console.WriteLine("clicked");
@@ -103,7 +119,7 @@ namespace KinoRakendus.core.controls
                 if(Type == AdvancedOptionType.TextBox)
                 {
                     ValueTextBox.Hide();
-                    ValueLabel.Text = ValueTextBox.Text;
+                    CurrentValue = ValueTextBox.Text;
                     ValueLabel.Show();
                 }
                 else if(Type == AdvancedOptionType.Select)
@@ -111,7 +127,9 @@ namespace KinoRakendus.core.controls
                     SelectControl.Hide();
                     SelectControl.HideDownBar();
                     ValueLabel.Show();
+                    
                 }
+                Submitted();
             }
             else
             {
@@ -197,12 +215,17 @@ namespace KinoRakendus.core.controls
             ValueTextBox.Hide();
             ValuePanel.Controls.Add(ValueTextBox);
         }
+        public void ItemSelected(SelectControl button)
+        {
+            CurrentValue = button.SelectedOption.Option.Value;
+        }
         public void InitSelect()
         {
             SelectControl.Location = new Point(0, 0);
             SelectControl.Hide();
             ValuePanel.Controls.Add(SelectControl);
             SelectControl.AddShowOrHideMethod(ShowOrHide);
+            SelectControl.AddClickMethod(ItemSelected);
         }
         public void ShowOrHide(int value, bool show)
         {

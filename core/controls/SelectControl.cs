@@ -25,7 +25,7 @@ namespace KinoRakendus.core.controls
         public int DownBarSizeY { get; set; }
         public int GapBetweenOptions { get; set; }
         public int GapBetweenIconAndFiled { get; set; } = 10;
-        public Action<SelectOptionButton> SelectedMethod { get; set; }
+        public Action<SelectControl> SelectedMethod { get; set; }
         private SelectOptionButton _selectedButton;
        public Action<int, bool> ShowOrHide { get; set;}
         public SelectOptionButton SelectedOption
@@ -54,7 +54,7 @@ namespace KinoRakendus.core.controls
             InitAll();
             GenerateButtons(options);
         }
-        public void AddClickMethod(Action<SelectOptionButton> func)
+        public void AddClickMethod(Action<SelectControl> func)
         {
             SelectedMethod = func;
         }
@@ -92,6 +92,7 @@ namespace KinoRakendus.core.controls
                 ShowDownBar();
                 Console.WriteLine("SHOW");
             }
+            
         }
         public void InitAll()
         {
@@ -143,6 +144,11 @@ namespace KinoRakendus.core.controls
             MoreIcon.Location = new Point(Field.Width / 2 - MoreIcon.Width / 2 + FieldValueLabel.Width / 2 + GapBetweenIconAndFiled, Field.Height / 2 - FieldValueLabel.Height / 2);
         }
 
+        private void AddOnItemSelectedMethod(Action<SelectOptionButton> func)
+        {
+
+        }
+
         private void ItemSelected(SelectOptionButton button)
         {
             SelectedOption = button;
@@ -152,7 +158,7 @@ namespace KinoRakendus.core.controls
 
             if(SelectedMethod != null)
             {
-                SelectedMethod(this.SelectedOption);
+                SelectedMethod(this);
             }
         }
 

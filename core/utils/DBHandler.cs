@@ -137,12 +137,14 @@ namespace KinoRakendus.core.utils
         public static void UpdateRecord<T>(T record, string field, string value, List<WhereField> whereFields) where T: Table, ITable
         {
             string sql = $"UPDATE {record.tableName} SET {field} = {ConvertValue(value)} WHERE ";
+            
             int index = -1;
             foreach(WhereField whereField in whereFields)
             {
                 index++;
                 sql += $"{whereField.Field} = {whereField.Value}{(whereFields.Count == index + 1 ? ";" : "AND ")}";
             }
+            Console.WriteLine(sql);
             MakeQuery(sql);
         }
         public static string ConvertValue(string value)
@@ -151,6 +153,7 @@ namespace KinoRakendus.core.utils
         }
         public static void MakeQuery(string query)
         {
+            Console.WriteLine("MakeQuery");
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();

@@ -18,30 +18,31 @@ namespace KinoRakendus.core.controls
     {
         public List<int> FieldSize { get; set;}
         public List<SelectOptionButton> OptionsButtons { get; set; } = new List<SelectOptionButton>();
-        public Panel Field { get; set;}
-        public Label FieldValueLabel { get; set; }
-        public PictureBox MoreIcon { get; set; }
-        public Panel DownBarPanel { get; set;} = new Panel();
+        private Panel FieldPanel { get; set;}
+        private Label FieldValueLabel { get; set; }
+        private PictureBox MoreIcon { get; set; }
+        private Panel DownBarPanel { get; set;} = new Panel();
         public int DownBarSizeY { get; set; }
         public int GapBetweenOptions { get; set; }
         public int GapBetweenIconAndFiled { get; set; } = 10;
-        public Action<SelectControl> SelectedMethod { get; set; }
-        private SelectOptionButton _selectedButton;
-       public Action<int, bool> ShowOrHide { get; set;}
+        public Action<SelectControl> OnSelect { get; set; }
+        public Action<int, bool> OnShowOrHide { get; set;}
+
+        private SelectOptionButton _selectedOption;
         public SelectOptionButton SelectedOption
         {
             get
             {
-                return _selectedButton;
+                return _selectedOption;
             }
             set
             {
-                if(_selectedButton != null)
+                if(_selectedOption != null)
                 {
-                    _selectedButton.OptionSelected = false;
+                    _selectedOption.IsSelected = false;
                 }
-                value.OptionSelected = true;
-                _selectedButton = value;
+                value.IsSelected = true;
+                _selectedOption = value;
             }
         }
         public bool IsDownBarShowed { get; private set; }
@@ -56,11 +57,11 @@ namespace KinoRakendus.core.controls
         }
         public void AddClickMethod(Action<SelectControl> func)
         {
-            SelectedMethod = func;
+            OnSelect = func;
         }
-        public void AddShowOrHideMethod(Action<int, bool> func)
+        public void AddOnShowOrHideMethod(Action<int, bool> func)
         {
-            ShowOrHide = func;
+            OnShowOrHide = func;
         }
 
         public void ShowDownBar()
@@ -82,13 +83,13 @@ namespace KinoRakendus.core.controls
             
             if (IsDownBarShowed)
             {
-                ShowOrHide(this.DownBarPanel.Height, false);
+                OnShowOrHide(this.DownBarPanel.Height, false);
                 HideDownBar();
                 Console.WriteLine("HIDE");
             }
             else
             {
-                ShowOrHide(this.DownBarPanel.Height, true);
+                OnShowOrHide(this.DownBarPanel.Height, true);
                 ShowDownBar();
                 Console.WriteLine("SHOW");
             }
@@ -111,10 +112,10 @@ namespace KinoRakendus.core.controls
 
         private void InitField()
         {
-            Field = new Panel();
-            Field.BackColor = ColorTranslator.FromHtml("#333550");
-            Field.Size = new Size(FieldSize[0], FieldSize[1]);
-            this.Controls.Add(Field);
+            FieldPanel = new Panel();
+            FieldPanel.BackColor = ColorTranslator.FromHtml("#333550");
+            FieldPanel.Size = new Size(FieldSize[0], FieldSize[1]);
+            this.Controls.Add(FieldPanel);
 
             MoreIcon = new PictureBox();
             MoreIcon.Image = DefaultImages.GetDefaultImage("menu-burger.png");
@@ -129,19 +130,19 @@ namespace KinoRakendus.core.controls
             FieldValueLabel.Text = "Vali";
             FieldValueLabel.AutoSize = true;
 
-            
-            Field.Controls.Add(FieldValueLabel);
-            Field.Controls.Add(MoreIcon);
-            
-            Field.Click += FieldClicked;
+
+            FieldPanel.Controls.Add(FieldValueLabel);
+            FieldPanel.Controls.Add(MoreIcon);
+
+            FieldPanel.Click += FieldClicked;
             MoreIcon.Click += FieldClicked;
             FieldValueLabel.Click += FieldClicked;
             RefreshField();
         }
         private void RefreshField()
         {
-            FieldValueLabel.Location = new Point(Field.Width / 2 - FieldValueLabel.Width / 2 - GapBetweenIconAndFiled - MoreIcon.Width, Field.Height / 2- FieldValueLabel.Height / 2);
-            MoreIcon.Location = new Point(Field.Width / 2 - MoreIcon.Width / 2 + FieldValueLabel.Width / 2 + GapBetweenIconAndFiled, Field.Height / 2 - FieldValueLabel.Height / 2);
+            FieldValueLabel.Location = new Point(FieldPanel.Width / 2 - FieldValueLabel.Width / 2 - GapBetweenIconAndFiled - MoreIcon.Width, FieldPanel.Height / 2- FieldValueLabel.Height / 2);
+            MoreIcon.Location = new Point(FieldPanel.Width / 2 - MoreIcon.Width / 2 + FieldValueLabel.Width / 2 + GapBetweenIconAndFiled, FieldPanel.Height / 2 - FieldValueLabel.Height / 2);
         }
 
         private void AddOnItemSelectedMethod(Action<SelectOptionButton> func)
@@ -156,9 +157,9 @@ namespace KinoRakendus.core.controls
             Console.WriteLine("SELECTED");
             FieldClicked(null, null);
 
-            if(SelectedMethod != null)
+            if(OnSelect != null)
             {
-                SelectedMethod(this);
+                OnSelect(this);
             }
         }
 

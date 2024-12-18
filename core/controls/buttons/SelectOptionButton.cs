@@ -14,17 +14,17 @@ namespace KinoRakendus.core.controls.buttons
     public class SelectOptionButton: Button
     {
         public SelectOption Option { get; set; }
-        private bool _optionSelected;
-        public bool OptionSelected
+        private bool _isSelected;
+        public bool IsSelected
         {
             get
             {
-                return _optionSelected;
+                return _isSelected;
             }
             set
             {
-                _optionSelected = value;
-                if (_optionSelected)
+                _isSelected = value;
+                if (_isSelected)
                 {
                     this.BackColor = ColorTranslator.FromHtml("#303689");
 
@@ -35,7 +35,7 @@ namespace KinoRakendus.core.controls.buttons
                 }
             }
         }
-        public Action<SelectOptionButton> Func { get; private set; }
+        public Action<SelectOptionButton> OnSelect { get; private set; }
         public SelectOptionButton(SelectOption option)
         {
             Option = option;
@@ -44,11 +44,11 @@ namespace KinoRakendus.core.controls.buttons
         }
         private void clicked(object sender, EventArgs e)
         {
-            Func(this);
+            OnSelect(this);
         }
         public void AddClickMethod(Action<SelectOptionButton> func)
         {
-            Func = func;
+            OnSelect = func;
         }
     }
 }

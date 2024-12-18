@@ -76,9 +76,9 @@ namespace KinoRakendus.core.controls
                 currentY += button.Height + GapBetweenButtons;
             }
         }
-        public void OnSubmitted(AdvancedOption<> control)
+        public void OnSelectSubmitted<V>(AdvancedOption<V> control) where V : Table, ITable, new()
         {
-            DBHandler.UpdateRecord<T>()
+            DBHandler.UpdateRecord<V>(control.CurrentRecord, control.Field, control.CurrentValue, new List<WhereField>() { new WhereField("id", control.CurrentRecord["id"]) });
         }
         public void InitAdvancedOptions()
         {
@@ -102,7 +102,6 @@ namespace KinoRakendus.core.controls
                     var method = typeof(DBHandler).GetMethod("GetTableData");
                     var genericMethod = method.MakeGenericMethod(type);
                     object result = genericMethod.Invoke(null, null);
-                    Console.WriteLine($"PEEEEEEEEEEEEEEEEEEEDIK {result}");
 
                     if(result is IEnumerable<Table> tableList)
                     {
@@ -112,8 +111,6 @@ namespace KinoRakendus.core.controls
                             options.Add(new SelectOption(tableInstance["id"], tableInstance.OutValue));
                         }
                     }
-
-
                     var size = new List<int> { 681, 48 };
                     var fieldSize = new List<int> { 191, 48 };
                     var valueSize = new List<int> { 442, 48 };
@@ -123,7 +120,7 @@ namespace KinoRakendus.core.controls
                     advancedOption = Activator.CreateInstance(advancedOptionType, enums.AdvancedOptionType.Select, int.Parse(SelectedButton.Record["id"]), field, null, null, null, null, options);
                     var advMethod = advancedOptionType.GetMethod("AddMethodOnSubmitted");
                     var actionType = typeof(Action<>).MakeGenericType(typeof(AdvancedOption<>).MakeGenericType(type));
-                    var action = Delegate.CreateDelegate(actionType, typeof(Program).GetMethod(nameof(OnSubmitted)).MakeGenericMethod(type));
+                    var action = Delegate.CreateDelegate(actionType, typeof(Program).GetMethod(nameof(OnSelectSubmitted)).MakeGenericMethod(type));
 
                     object advResult = genericMethod.Invoke(advancedOption, new object[] { action });
 
@@ -135,7 +132,6 @@ namespace KinoRakendus.core.controls
 
                 advancedOption.Location = new Point(SelectedPanel.Width / 2 - advancedOption.Width / 2, currentY);
                 this.SelectedPanel.Controls.Add(advancedOption);
-                
 
                 currentY += advancedOption.Height + this.GapBetweenButtons;
             }

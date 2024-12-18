@@ -36,7 +36,7 @@ namespace KinoRakendus.core.models
         public static User ConvertUser(Kasutaja kasutaja)
         {
             string role = DBHandler.GetSingleResponse($"SELECT roll FROM roll WHERE id = {kasutaja["roll"]}", "roll");
-            Roll roleObject =DBHandler.GetRecord<Roll>(new List<WhereField>() { new WhereField("roll", kasutaja["roll"])});
+            Roll roleObject =DBHandler.GetRecord<Roll>(new List<WhereField>() { new WhereField("id", kasutaja["roll"])});
             Console.WriteLine($"ROLE = {roleObject["roll"]}");
             User user = new User(kasutaja["nimi"], kasutaja["salasona"], (Rolls)RolesManagment.GetRole(role));
             user.id = int.Parse(kasutaja["id"]);

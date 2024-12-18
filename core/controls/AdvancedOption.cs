@@ -16,19 +16,19 @@ namespace KinoRakendus.core.controls
 {
     public partial class AdvancedOption<T>: UserControl where T: Table, ITable, new()
     {
-        public Panel FieldPanel { get; set; }
-        public Panel ValuePanel { get; set; }
-        public Panel ButtonPanel { get; set; }
-        public Label FieldLabel { get; set; } = new Label();
-        public Label ValueLabel { get; set; } = new Label();
-        public TextBox ValueTextBox { get; set; } = null;
+        private Panel FieldPanel { get; set; }
+        private Panel ValuePanel { get; set; }
+        private Panel ButtonPanel { get; set; }
+        private Label FieldLabel { get; set; } = new Label();
+        private Label ValueLabel { get; set; } = new Label();
+        private TextBox ValueTextBox { get; set; } = null;
         public SelectControl SelectControl { get; set; } = null;
-        public Button Button { get; set; }
+        private Button Button { get; set; }
         public List<int> OptionSize { get; set;} = new List<int>() { 681, 48 };
         public List<int> FieldSize { get; set; } = new List<int>() { 191, 48};
         public List<int> ValueSize { get; set; } = new List<int>() { 442, 48};
         public List<int> ButtonSize { get; set; } = new List<int>() { 48, 48 };
-        public Action<AdvancedOption<T>> SubmittedFunc { get; set; } = null;
+        public Action<AdvancedOption<T>> OnSubmit { get; set; } = null;
 
         private bool _inChanging;
         public bool InChanging
@@ -37,15 +37,15 @@ namespace KinoRakendus.core.controls
             {
                 return _inChanging;
             }
-            set
+            private set
             {
                 if(_inChanging != value) _inChanging = value;
                 StatusChanged();
             }
         }
         public int RecordId { get; set; }
-        private string _fieldName;
-        public string FieldName
+
+        public string Field
         {
             get
             {
@@ -57,7 +57,7 @@ namespace KinoRakendus.core.controls
                 FieldLabel.Text = _fieldName;
             }
         }
-        private string _currentValue;
+        
         public string CurrentValue
         {
             get
@@ -70,8 +70,13 @@ namespace KinoRakendus.core.controls
                 ValueLabel.Text = _currentValue;
             }
         }
+
         public T CurrentRecord { get; set; }
         public AdvancedOptionType Type { get; set; }
+
+        private string _fieldName;
+        private string _currentValue;
+
         public AdvancedOption(AdvancedOptionType type, int recordId, string fieldName, List<int> size = null , List<int> fieldSize = null, List<int> valueSize = null, List<int> buttonSize = null, List<SelectOption> options = null)
         {
             if(size != null) OptionSize = size;
@@ -81,7 +86,7 @@ namespace KinoRakendus.core.controls
             Type = type;
             this.Size = new Size(OptionSize[0], OptionSize[1]);
             RecordId = recordId;
-            FieldName = fieldName;
+            Field = fieldName;
             CurrentRecord = DBHandler.GetRecord<T>(new List<WhereField>() { new WhereField("id", RecordId.ToString()) });
             CurrentValue = CurrentRecord[fieldName];
             InitAll();
@@ -99,15 +104,15 @@ namespace KinoRakendus.core.controls
         }
         private void AddMethodOnSubmitted(Action<AdvancedOption<T>> func)
         {
-            this.SubmittedFunc = func;
+            this.OnSubmit = func;
         }
         private void Submitted()
         {
-            if(SubmittedFunc != null) SubmittedFunc(this);
+            if(OnSubmit != null) OnSubmit(this);
             else
             {
                 Console.WriteLine("submitted");
-                DBHandler.UpdateRecord(this.CurrentRecord, this.FieldName, this.CurrentValue, new List<WhereField>() { new WhereField("id", this.CurrentRecord["id"].ToString())});
+                DBHandler.UpdateRecord(this.CurrentRecord, this.Field, this.CurrentValue, new List<WhereField>() { new WhereField("id", this.CurrentRecord["id"].ToString())});
                 Console.WriteLine("submitted");
             }
         }
@@ -178,7 +183,7 @@ namespace KinoRakendus.core.controls
             FieldLabel.BackColor = ColorManagment.InvisibleBackGround;
             FieldLabel.Font = DefaultFonts.GetFont(22);
             FieldLabel.ForeColor = ColorManagment.LightOptionsText;
-            FieldLabel.Text = FieldName;
+            FieldLabel.Text = Field;
             FieldLabel.Size = new Size(FieldPanel.Width, FieldSize[1]);
             FieldLabel.TextAlign = ContentAlignment.MiddleLeft;
             FieldLabel.Location = new Point(0, 0);
@@ -224,7 +229,7 @@ namespace KinoRakendus.core.controls
             SelectControl.Location = new Point(0, 0);
             SelectControl.Hide();
             ValuePanel.Controls.Add(SelectControl);
-            SelectControl.AddShowOrHideMethod(ShowOrHide);
+            SelectControl.AddOnShowOrHideMethod(ShowOrHide);
             SelectControl.AddClickMethod(ItemSelected);
         }
         public void ShowOrHide(int value, bool show)

@@ -153,7 +153,7 @@ namespace KinoRakendus.core.utils
         }
         public static void MakeQuery(string query)
         {
-            Console.WriteLine("MakeQuery");
+            Console.WriteLine($"MakeQuery {query}");
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();

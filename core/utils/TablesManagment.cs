@@ -12,6 +12,7 @@ namespace KinoRakendus.core.utils
         public static Type GetRecordType(string tableName)
         {
             Console.WriteLine(tableName);
+
             if(tableName == "roll")
             {
                 Console.WriteLine("roll YEEEEEEEEE");

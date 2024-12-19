@@ -78,7 +78,7 @@ namespace KinoRakendus.core.controls
         }
         public void OnSelectSubmitted<V>(AdvancedOption<V> control) where V : Table, ITable, new()
         {
-            DBHandler.UpdateRecord<V>(control.CurrentRecord, control.Field, control.CurrentValue, new List<WhereField>() { new WhereField("id", control.CurrentRecord["id"]) });
+            DBHandler.UpdateRecord<T>(SelectedButton.Record, control.Field, control.CurrentValue, new List<WhereField>() { new WhereField("id", control.CurrentRecord["id"]) });
         }
         public void InitAdvancedOptions()
         {
@@ -99,6 +99,7 @@ namespace KinoRakendus.core.controls
                     List<SelectOption> options = new List<SelectOption>();
                    
                     Type type = TablesManagment.GetRecordType(response[0]);
+                    Console.WriteLine(type.Name);
                     var method = typeof(DBHandler).GetMethod("GetTableData");
                     var genericMethod = method.MakeGenericMethod(type);
                     object result = genericMethod.Invoke(null, null);
@@ -115,14 +116,16 @@ namespace KinoRakendus.core.controls
                     var fieldSize = new List<int> { 191, 48 };
                     var valueSize = new List<int> { 442, 48 };
                     var buttonSize = new List<int> { 48, 48 };
+
                     var advancedOptionType = typeof(AdvancedOption<>).MakeGenericType(type);
-
+                    Console.WriteLine(advancedOptionType.Name);
                     advancedOption = Activator.CreateInstance(advancedOptionType, enums.AdvancedOptionType.Select, int.Parse(SelectedButton.Record["id"]), field, null, null, null, null, options);
+                    Console.WriteLine(advancedOption);
                     var advMethod = advancedOptionType.GetMethod("AddMethodOnSubmitted");
-                    var actionType = typeof(Action<>).MakeGenericType(typeof(AdvancedOption<>).MakeGenericType(type));
-                    var action = Delegate.CreateDelegate(actionType, typeof(Program).GetMethod(nameof(OnSelectSubmitted)).MakeGenericMethod(type));
+                    var actionType = typeof(Action<>).MakeGenericType(advancedOptionType);
+                    var action = Delegate.CreateDelegate(actionType, this, typeof(AdminDefaultManagerPage<T>).GetMethod(nameof(OnSelectSubmitted)).MakeGenericMethod(type));
 
-                    object advResult = genericMethod.Invoke(advancedOption, new object[] { action });
+                    object advResult = advMethod.Invoke(advancedOption, new object[] { action });
 
                 }
                 else

@@ -102,7 +102,7 @@ namespace KinoRakendus.core.controls
  
             InChanging = false;
         }
-        private void AddMethodOnSubmitted(Action<AdvancedOption<T>> func)
+        public void AddMethodOnSubmitted(Action<AdvancedOption<T>> func)
         {
             this.OnSubmit = func;
         }

@@ -77,7 +77,7 @@ namespace KinoRakendus.core.controls
         private string _fieldName;
         private string _currentValue;
 
-        public AdvancedOption(AdvancedOptionType type, int recordId, string fieldName, List<int> size = null , List<int> fieldSize = null, List<int> valueSize = null, List<int> buttonSize = null, List<SelectOption> options = null)
+        public AdvancedOption(AdvancedOptionType type, int recordId, string fieldName, List<int> size = null , List<int> fieldSize = null, List<int> valueSize = null, List<int> buttonSize = null, List<SelectOption> options = null, bool changeAvailable = true)
         {
             if(size != null) OptionSize = size;
             if(fieldSize != null) FieldSize = fieldSize;
@@ -222,7 +222,7 @@ namespace KinoRakendus.core.controls
         }
         public void ItemSelected(SelectControl button)
         {
-            CurrentValue = button.SelectedOption.Option.Value;
+            CurrentValue = button.SelectedOption.Option.ExternalText;
         }
         public void InitSelect()
         {

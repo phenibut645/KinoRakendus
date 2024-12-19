@@ -144,6 +144,7 @@
     <Compile Include="core\enums\AdvancedOptionType.cs" />
     <Compile Include="core\enums\HeaderButtonType.cs" />
     <Compile Include="core\enums\OptionType.cs" />
+    <Compile Include="core\enums\PanelType.cs" />
     <Compile Include="core\enums\Rolls.cs" />
     <Compile Include="core\interfaces\ITable.cs" />
     <Compile Include="core\models\database\Roll.cs" />
@@ -327,13 +328,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="core\models\database\readme.txt" />
-    <Content Include="KinoDatabase.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="KinoDatabase_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>KinoDatabase.mdf</DependentUpon>
-    </Content>
     <Content Include="other\database\readme.txt" />
     <Content Include="other\fonts\jaro\readme.txt" />
     <Content Include="other\images\avatars\serega_pirat.jpg" />
@@ -368,6 +362,7 @@
     <Content Include="other\images\form-default\stage-theatre.png" />
     <Content Include="other\images\form-default\icon.ico" />
     <Content Include="other\images\form-default\theater-masks.png" />
+    <Content Include="other\images\form-default\trash.png" />
     <Content Include="other\images\form-default\user-gear.png" />
     <Content Include="other\images\posters\drive.jpg" />
     <Content Include="other\images\posters\joker.jpg" />

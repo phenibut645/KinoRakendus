@@ -33,6 +33,7 @@ namespace KinoRakendus.core.controls
         {
             get
             {
+
                 return _selectedOption;
             }
             set

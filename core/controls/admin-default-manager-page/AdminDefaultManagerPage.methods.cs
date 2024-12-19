@@ -18,7 +18,7 @@ namespace KinoRakendus.core.controls
             SelectedButton = button;
             SelectedButton.IsActive = true;
 
-            InitAdvancedOptions();
+            InitAdvancedOptions(type: enums.PanelType.Choice);
         }
     }
 }

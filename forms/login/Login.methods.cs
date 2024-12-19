@@ -19,6 +19,7 @@ namespace KinoRakendus
     {
         private void submitButton_click(object sender, EventArgs e)
         {
+            Console.WriteLine($"lol {this.UserName.Text}, {Password.Text}");
             User user = DBHandler.CheckUser(this.UserName.Text, Password.Text);
             if(user != null)
             {

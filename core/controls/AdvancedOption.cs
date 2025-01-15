@@ -199,7 +199,7 @@ namespace KinoRakendus.core.controls
 
             ValueLabel.Font = DefaultFonts.GetKanitFont(19);
             ValueLabel.BackColor = ColorManagment.InvisibleBackGround;
-            ValueLabel.ForeColor = Color.White;
+            ValueLabel.ForeColor = Color.White; //X
             ValueLabel.Size = new Size(ValuePanel.Width, ValuePanel.Height);
             ValuePanel.Controls.Add(ValueLabel);
             ValueLabel.TextAlign = ContentAlignment.MiddleLeft;

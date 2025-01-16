@@ -1,4 +1,5 @@
 ﻿using KinoRakendus.core.controls;
+using KinoRakendus.core.models.database;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,14 +9,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using zxcforum.core.models;
 
 namespace KinoRakendus.forms.main.pages
 {
     public partial class Seansid : PageUserControl
     {
-        public Seansid() : base()
+        AdminDefaultManagerPage<Seans> Page { get; set; }
+        public Seansid(): base()
         {
-
+            
+        }
+        public override void InitAll()
+        {
+            base.InitAll();
+            Page = new AdminDefaultManagerPage<Seans>("aeg");
+            this.Controls.Add(Page);
         }
     }
 }

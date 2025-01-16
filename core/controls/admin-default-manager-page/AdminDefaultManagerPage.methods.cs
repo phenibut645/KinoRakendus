@@ -20,5 +20,16 @@ namespace KinoRakendus.core.controls
 
             InitAdvancedOptions(type: enums.PanelType.Choice);
         }
+        public void ReDraw()
+        {
+            SelectedButton.IsActive = false;
+            SelectedButton = null;
+            SelectedInputsPanel.Dispose();
+            InitRightPanel();
+            SelectPanel.Dispose();
+            InitSelectPanel();
+            InitButtons();
+
+        }
     }
 }

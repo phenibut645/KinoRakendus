@@ -30,11 +30,6 @@ namespace KinoRakendus.core.controls
             SelectedPanel.Location = new Point(900, 49);
             this.Controls.Add(SelectedPanel);
         }
-        private void addButton_clicked(object sedner, EventArgs e)
-        {
-            Console.WriteLine("add");
-            InitAdvancedOptions(enums.PanelType.Add);
-        }
         public void InitSelectPanel()
         {
             SelectPanel = new Panel();
@@ -63,7 +58,7 @@ namespace KinoRakendus.core.controls
             AddButton.FlatStyle = FlatStyle.Flat;
             AddButton.FlatAppearance.BorderSize = 0;
             AddButton.Location = new Point(AddPanel.Width / 2 - AddButton.Width / 2, AddPanel.Height / 2 - AddButton.Height / 2);
-            AddButton.Click += addButton_clicked;
+            AddButton.Click += AddButton_clicked;
             AddPanel.Controls.Add(AddButton);
 
         }
@@ -82,10 +77,11 @@ namespace KinoRakendus.core.controls
                 currentY += button.Height + GapBetweenButtons;
             }
         }
-        public void OnSelectSubmitted<V>(AdvancedOption<V> control) where V : Table, ITable, new()
+
+        public void OnSelectSubmitted<V>(AdvancedOption<V> control, bool isItForAddPanel = false) where V : Table, ITable, new()
         {
-            Console.WriteLine($"{control.CurrentRecord["id"]}, {String.Join(", ", control.CurrentRecord.GetKeys())}");
-            if(control.SelectControl.SelectedOption != null) DBHandler.UpdateRecord(SelectedButton.Record, control.Field, control.SelectControl.SelectedOption.Option.Value, new List<WhereField>() { new WhereField("id", control.CurrentRecord["id"]) });
+            if(!isItForAddPanel) Console.WriteLine($"{control.CurrentRecord["id"]}, {String.Join(", ", control.CurrentRecord.GetKeys())}");
+            if(control.SelectControl.SelectedOption != null && !isItForAddPanel) DBHandler.UpdateRecord(SelectedButton.Record, control.Field, control.SelectControl.SelectedOption.Option.Value, new List<WhereField>() { new WhereField("id", control.CurrentRecord["id"]) });
 
         }
         private void ClearSelectedPanel()
@@ -96,7 +92,7 @@ namespace KinoRakendus.core.controls
             }
             this.SelectedPanel.Controls.Clear();
         }
-        private void GenerateSelect(string field, string tableName, out dynamic select, bool changeAvailable = true)
+        private void GenerateSelect(string field, string tableName, out dynamic select, bool changeAvailable = true, bool isItForAddPanel = false)
         {
             List<SelectOption> options = new List<SelectOption>();
             Type type = TablesManagment.GetRecordType(tableName);
@@ -114,33 +110,39 @@ namespace KinoRakendus.core.controls
                 }
             }
             var advancedOptionType = typeof(AdvancedOption<>).MakeGenericType(type);
-            select = Activator.CreateInstance(advancedOptionType, enums.AdvancedOptionType.Select, int.Parse(SelectedButton.Record["id"]), field, null, null, null, null, options, changeAvailable);
+            select = Activator.CreateInstance(advancedOptionType, enums.AdvancedOptionType.Select, 0, field, null, null, null, null, options, changeAvailable, isItForAddPanel);
             var advMethod = advancedOptionType.GetMethod("AddMethodOnSubmitted");
-            var actionType = typeof(Action<>).MakeGenericType(advancedOptionType);
+            var actionType = typeof(Action<,>).MakeGenericType(advancedOptionType, typeof(bool));
             var action = Delegate.CreateDelegate(actionType, this, typeof(AdminDefaultManagerPage<T>).GetMethod(nameof(OnSelectSubmitted)).MakeGenericMethod(type));
 
-            object advResult = advMethod.Invoke(select, new object[] { action });
+            object advResult = advMethod.Invoke(select, new object[] { action, isItForAddPanel });
+            
         }
-        public void InitAddPanel()
+        
+        public void InitAddRecordPanel()
         {
             ClearSelectedPanel();
-            List<string> fields = SelectedButton.Record.GetKeys();
+            InitDownOptionPanel();
+            InitDownSelectedButton(isItForAddPanel: true);
+            T table = new T();
+            List<string> fields = table.GetKeys();
             int currentY = this.StartOptionPositionY;
             foreach(string field in fields)
             {
+                
                 if(field == "id") continue;
                 List<string> response = DBHandler.CheckForForeign<T>(field);
                 dynamic advancedOption;
-                if(response.Count != 0) GenerateSelect(field, response[0], out advancedOption, changeAvailable:false);
-                else advancedOption = new AdvancedOption<T>(enums.AdvancedOptionType.TextBox, int.Parse(SelectedButton.Record["id"]), field, changeAvailable: false);
+                if(response.Count != 0) GenerateSelect(field, response[0], out advancedOption, changeAvailable:false, isItForAddPanel: true);
+                else advancedOption = new AdvancedOption<T>(enums.AdvancedOptionType.TextBox, 0, field, changeAvailable: false, isItForAddPanel: true);
 
                 advancedOption.Location = new Point(SelectedPanel.Width / 2 - advancedOption.Width / 2, currentY);
                 this.SelectedPanel.Controls.Add(advancedOption);
-
+                Console.WriteLine("PEEEEEEEN");
                 currentY += advancedOption.Height + this.GapBetweenButtons;
             }
         }
-        public void InitRightPanel()
+        public void InitRightPanel(bool isItForAddPanel = false)
         {
             SelectedInputsPanel = new Panel();
             SelectedInputsPanel.Size = new Size(771, 734);
@@ -148,30 +150,63 @@ namespace KinoRakendus.core.controls
             SelectedInputsPanel.BackColor = ColorManagment.DefaultPanelColor;
             SelectedPanel.Controls.Add(SelectedInputsPanel);
 
+            InitDownOptionPanel();
+            InitDownSelectedButton(isItForAddPanel);
+            
+
+        }
+        public void InitDownOptionPanel()
+        {
             DownOptionsPanel = new Panel();
             DownOptionsPanel.Size = new Size(771, 71);
             DownOptionsPanel.Location = new Point(0, OptionsPanel.Height);
             DownOptionsPanel.BackColor = ColorManagment.DarkerDefaultPanelColor;
             SelectedPanel.Controls.Add(DownOptionsPanel);
 
+        }
+        public void InitDownSelectedButton(bool isItForAddPanel = false)
+        {
             DownSelectedPanelButton = new Button();
             DownSelectedPanelButton.Size = new Size(47, 47);
-            DownSelectedPanelButton.BackgroundImage = DefaultImages.GetDefaultImage("plus-hexagon.png");
+            DownSelectedPanelButton.BackgroundImage = DefaultImages.GetDefaultImage(!isItForAddPanel ? "trash.png" : "plus-hexagon.png");
             DownSelectedPanelButton.BackgroundImageLayout = ImageLayout.Zoom;
             DownSelectedPanelButton.BackColor = ColorManagment.InvisibleBackGround;
             DownSelectedPanelButton.FlatStyle = FlatStyle.Flat;
             DownSelectedPanelButton.FlatAppearance.BorderSize = 0;
             DownSelectedPanelButton.Location = new Point(DownOptionsPanel.Width / 2 - DownSelectedPanelButton.Width / 2, DownOptionsPanel.Height / 2 - DownSelectedPanelButton.Height / 2);
+            if(isItForAddPanel) DownSelectedPanelButton.Click += AddRecord_clicked;
             DownOptionsPanel.Controls.Add(DownSelectedPanelButton);
-
         }
         public void DeleteButton_clicked(object sender, EventArgs e)
         {
-
+            DBHandler.DeleteRecord<T>(int.Parse(SelectedButton.Record["id"]));
+            ReDraw();
         }
         public void AddButton_clicked(object sender, EventArgs e)
         {
+            if(SelectedButton != null) SelectedButton.IsActive = false;
+            ClearSelectedPanel();
+            
+            InitAddRecordPanel();
+        }
+        public void AddRecord_clicked(object sender, EventArgs e)
+        {
+            T record = new T();
+            foreach(Control control in SelectedPanel.Controls)
+            {
+                if(control is IAdvanced adv)
+                {
+                    if(adv.CurrentValue != "" && adv.CurrentValue != null) record[adv.Field] = adv.CurrentValue;
+                    else
+                    {
+                        MessageBox.Show("Error", "There is empty boxes");
+                        return;
+                    }
+                }
+            }
 
+            DBHandler.AddRecord<T>(record);
+            ReDraw();
         }
         public void GenerateField(string fieldName)
         {
@@ -182,18 +217,10 @@ namespace KinoRakendus.core.controls
             ClearSelectedPanel();
             InitRightPanel();
             List<string> fields;
-            if(type == PanelType.Add)
-            {
-                DownSelectedPanelButton.Image = DefaultImages.GetDefaultImage("check.png");
-                DownSelectedPanelButton.Click += AddButton_clicked;
-                fields = new T().GetKeys();
-            }
-            else
-            {
-                DownSelectedPanelButton.Image = DefaultImages.GetDefaultImage("trash.png");
-                DownSelectedPanelButton.Click += DeleteButton_clicked;
-                fields = SelectedButton.Record.GetKeys();
-            }
+            DownSelectedPanelButton.Image =  DefaultImages.GetDefaultImage(type == PanelType.Add ? "check.png" : "trash.png");
+            fields = type == PanelType.Add ? new T().GetKeys() : SelectedButton.Record.GetKeys();
+            if(type == PanelType.Add) DownSelectedPanelButton.Click += AddButton_clicked;
+            else DownSelectedPanelButton.Click += DeleteButton_clicked;
             
             int currentY = this.StartOptionPositionY;
             foreach(string field in fields)

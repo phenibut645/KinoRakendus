@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("KinoRakendus")]
+[assembly: AssemblyTitle("zxcforum")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("TTHK")]
-[assembly: AssemblyProduct("KinoRakendus")]
-[assembly: AssemblyCopyright("Copyright © TTHK 2024")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("zxcforum")]
+[assembly: AssemblyCopyright("Copyright ©  2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("8a94d7bd-c29b-4f13-8da0-9afd913a3749")]
+[assembly: Guid("ba7db5f4-081e-44b3-9cd8-38eb4d41cb17")]
 
 // Version information for an assembly consists of the following four values:
 //

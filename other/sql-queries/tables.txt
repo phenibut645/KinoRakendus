@@ -102,3 +102,4 @@ INSERT INTO filmikeel(keel) VALUES ('vene keel'), ('inglise keel'), ('eesti keel
 INSERT INTO zanr(zanr) VALUES ('Drama'), ('Action'), ('Car Action'), ('One-Person Army Action'), ('Crime'), ('Musical'), ('Drama');
 INSERT INTO filmizanris(film, zanr) VALUES (1, 1), (1, 6), (1, 5), (2, 1), (2, 2), (3, 3), (3, 4), (3, 2), (3, 1);
 INSERT INTO kasutaja(nimi, vanus, roll, pilt, salasona) VALUES('root', NULL, 2, 'zxccat.jpg', 'root');
+INSERT INTO kohatuup()

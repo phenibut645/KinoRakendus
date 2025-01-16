@@ -14,7 +14,7 @@ using KinoRakendus.core.controls.buttons;
 
 namespace KinoRakendus.core.controls
 {
-    public partial class AdvancedOption<T>: UserControl where T: Table, ITable, new()
+    public partial class AdvancedOption<T>: UserControl, IAdvanced where T: Table, ITable, new()
     {
         private Panel FieldPanel { get; set; }
         private Panel ValuePanel { get; set; }
@@ -28,7 +28,8 @@ namespace KinoRakendus.core.controls
         public List<int> FieldSize { get; set; } = new List<int>() { 191, 48};
         public List<int> ValueSize { get; set; } = new List<int>() { 442, 48};
         public List<int> ButtonSize { get; set; } = new List<int>() { 48, 48 };
-        public Action<AdvancedOption<T>> OnSubmit { get; set; } = null;
+        public Action<AdvancedOption<T>, bool> OnSubmit { get; set; } = null;
+        bool IsItForAddPanel { get; set; } = false;
 
         private bool _inChanging;
         public bool InChanging
@@ -66,6 +67,7 @@ namespace KinoRakendus.core.controls
             }
             set
             {
+                Console.WriteLine($"izatakix tipov kak ja net smisla ot aborta {(ValueTextBox != null ? ( ValueTextBox.Text != null ? ValueTextBox.Text : "null") : "full null")}");
                 _currentValue = value;
                 ValueLabel.Text = _currentValue;
             }
@@ -77,18 +79,21 @@ namespace KinoRakendus.core.controls
         private string _fieldName;
         private string _currentValue;
 
-        public AdvancedOption(AdvancedOptionType type, int recordId, string fieldName, List<int> size = null , List<int> fieldSize = null, List<int> valueSize = null, List<int> buttonSize = null, List<SelectOption> options = null, bool changeAvailable = true)
+        public AdvancedOption(AdvancedOptionType type, int recordId, string fieldName, List<int> size = null , List<int> fieldSize = null, List<int> valueSize = null, List<int> buttonSize = null, List<SelectOption> options = null, bool changeAvailable = true, bool isItForAddPanel = false)
         {
             if(size != null) OptionSize = size;
             if(fieldSize != null) FieldSize = fieldSize;
             if(valueSize != null) ValueSize = valueSize;
             if(buttonSize != null) ButtonSize = buttonSize;
             Type = type;
+            IsItForAddPanel = isItForAddPanel;
             this.Size = new Size(OptionSize[0], OptionSize[1]);
-            RecordId = recordId;
+            if(!isItForAddPanel) RecordId = recordId;
             Field = fieldName;
-            CurrentRecord = DBHandler.GetRecord<T>(new List<WhereField>() { new WhereField("id", RecordId.ToString()) });
-            CurrentValue = CurrentRecord[fieldName];
+            if(!isItForAddPanel) CurrentRecord = DBHandler.GetRecord<T>(new List<WhereField>() { new WhereField("id", RecordId.ToString()) });
+            if(!isItForAddPanel) CurrentValue = CurrentRecord[fieldName];
+            else CurrentValue = "";
+   
             InitAll();
             if(type == AdvancedOptionType.Select)
             {
@@ -102,17 +107,18 @@ namespace KinoRakendus.core.controls
  
             InChanging = false;
         }
-        public void AddMethodOnSubmitted(Action<AdvancedOption<T>> func)
+        public void AddMethodOnSubmitted(Action<AdvancedOption<T>, bool> func, bool isItForAddPanel = false)
         {
             this.OnSubmit = func;
+            this.IsItForAddPanel = isItForAddPanel;
         }
         private void Submitted()
         {
-            if(OnSubmit != null) OnSubmit(this);
+            if(OnSubmit != null) OnSubmit(this, IsItForAddPanel);
             else
             {
                 Console.WriteLine("submitted");
-                DBHandler.UpdateRecord(this.CurrentRecord, this.Field, this.CurrentValue, new List<WhereField>() { new WhereField("id", this.CurrentRecord["id"].ToString())});
+                if(!IsItForAddPanel) DBHandler.UpdateRecord(this.CurrentRecord, this.Field, this.CurrentValue, new List<WhereField>() { new WhereField("id", this.CurrentRecord["id"].ToString())});
                 Console.WriteLine("submitted");
             }
         }
@@ -124,6 +130,7 @@ namespace KinoRakendus.core.controls
                 if(Type == AdvancedOptionType.TextBox)
                 {
                     ValueTextBox.Hide();
+                    Console.WriteLine($"tolko ne plachte {ValueTextBox.Text}");
                     CurrentValue = ValueTextBox.Text;
                     ValueLabel.Show();
                 }
@@ -131,6 +138,8 @@ namespace KinoRakendus.core.controls
                 {
                     SelectControl.Hide();
                     SelectControl.HideDownBar();
+                    Console.WriteLine($"TUPOJ CHTOL {SelectControl.SelectedOption.Option.Value}");
+                    CurrentValue = SelectControl.SelectedOption.Option.Value;
                     ValueLabel.Show();
                     
                 }

@@ -39,6 +39,26 @@ namespace KinoRakendus.core.utils
             }
             return null;
         }
+        public static void AddRecord<T>(T record) where T: Table, ITable, new()
+        {
+            string sql = $"INSERT INTO {record.tableName}(";
+            int index = -1;
+            foreach(string column in record.GetKeys())
+            {
+                index++;
+                if(column == "id") continue;
+                sql += $"{column}{(index + 1 != record.GetKeys().Count ? "," : ") VALUES(")}";
+                
+            }
+            index = -1;
+            foreach(string column in record.GetKeys())
+            {
+                index++;
+                if(column == "id") continue;
+                sql += $"{(int.TryParse(record[column], out int result) ? "" : "'")}{record[column]}{(int.TryParse(record[column], out int result2) ? "" : "'")}{(index + 1 != record.GetKeys().Count ? "," : ")")}";
+            }
+            MakeQuery(sql);
+        }
         public static string GetSingleResponse(string query, string field)
         {
             string response = string.Empty;
@@ -60,7 +80,6 @@ namespace KinoRakendus.core.utils
             }
             return response;
         }
-
         public static void AddUser(Kasutaja kasutaja)
         {
             string sql = $"INSERT INTO {kasutaja.tableName}(";
@@ -224,5 +243,12 @@ namespace KinoRakendus.core.utils
             }
             return datas;
         }
+        public static void DeleteRecord<T>(int id) where T : Table, ITable, new()
+        {
+            string tableName = new T().tableName;
+            string sql = $"DELETE FROM {tableName} WHERE id = {id}";
+            MakeQuery(sql);
     }
+    }
+    
 }

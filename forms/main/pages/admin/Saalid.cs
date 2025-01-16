@@ -1,4 +1,5 @@
 ﻿using KinoRakendus.core.controls;
+using KinoRakendus.core.models.database;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,8 +14,16 @@ namespace KinoRakendus.forms.main.pages
 {
     public partial class Saalid : PageUserControl
     {
-        public Saalid()
+        AdminDefaultManagerPage<Film> Page { get; set; }
+        public Saalid(): base()
         {
+            
+        }
+        public override void InitAll()
+        {
+            base.InitAll();
+            Page = new AdminDefaultManagerPage<Film>("nimetus");
+            this.Controls.Add(Page);
         }
     }
 }

@@ -1,5 +1,5 @@
-﻿using KinoRakendus.core.interfaces;
-using KinoRakendus.core.models.database;
+﻿using zxcforum.core.interfaces;
+using zxcforum.core.models.database;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,9 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using KinoRakendus.core.presets;
+using zxcforum.core.presets;
 
-namespace KinoRakendus.core.controls
+namespace zxcforum.core.controls
 {
     public partial class AdminDefaultManagerPage<T> : UserControl where T: Table, ITable, new()
     {

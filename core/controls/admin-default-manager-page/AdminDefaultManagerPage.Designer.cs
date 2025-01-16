@@ -1,8 +1,8 @@
-﻿using KinoRakendus.core.interfaces;
-using KinoRakendus.core.models.database;
+﻿using zxcforum.core.interfaces;
+using zxcforum.core.models.database;
 using System.Windows.Forms;
 
-namespace KinoRakendus.core.controls
+namespace zxcforum.core.controls
 {
     partial class AdminDefaultManagerPage<T> : UserControl where T: Table, ITable, new()
     {

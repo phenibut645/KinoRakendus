@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KinoRakendus.core.presets
+namespace zxcforum.core.presets
 {
     public class DefaultPositions
     {

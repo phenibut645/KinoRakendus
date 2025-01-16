@@ -1,4 +1,4 @@
-﻿namespace KinoRakendus
+﻿namespace zxcforum
 {
     partial class Login
     {

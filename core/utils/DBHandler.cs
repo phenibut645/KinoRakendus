@@ -7,19 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using KinoRakendus.core.enums;
-using KinoRakendus.core.models;
-using KinoRakendus.core.interfaces;
-using KinoRakendus.core.models.database;
+using zxcforum.core.enums;
+using zxcforum.core.models;
+using zxcforum.core.interfaces;
+using zxcforum.core.models.database;
 using System.Runtime.InteropServices;
 
 
-namespace KinoRakendus.core.utils
+namespace zxcforum.core.utils
 {
 
     public static class DBHandler
     {
-        public static string ConnectionString { get; private set; } = @"Data Source=DESKTOP-O697USL;Initial Catalog=kinorakendus;Integrated Security=True;Encrypt=True;TrustServerCertificate=True;";
+        public static string ConnectionString { get; private set; } = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=kinorakendus;Integrated Security=True;";
 
         public static User CheckUser(string username, string password)
         {
@@ -129,7 +129,6 @@ namespace KinoRakendus.core.utils
             using(SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
-                Console.WriteLine($"LOLKKEEEEEEEEEEEK");
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@TableName", tableName);
@@ -140,7 +139,6 @@ namespace KinoRakendus.core.utils
                         {
                             returnList.Add(reader["ReferencedTable"].ToString());
                             returnList.Add(reader["ReferencedColumn"].ToString());
-                            Console.WriteLine($"{reader["ReferencedTable"]}: {reader["ReferencedColumn"]}");
                         }
                     }
                 }

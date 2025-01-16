@@ -1,17 +1,17 @@
-﻿using KinoRakendus.core.controls;
+﻿using zxcforum.core.controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using KinoRakendus.core.enums;
-using KinoRakendus.forms.main.pages;
-using KinoRakendus.core.models;
+using zxcforum.core.enums;
+using zxcforum.forms.main.pages;
+using zxcforum.core.models;
 using System.Runtime.CompilerServices;
-using KinoRakendus.core.context;
+using zxcforum.core.context;
 
-namespace KinoRakendus.core.utils
+namespace zxcforum.core.utils
 {
     public delegate void ChangePage(PageUserControl userControl);
     public static class HeaderHandler

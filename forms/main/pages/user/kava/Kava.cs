@@ -1,4 +1,4 @@
-﻿using KinoRakendus.core.controls;
+﻿using zxcforum.core.controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using KinoRakendus.core.models.database;
-using KinoRakendus.core.utils;
-namespace KinoRakendus.forms.main.pages
+using zxcforum.core.models.database;
+using zxcforum.core.utils;
+namespace zxcforum.forms.main.pages
 {
     public partial class Kava : PageUserControl
     {

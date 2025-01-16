@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Schema;
-using KinoRakendus.core.interfaces;
+using zxcforum.core.interfaces;
 
-namespace KinoRakendus.core.models.database
+namespace zxcforum.core.models.database
 {
     public class Kasutaja: Table, ITable
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KinoRakendus.core.models
+namespace zxcforum.core.models
 {
     public class WhereField
     {

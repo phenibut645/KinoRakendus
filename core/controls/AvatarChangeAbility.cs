@@ -9,11 +9,11 @@ using System.Runtime.Remoting.Channels;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using KinoRakendus.core.context;
-using KinoRakendus.core.models;
-using KinoRakendus.core.models.database;
-using KinoRakendus.core.utils;
-namespace KinoRakendus.core.controls
+using zxcforum.core.context;
+using zxcforum.core.models;
+using zxcforum.core.models.database;
+using zxcforum.core.utils;
+namespace zxcforum.core.controls
 {
     public partial class AvatarChangeAbility : UserControl
     {

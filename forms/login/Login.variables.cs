@@ -1,4 +1,4 @@
-﻿using KinoRakendus.core.utils;
+﻿using zxcforum.core.utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace KinoRakendus
+namespace zxcforum
 {
     public partial class Login
     {

@@ -1,11 +1,11 @@
-﻿using KinoRakendus.core.enums;
+﻿using zxcforum.core.enums;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KinoRakendus.core.utils
+namespace zxcforum.core.utils
 {
     static class RolesManagment
     {

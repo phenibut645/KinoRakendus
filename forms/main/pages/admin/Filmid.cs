@@ -1,6 +1,6 @@
-﻿using KinoRakendus.core.controls;
-using KinoRakendus.core.models;
-using KinoRakendus.core.models.database;
+﻿using zxcforum.core.controls;
+using zxcforum.core.models;
+using zxcforum.core.models.database;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace KinoRakendus.forms.main.pages
+namespace zxcforum.forms.main.pages
 {
     public partial class Filmid : PageUserControl
     {

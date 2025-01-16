@@ -1,5 +1,5 @@
-﻿using KinoRakendus.core.context;
-using KinoRakendus.core.utils;
+﻿using zxcforum.core.context;
+using zxcforum.core.utils;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
-namespace KinoRakendus.core.controls.buttons
+namespace zxcforum.core.controls.buttons
 {
     public partial class LogoutButton: Button
     {

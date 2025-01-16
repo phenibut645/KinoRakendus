@@ -1,4 +1,4 @@
-﻿using KinoRakendus.core.enums;
+﻿using zxcforum.core.enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,11 +8,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using KinoRakendus.core.models;
-using KinoRakendus.core.utils;
-using KinoRakendus.core.context;
+using zxcforum.core.models;
+using zxcforum.core.utils;
+using zxcforum.core.context;
 using System.IO;
-namespace KinoRakendus.forms.main
+namespace zxcforum.forms.main
 {
     public partial class Menu : Form
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KinoRakendus.core.interfaces
+namespace zxcforum.core.interfaces
 {
     public interface IAdvanced
     {

@@ -1,14 +1,14 @@
-﻿using KinoRakendus.core.models;
+﻿using zxcforum.core.models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using KinoRakendus.forms.main;
-using KinoRakendus.core.enums;
+using zxcforum.forms.main;
+using zxcforum.core.enums;
 
-namespace KinoRakendus.core.context
+namespace zxcforum.core.context
 {
     
     public static class FormAppContext

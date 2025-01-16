@@ -8,9 +8,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using KinoRakendus.core.utils;
+using zxcforum.core.utils;
 
-namespace KinoRakendus
+namespace zxcforum
 {
     public partial class Login
     {

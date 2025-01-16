@@ -1,4 +1,4 @@
-﻿using KinoRakendus.core.controls;
+﻿using zxcforum.core.controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace KinoRakendus.forms.main.pages
+namespace zxcforum.forms.main.pages
 {
     public partial class Piletid : PageUserControl
     {

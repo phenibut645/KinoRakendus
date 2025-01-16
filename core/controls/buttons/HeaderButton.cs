@@ -1,5 +1,5 @@
-﻿using KinoRakendus.core.enums;
-using KinoRakendus.core.utils;
+﻿using zxcforum.core.enums;
+using zxcforum.core.utils;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -8,11 +8,11 @@ using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using KinoRakendus.core.presets;
-using KinoRakendus.core.models;
-using KinoRakendus.forms.main.pages;
-using KinoRakendus.core.context;
-namespace KinoRakendus.core.controls
+using zxcforum.core.presets;
+using zxcforum.core.models;
+using zxcforum.forms.main.pages;
+using zxcforum.core.context;
+namespace zxcforum.core.controls
 {
     public class HeaderButton: UserControl
     {

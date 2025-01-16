@@ -1,6 +1,6 @@
-﻿using KinoRakendus.core.enums;
-using KinoRakendus.core.models.database;
-using KinoRakendus.core.utils;
+﻿using zxcforum.core.enums;
+using zxcforum.core.models.database;
+using zxcforum.core.utils;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -9,7 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KinoRakendus.core.models
+namespace zxcforum.core.models
 {
     public class User
     {

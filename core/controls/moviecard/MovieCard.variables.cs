@@ -1,5 +1,5 @@
-﻿using KinoRakendus.core.models.database;
-using KinoRakendus.core.utils;
+﻿using zxcforum.core.models.database;
+using zxcforum.core.utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace KinoRakendus.core.controls
+namespace zxcforum.core.controls
 {
     public partial class MovieCard
     {

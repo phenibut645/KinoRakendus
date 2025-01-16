@@ -1,4 +1,4 @@
-﻿using KinoRakendus.core.controls;
+﻿using zxcforum.core.controls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,14 +8,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using KinoRakendus.core.models;
-using KinoRakendus.core.enums;
+using zxcforum.core.models;
+using zxcforum.core.enums;
 using System.Runtime.InteropServices;
-using KinoRakendus.core.utils;
-using KinoRakendus.core.context;
-using KinoRakendus.core.controls.buttons;
-using KinoRakendus.core.models.database;
-namespace KinoRakendus.forms.main.pages
+using zxcforum.core.utils;
+using zxcforum.core.context;
+using zxcforum.core.controls.buttons;
+using zxcforum.core.models.database;
+namespace zxcforum.forms.main.pages
 {
     public partial class Profile : PageUserControl
     {

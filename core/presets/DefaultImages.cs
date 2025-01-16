@@ -1,5 +1,5 @@
-﻿using KinoRakendus.core.models;
-using KinoRakendus.core.models.database;
+﻿using zxcforum.core.models;
+using zxcforum.core.models.database;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace KinoRakendus.core.utils
+namespace zxcforum.core.utils
 {
     public static class DefaultImages
     {

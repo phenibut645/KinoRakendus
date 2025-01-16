@@ -5,9 +5,9 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using KinoRakendus.core.utils;
+using zxcforum.core.utils;
 
-namespace KinoRakendus
+namespace zxcforum
 {
     internal static class Program
     {

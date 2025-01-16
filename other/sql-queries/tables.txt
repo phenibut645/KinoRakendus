@@ -1,6 +1,6 @@
-﻿CREATE DATABASE kinorakendus;
-USE kinorakendus;
-DROP DATABASE kinorakendus;
+﻿CREATE DATABASE zxcforum;
+USE zxcforum;
+DROP DATABASE zxcforum;
 CREATE TABLE saalituup(
 id int primary key identity(1,1),
 tuup varchar(70)

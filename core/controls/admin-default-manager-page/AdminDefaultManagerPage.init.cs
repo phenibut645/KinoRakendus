@@ -1,7 +1,7 @@
-﻿using KinoRakendus.core.controls.buttons;
-using KinoRakendus.core.interfaces;
-using KinoRakendus.core.models.database;
-using KinoRakendus.core.utils;
+﻿using zxcforum.core.controls.buttons;
+using zxcforum.core.interfaces;
+using zxcforum.core.models.database;
+using zxcforum.core.utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +9,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
-using KinoRakendus.core.models;
-using KinoRakendus.core.enums;
+using zxcforum.core.models;
+using zxcforum.core.enums;
 
-namespace KinoRakendus.core.controls
+namespace zxcforum.core.controls
 {
     public partial class AdminDefaultManagerPage<T> : UserControl where T: Table, ITable, new()
     {
@@ -69,7 +69,6 @@ namespace KinoRakendus.core.controls
             foreach(T record in records)
             {
                 OptionButton<T> button = new OptionButton<T>(record, FieldName, OptionSize);
-                Console.WriteLine("LINE");
                 button.Location = new Point(SelectPanel.Width / 2 - button.Width / 2, currentY);
                 OptionsPanel.Controls.Add(button);
                 button.AddClickMethod(Selected);
@@ -80,7 +79,6 @@ namespace KinoRakendus.core.controls
 
         public void OnSelectSubmitted<V>(AdvancedOption<V> control, bool isItForAddPanel = false) where V : Table, ITable, new()
         {
-            if(!isItForAddPanel) Console.WriteLine($"{control.CurrentRecord["id"]}, {String.Join(", ", control.CurrentRecord.GetKeys())}");
             if(control.SelectControl.SelectedOption != null && !isItForAddPanel) DBHandler.UpdateRecord(SelectedButton.Record, control.Field, control.SelectControl.SelectedOption.Option.Value, new List<WhereField>() { new WhereField("id", control.CurrentRecord["id"]) });
 
         }
@@ -96,7 +94,6 @@ namespace KinoRakendus.core.controls
         {
             List<SelectOption> options = new List<SelectOption>();
             Type type = TablesManagment.GetRecordType(tableName);
-            Console.WriteLine(type.Name);
             var method = typeof(DBHandler).GetMethod("GetTableData");
             var genericMethod = method.MakeGenericMethod(type);
             object result = genericMethod.Invoke(null, null);
@@ -105,7 +102,6 @@ namespace KinoRakendus.core.controls
             {
                 foreach (Table tableInstance in tableList)
                 {
-                    Console.WriteLine($"tableInstance {tableInstance["id"]}");
                     options.Add(new SelectOption(tableInstance["id"], tableInstance.OutValue));
                 }
             }
@@ -129,7 +125,6 @@ namespace KinoRakendus.core.controls
             int currentY = this.StartOptionPositionY;
             foreach(string field in fields)
             {
-                
                 if(field == "id") continue;
                 List<string> response = DBHandler.CheckForForeign<T>(field);
                 dynamic advancedOption;
@@ -138,7 +133,6 @@ namespace KinoRakendus.core.controls
 
                 advancedOption.Location = new Point(SelectedPanel.Width / 2 - advancedOption.Width / 2, currentY);
                 this.SelectedPanel.Controls.Add(advancedOption);
-                Console.WriteLine("PEEEEEEEN");
                 currentY += advancedOption.Height + this.GapBetweenButtons;
             }
         }

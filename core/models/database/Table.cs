@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KinoRakendus.core.models.database
+namespace zxcforum.core.models.database
 {
     public class Table
     {

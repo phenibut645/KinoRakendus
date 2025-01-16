@@ -1,5 +1,5 @@
-﻿using KinoRakendus.core.interfaces;
-using KinoRakendus.core.models.database;
+﻿using zxcforum.core.interfaces;
+using zxcforum.core.models.database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
-using KinoRakendus.core.utils;
-namespace KinoRakendus.core.controls.buttons
+using zxcforum.core.utils;
+namespace zxcforum.core.controls.buttons
 {
     public partial class OptionButton<T>: UserControl where T: Table, ITable
     {

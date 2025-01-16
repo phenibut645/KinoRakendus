@@ -5,12 +5,12 @@ using System.Windows.Forms;
 using System.Text;
 using System.Threading.Tasks;
 using System.Runtime.CompilerServices;
-using KinoRakendus.core.enums;
-using KinoRakendus.core.controls;
+using zxcforum.core.enums;
+using zxcforum.core.controls;
 using System.IO;
-using KinoRakendus.core.models;
+using zxcforum.core.models;
 
-namespace KinoRakendus.forms.main
+namespace zxcforum.forms.main
 {
     public partial class Menu
     {

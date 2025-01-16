@@ -1,7 +1,7 @@
-﻿using KinoRakendus.core.controls.buttons;
-using KinoRakendus.core.interfaces;
-using KinoRakendus.core.models;
-using KinoRakendus.core.models.database;
+﻿using zxcforum.core.controls.buttons;
+using zxcforum.core.interfaces;
+using zxcforum.core.models;
+using zxcforum.core.models.database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +9,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
-using KinoRakendus.core.utils;
+using zxcforum.core.utils;
 using System.Diagnostics;
 
-namespace KinoRakendus.core.controls
+namespace zxcforum.core.controls
 {
     public partial class SelectControl: UserControl
     {

@@ -1,4 +1,4 @@
-﻿namespace KinoRakendus.forms.main.pages
+﻿namespace zxcforum.forms.main.pages
 {
     partial class Seansid
     {

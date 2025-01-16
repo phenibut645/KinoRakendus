@@ -1,11 +1,11 @@
-﻿using KinoRakendus.core.models.database;
+﻿using zxcforum.core.models.database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KinoRakendus.core.utils
+namespace zxcforum.core.utils
 {
     public static class TablesManagment
     {

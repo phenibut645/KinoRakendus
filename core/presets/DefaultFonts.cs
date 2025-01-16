@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 
-namespace KinoRakendus.core.utils
+namespace zxcforum.core.utils
 {
     public static class DefaultFonts
     {

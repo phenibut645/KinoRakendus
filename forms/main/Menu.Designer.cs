@@ -1,4 +1,4 @@
-﻿namespace KinoRakendus.forms.main
+﻿namespace zxcforum.forms.main
 {
     partial class Menu
     {

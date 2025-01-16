@@ -1,5 +1,5 @@
-﻿using KinoRakendus.core.controls;
-using KinoRakendus.core.enums;
+﻿using zxcforum.core.controls;
+using zxcforum.core.enums;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KinoRakendus.core.models
+namespace zxcforum.core.models
 {
     public class PageDataTemplate
     {

@@ -195,12 +195,19 @@
     <Compile Include="core\interfaces\IAdvanced.cs" />
     <Compile Include="core\interfaces\ITable.cs" />
     <Compile Include="core\models\database\Film.cs" />
+    <Compile Include="core\models\database\Filmikeel.cs" />
     <Compile Include="core\models\database\Filmizanres.cs" />
     <Compile Include="core\models\database\Kasutaja.cs" />
+    <Compile Include="core\models\database\BroneeritudKoht.cs" />
+    <Compile Include="core\models\database\Koht.cs" />
     <Compile Include="core\models\database\Roll.cs" />
+    <Compile Include="core\models\database\Saal.cs" />
+    <Compile Include="core\models\database\Saalituup.cs" />
+    <Compile Include="core\models\database\Skeem.cs" />
     <Compile Include="core\models\database\Table.cs" />
+    <Compile Include="core\models\database\Zanr.cs" />
     <Compile Include="core\models\PageDataTemplate.cs" />
-    <Compile Include="core\models\Seans.cs" />
+    <Compile Include="core\models\database\Seans.cs" />
     <Compile Include="core\models\SelectOption.cs" />
     <Compile Include="core\models\User.cs" />
     <Compile Include="core\models\WhereField.cs" />
@@ -216,6 +223,9 @@
     <Compile Include="core\utils\RolesManagment.cs" />
     <Compile Include="core\utils\TablesManagment.cs" />
     <Compile Include="core\utils\TicketsHandler.cs" />
+    <Compile Include="forms\EmailRequest.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="forms\login\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -249,11 +259,17 @@
     <Compile Include="forms\main\Menu.variables.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="forms\main\pages\admin\BroneeritudKoht.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="forms\main\pages\admin\Filmid.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="forms\main\pages\admin\Filmid.Designer.cs">
       <DependentUpon>Filmid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\main\pages\admin\Filmikeeled.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="forms\main\pages\admin\Kasutajad.cs">
       <SubType>UserControl</SubType>
@@ -261,11 +277,17 @@
     <Compile Include="forms\main\pages\admin\Kasutajad.Designer.cs">
       <DependentUpon>Kasutajad.cs</DependentUpon>
     </Compile>
+    <Compile Include="forms\main\pages\admin\Kohad.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="forms\main\pages\admin\Saalid.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="forms\main\pages\admin\Saalid.Designer.cs">
       <DependentUpon>Saalid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="forms\main\pages\admin\SaaliTuup.cs">
+      <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="forms\main\pages\admin\Seansid.cs">
       <SubType>UserControl</SubType>
@@ -321,6 +343,11 @@
     <Compile Include="forms\main\pages\user\piletid\Piletid.Designer.cs">
       <DependentUpon>Piletid.cs</DependentUpon>
     </Compile>
+    <Compile Include="kinorakendusDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>kinorakendusDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -332,6 +359,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="kinorakendusDataSet.xsc">
+      <DependentUpon>kinorakendusDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="kinorakendusDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>kinorakendusDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="kinorakendusDataSet.xss">
+      <DependentUpon>kinorakendusDataSet.xsd</DependentUpon>
+    </None>
     <None Include="other\fonts\jaro\Jaro-Regular.ttf" />
     <None Include="other\fonts\jaro\Kanit-Regular.ttf" />
     <None Include="packages.config" />

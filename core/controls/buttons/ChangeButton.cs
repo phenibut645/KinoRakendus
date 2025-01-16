@@ -1,5 +1,5 @@
-﻿using KinoRakendus.core.enums;
-using KinoRakendus.core.utils;
+﻿using zxcforum.core.enums;
+using zxcforum.core.utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace KinoRakendus.core.controls
+namespace zxcforum.core.controls
 {
     public class ChangeButton: Panel
     {

@@ -1,4 +1,4 @@
-﻿namespace KinoRakendus.core.controls
+﻿namespace zxcforum.core.controls
 {
     partial class AvatarChangeAbility
     {

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace KinoRakendus.core.controls
+namespace zxcforum.core.controls
 {
     public class SplittedSelectOptions: UserControl
     {

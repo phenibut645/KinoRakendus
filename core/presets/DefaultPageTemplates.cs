@@ -1,15 +1,15 @@
-﻿using KinoRakendus.core.models;
+﻿using zxcforum.core.models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using KinoRakendus.forms.main.pages;
-using KinoRakendus.core.enums;
-using KinoRakendus.core.controls;
-using KinoRakendus.core.utils;
-using KinoRakendus.core.context;
-namespace KinoRakendus.core.presets
+using zxcforum.forms.main.pages;
+using zxcforum.core.enums;
+using zxcforum.core.controls;
+using zxcforum.core.utils;
+using zxcforum.core.context;
+namespace zxcforum.core.presets
 {
     public static class DefaultPageTemplates
     {
@@ -22,8 +22,11 @@ namespace KinoRakendus.core.presets
             new PageDataTemplate(new Seansid(), new List<Rolls>(){Rolls.Admin}, HeaderButtonType.Default, buttonName:"Seansid", icon:DefaultImages.GetSessionIcon()),
             new PageDataTemplate(new Zanrid(), new List<Rolls>(){Rolls.Admin}, HeaderButtonType.Default, buttonName:"Zanrid", icon:DefaultImages.GetGenreIcon()),
             new PageDataTemplate(new Saalid(), new List<Rolls>(){Rolls.Admin}, HeaderButtonType.Default, buttonName:"Saalid", icon:DefaultImages.GetHallIcon()),
+            new PageDataTemplate(new SaaliTuup(), new List<Rolls>(){Rolls.Admin}, HeaderButtonType.Default, buttonName:"Saalid tüüp", icon:DefaultImages.GetHallIcon()),
+            new PageDataTemplate(new BroneeritudKoht(), new List<Rolls>(){Rolls.Admin}, HeaderButtonType.Default, buttonName:"Broneeritud kohad", icon:DefaultImages.GetHallIcon()),
             new PageDataTemplate(new More(), new List<Rolls>() { Rolls.Admin, Rolls.User, Rolls.Guest }, HeaderButtonType.More),
             new PageDataTemplate(new Profile(), new List<Rolls>() { Rolls.Admin, Rolls.User }, HeaderButtonType.Profile)
+
         };
 
         public static PageDataTemplate ProfileTemplate

@@ -1,6 +1,6 @@
 ﻿
-using KinoRakendus.core.presets;
-using KinoRakendus.core.utils;
+using zxcforum.core.presets;
+using zxcforum.core.utils;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace KinoRakendus.core.controls
+namespace zxcforum.core.controls
 {
     public partial class PageUserControl : UserControl
     {

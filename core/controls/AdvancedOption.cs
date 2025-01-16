@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
-using KinoRakendus.core.utils;
-using KinoRakendus.core.models;
-using KinoRakendus.core.models.database;
-using KinoRakendus.core.interfaces;
-using KinoRakendus.core.enums;
-using KinoRakendus.core.controls.buttons;
+using zxcforum.core.utils;
+using zxcforum.core.models;
+using zxcforum.core.models.database;
+using zxcforum.core.interfaces;
+using zxcforum.core.enums;
+using zxcforum.core.controls.buttons;
 
-namespace KinoRakendus.core.controls
+namespace zxcforum.core.controls
 {
     public partial class AdvancedOption<T>: UserControl, IAdvanced where T: Table, ITable, new()
     {
@@ -130,7 +130,6 @@ namespace KinoRakendus.core.controls
                 if(Type == AdvancedOptionType.TextBox)
                 {
                     ValueTextBox.Hide();
-                    Console.WriteLine($"tolko ne plachte {ValueTextBox.Text}");
                     CurrentValue = ValueTextBox.Text;
                     ValueLabel.Show();
                 }
@@ -138,7 +137,7 @@ namespace KinoRakendus.core.controls
                 {
                     SelectControl.Hide();
                     SelectControl.HideDownBar();
-                    Console.WriteLine($"TUPOJ CHTOL {SelectControl.SelectedOption.Option.Value}");
+
                     CurrentValue = SelectControl.SelectedOption.Option.Value;
                     ValueLabel.Show();
                     

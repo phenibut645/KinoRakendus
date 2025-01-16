@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KinoRakendus.core.utils
+namespace zxcforum.core.utils
 {
     public static class ColorManagment
     {

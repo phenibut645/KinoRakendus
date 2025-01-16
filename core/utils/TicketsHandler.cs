@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using KinoRakendus.core.models;
-using KinoRakendus.core.models.database;
+using zxcforum.core.models;
+using zxcforum.core.models.database;
 using PdfSharp.Drawing;
 using PdfSharp.Pdf;
 using System.IO;
@@ -13,7 +13,7 @@ using System.Net;
 using System.Net.Mail;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Tab;
 
-namespace KinoRakendus.core.utils
+namespace zxcforum.core.utils
 {
     public static class TicketsHandler
     {

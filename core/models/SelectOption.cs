@@ -1,12 +1,12 @@
-﻿using KinoRakendus.core.interfaces;
-using KinoRakendus.core.models.database;
+﻿using zxcforum.core.interfaces;
+using zxcforum.core.models.database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KinoRakendus.core.models
+namespace zxcforum.core.models
 {
     public class SelectOption
     {

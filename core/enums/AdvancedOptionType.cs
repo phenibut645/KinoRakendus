@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace KinoRakendus.core.enums
+namespace zxcforum.core.enums
 {
     public enum AdvancedOptionType
     {

@@ -1,6 +1,6 @@
-﻿using KinoRakendus.core.interfaces;
-using KinoRakendus.core.models;
-using KinoRakendus.core.models.database;
+﻿using zxcforum.core.interfaces;
+using zxcforum.core.models;
+using zxcforum.core.models.database;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace KinoRakendus.core.controls.buttons
+namespace zxcforum.core.controls.buttons
 {
     public class SelectOptionButton: Button
     {

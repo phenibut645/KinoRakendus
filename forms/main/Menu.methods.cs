@@ -1,17 +1,17 @@
-﻿using KinoRakendus.core.controls;
+﻿using zxcforum.core.controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using KinoRakendus.core.utils;
-using KinoRakendus.core.context;
-using KinoRakendus.core.models.database;
+using zxcforum.core.utils;
+using zxcforum.core.context;
+using zxcforum.core.models.database;
 using System.Drawing;
-using KinoRakendus.forms.main.pages;
+using zxcforum.forms.main.pages;
 
-namespace KinoRakendus.forms.main
+namespace zxcforum.forms.main
 {
     public partial class Menu
     {

@@ -102,4 +102,7 @@ INSERT INTO filmikeel(keel) VALUES ('vene keel'), ('inglise keel'), ('eesti keel
 INSERT INTO zanr(zanr) VALUES ('Drama'), ('Action'), ('Car Action'), ('One-Person Army Action'), ('Crime'), ('Musical'), ('Drama');
 INSERT INTO filmizanris(film, zanr) VALUES (1, 1), (1, 6), (1, 5), (2, 1), (2, 2), (3, 3), (3, 4), (3, 2), (3, 1);
 INSERT INTO kasutaja(nimi, vanus, roll, pilt, salasona) VALUES('root', NULL, 2, 'zxccat.jpg', 'root');
-INSERT INTO kohatuup()
+INSERT INTO saalituup(tuup) VALUES ('vaike'),('suur');
+INSERT INTO skeem(nimi, riida_arv, veerg_arv) VALUES ('mega eshkere', 5, 5),('freak', 6, 6);
+INSERT INTO kohatuup(tuup, hind) VALUES ('cool', 5), ('not cool', 2);
+INSERT INTO seanss(film, filmikeel, saal, aeg, kuupaev) VALUES(1, 1, 1, '13:00', '2025-01-16'), (2, 2, 2, '15:00', '2025-01-16'), (3, 3, 1, '11:00', '2025-01-16');

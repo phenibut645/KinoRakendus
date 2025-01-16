@@ -16,10 +16,7 @@ namespace KinoRakendus.forms.main.pages
     {
         public Kava(): base()
         {
-
         }
-
-        
 
         public override void InitAll()
         {

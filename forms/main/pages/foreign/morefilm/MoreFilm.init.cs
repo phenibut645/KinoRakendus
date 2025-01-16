@@ -34,8 +34,15 @@ namespace KinoRakendus.forms.main.pages
             OstaPiletButton.ForeColor = Color.White;
             OstaPiletButton.FlatStyle = FlatStyle.Flat;
             OstaPiletButton.FlatAppearance.BorderSize = 0;
+            OstaPiletButton.Click += OstaPiletButton_Click;
             this.Controls.Add(OstaPiletButton);
         }
+
+        private void OstaPiletButton_Click(object sender, EventArgs e)
+        {
+            
+        }
+
         private void InitPoster()
         {
             Poster = new PictureBox();

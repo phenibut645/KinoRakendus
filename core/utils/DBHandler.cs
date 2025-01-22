@@ -19,7 +19,7 @@ namespace zxcforum.core.utils
 
     public static class DBHandler
     {
-        public static string ConnectionString { get; private set; } = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=kinorakendus;Integrated Security=True;";
+        public static string ConnectionString { get; private set; } = @"Data Source=DESKTOP-O697USL;Initial Catalog=zxcforum;Integrated Security=True;";
 
         public static User CheckUser(string username, string password)
         {
@@ -191,7 +191,7 @@ namespace zxcforum.core.utils
             foreach(WhereField whereField in whereFields)
             {
                 index++;
-                sql += $"{whereField.Field} = {ConvertValue(whereField.Value)} {(whereFields.Count == index + 1 ? ";" : "AND ")}";
+                sql += $"{whereField.Field} = {(!whereField.isString ? ConvertValue(whereField.Value) : whereField.Value)} {(whereFields.Count == index + 1 ? ";" : "AND ")}";
             }
             Console.WriteLine($"SQL query for {tableName}, {sql}");
             using(SqlConnection connection = new SqlConnection(ConnectionString))
@@ -218,7 +218,39 @@ namespace zxcforum.core.utils
         {
             List<T> datas = new List<T>();
             string tableName = new T().tableName;
+            Console.WriteLine("get table data:");
+            Console.WriteLine($"table name: {tableName} > SELECT * FROM {tableName}");
             string sql = $"SELECT * FROM {tableName}";
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(ConnectionString))
+                {
+                    SqlDataAdapter adapter = new SqlDataAdapter(sql, ConnectionString);
+                    DataSet dataSet = new DataSet();
+                    adapter.Fill(dataSet);
+
+                    if (dataSet.Tables.Count > 0 && dataSet.Tables[0].Rows.Count > 0)
+                    {
+                        foreach (DataRow row in dataSet.Tables[0].Rows)
+                        {
+                            foreach (var item in row.ItemArray)
+                            {
+                                Console.Write(item + "\t");
+                            }
+                            Console.WriteLine();
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Данные отсутствуют.");
+}
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Произошла ошибка: " + ex.Message);
+            }
             
             using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
@@ -233,6 +265,7 @@ namespace zxcforum.core.utils
                     List<string> values = new List<string>();
                     foreach(string field in data._data.Keys.ToList())
                     {
+                        Console.WriteLine($"field: {field}");
                         data[field] = dt.Rows[i][field].ToString();
                     }
                     datas.Add(data);

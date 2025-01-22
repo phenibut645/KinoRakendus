@@ -10,6 +10,7 @@ namespace zxcforum.core.models
     {
         public string Field { get; set; }
         public string Value { get; set; }
+        public bool isString = false;
         public WhereField(string field, string value)
         {
             Field = field;

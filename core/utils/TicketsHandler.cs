@@ -38,13 +38,13 @@ namespace zxcforum.core.utils
 
             double textStartX = largeBoxX + largeBoxWidth + 20, textStartY = largeBoxY + 20;
 
-            gfx.DrawString(movie["nimi"], font, XBrushes.Red, new XPoint(textStartX, textStartY));
+            gfx.DrawString(movie["nimetus"], font, XBrushes.Red, new XPoint(textStartX, textStartY));
             gfx.DrawString($"Koht: {koht}", font, XBrushes.Red, new XPoint(textStartX, textStartY + 30));
             gfx.DrawString($"Rida: {row}", font, XBrushes.Red, new XPoint(textStartX, textStartY + 60));
 
             if (File.Exists(imagePath))
             {
-                XImage image = XImage.FromFile(Path.Combine(DefaultPaths.PostersPath, movie["path"]));
+                XImage image = XImage.FromFile(Path.Combine(DefaultPaths.PostersPath, movie["poster"]));
                 gfx.DrawImage(image, imageBoxX + 1, imageBoxY + 1, imageBoxWidth - 2, imageBoxHeight - 2);
             }
             string filename = Path.Combine(DefaultPaths.PdfFilesPath, $"{user.name}_{user.id}_{movie["nimi"]}_{DateTime.Now.Ticks}.pdf");

@@ -9,7 +9,7 @@ namespace zxcforum.core.models.database
 {
     public class Koht : Table, ITable
     {
-        public string tableName { get; set; } = "filmizanris";
+        public string tableName { get; set; } = "koht";
         public Koht() { }
         public override Dictionary<string, string> _data { get; set; } = new Dictionary<string, string>()
         {

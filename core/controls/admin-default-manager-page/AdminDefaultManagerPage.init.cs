@@ -64,10 +64,16 @@ namespace zxcforum.core.controls
         }
         public void InitButtons()
         {
+            Console.WriteLine($"init button");
             List<T> records = DBHandler.GetTableData<T>();
             int currentY = this.StartOptionPositionY;
             foreach(T record in records)
             {
+                Console.WriteLine($"Table: {record.tableName}");
+                foreach(string key in record.GetKeys())
+                {
+                    Console.WriteLine($"key: {key}, value: {record[key]}");
+                }
                 OptionButton<T> button = new OptionButton<T>(record, FieldName, OptionSize);
                 button.Location = new Point(SelectPanel.Width / 2 - button.Width / 2, currentY);
                 OptionsPanel.Controls.Add(button);
@@ -94,7 +100,9 @@ namespace zxcforum.core.controls
         {
             List<SelectOption> options = new List<SelectOption>();
             Type type = TablesManagment.GetRecordType(tableName);
+            Console.WriteLine($"DEMONI, {field}, {tableName}");
             var method = typeof(DBHandler).GetMethod("GetTableData");
+            
             var genericMethod = method.MakeGenericMethod(type);
             object result = genericMethod.Invoke(null, null);
 

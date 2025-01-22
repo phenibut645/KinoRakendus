@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 using zxcforum.core.models.database;
+using zxcforum.core.context;
+using zxcforum.forms.main.pages.foreign;
 namespace zxcforum.forms.main.pages
 {
     public partial class MoreFilm
@@ -40,7 +42,13 @@ namespace zxcforum.forms.main.pages
 
         private void OstaPiletButton_Click(object sender, EventArgs e)
         {
-            
+            if (FormAppContext.CurrentUser == null)
+            {
+                Login form = new Login();
+                form.Show();
+                return;
+            }
+            HeaderHandler.ChangeToForeignPage(new Booking(this.Film));
         }
 
         private void InitPoster()

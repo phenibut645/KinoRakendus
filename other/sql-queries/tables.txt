@@ -1,6 +1,4 @@
-﻿CREATE DATABASE zxcforum;
-USE zxcforum;
-DROP DATABASE zxcforum;
+﻿drop database zxcforum
 CREATE TABLE saalituup(
 id int primary key identity(1,1),
 tuup varchar(70)
@@ -103,6 +101,11 @@ INSERT INTO zanr(zanr) VALUES ('Drama'), ('Action'), ('Car Action'), ('One-Perso
 INSERT INTO filmizanris(film, zanr) VALUES (1, 1), (1, 6), (1, 5), (2, 1), (2, 2), (3, 3), (3, 4), (3, 2), (3, 1);
 INSERT INTO kasutaja(nimi, vanus, roll, pilt, salasona) VALUES('root', NULL, 2, 'zxccat.jpg', 'root');
 INSERT INTO saalituup(tuup) VALUES ('vaike'),('suur');
+INSERT INTO saalituup(tuup) VALUES ('vaga suur');
 INSERT INTO skeem(nimi, riida_arv, veerg_arv) VALUES ('mega eshkere', 5, 5),('freak', 6, 6);
+INSERT INTO skeem(nimi, riida_arv, veerg_arv) VALUES ('vladislav stepler', 7, 7);
+insert into saal(saalituup, skeem, nimetus) values (1, 1, 'ice zxc'), (2, 2, 'not ice'), (3,3, 'not ice');
+select * from seanss;
 INSERT INTO kohatuup(tuup, hind) VALUES ('cool', 5), ('not cool', 2);
 INSERT INTO seanss(film, filmikeel, saal, aeg, kuupaev) VALUES(1, 1, 1, '13:00', '2025-01-16'), (2, 2, 2, '15:00', '2025-01-16'), (3, 3, 1, '11:00', '2025-01-16');
+select * from seanss;

@@ -22,9 +22,10 @@ namespace zxcforum.core.controls
         }
         public void ReDraw()
         {
-            SelectedButton.IsActive = false;
+            
+            if (SelectedButton != null) SelectedButton.IsActive = false;
             SelectedButton = null;
-            SelectedInputsPanel.Dispose();
+            if (SelectedInputsPanel != null)SelectedInputsPanel.Dispose();
             InitRightPanel();
             SelectPanel.Dispose();
             InitSelectPanel();

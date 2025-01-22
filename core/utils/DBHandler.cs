@@ -19,7 +19,7 @@ namespace zxcforum.core.utils
 
     public static class DBHandler
     {
-        public static string ConnectionString { get; private set; } = @"Data Source=DESKTOP-O697USL;Initial Catalog=zxcforum;Integrated Security=True;";
+        public static string ConnectionString { get; private set; } = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=zxcforum;Integrated Security=True";
 
         public static User CheckUser(string username, string password)
         {

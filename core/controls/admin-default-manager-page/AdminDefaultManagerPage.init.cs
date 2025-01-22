@@ -100,7 +100,6 @@ namespace zxcforum.core.controls
         {
             List<SelectOption> options = new List<SelectOption>();
             Type type = TablesManagment.GetRecordType(tableName);
-            Console.WriteLine($"DEMONI, {field}, {tableName}");
             var method = typeof(DBHandler).GetMethod("GetTableData");
             
             var genericMethod = method.MakeGenericMethod(type);

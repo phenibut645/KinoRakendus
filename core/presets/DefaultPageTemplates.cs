@@ -16,7 +16,7 @@ namespace zxcforum.core.presets
         public static List<PageDataTemplate> Templates { get; set; } = new List<PageDataTemplate>()
         { 
             new PageDataTemplate(new Kava(), new List<Rolls>(){Rolls.User, Rolls.Guest }, HeaderButtonType.Default, buttonName: "Kava", icon:DefaultImages.GetHomeIcon()),
-            new PageDataTemplate(new Piletid(), new List<Rolls>(){Rolls.User}, HeaderButtonType.Default, buttonName:"Piletid", icon:DefaultImages.GetTicketsIcon()),
+            // new PageDataTemplate(new Piletid(), new List<Rolls>(){Rolls.User}, HeaderButtonType.Default, buttonName:"Piletid", icon:DefaultImages.GetTicketsIcon()),
             new PageDataTemplate(new Filmid(), new List<Rolls>(){Rolls.Admin}, HeaderButtonType.Default, buttonName:"Filmid", icon:DefaultImages.GetMoviesIcon()),
             new PageDataTemplate(new Kasutajad(), new List<Rolls>(){Rolls.Admin}, HeaderButtonType.Default, buttonName:"Kasutajad", icon:DefaultImages.GetUsersIcon()),
             new PageDataTemplate(new Seansid(), new List<Rolls>(){Rolls.Admin}, HeaderButtonType.Default, buttonName:"Seansid", icon:DefaultImages.GetSessionIcon()),

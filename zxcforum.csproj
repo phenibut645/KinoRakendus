@@ -463,6 +463,7 @@
     <Content Include="other\images\posters\drive.jpg" />
     <Content Include="other\images\posters\joker.jpg" />
     <Content Include="other\images\posters\the-batman.jpg" />
+    <Content Include="other\images\posters\zxccat.jpg" />
     <Content Include="other\sql-queries\tables.txt" />
   </ItemGroup>
   <ItemGroup>

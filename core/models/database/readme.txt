@@ -1,1 +1,0 @@
-﻿Here are the classes which are partially linked to tables in the database. Used as a type for data
